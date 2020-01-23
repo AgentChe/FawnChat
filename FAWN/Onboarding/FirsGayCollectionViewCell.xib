@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Merriweather-Black.ttf">
+            <string>Merriweather-Black</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FirsGayCollectionViewCell" id="gTV-IL-0wX" customClass="FirsGayCollectionViewCell" customModule="FAWN" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="641"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="361" height="641"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instant &amp; Real" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfH-9x-PLa">
+                        <rect key="frame" x="79" y="12" width="203.5" height="35.5"/>
+                        <fontDescription key="fontDescription" name="Merriweather-Black" family="Merriweather" pointSize="28"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each connection spawns an instant chat with a real guy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtS-IC-WWm">
+                        <rect key="frame" x="36" y="67.5" width="289" height="41.5"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O32-4B-gNw" customClass="VideoView" customModule="FAWN" customModuleProvider="target">
+                        <rect key="frame" x="36" y="154" width="289" height="363"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIi-9a-sbA">
+                        <rect key="frame" x="44" y="541" width="273" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="zO2-pY-VEy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                        <state key="normal" title="Button" backgroundImage="btn_bg">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="O32-4B-gNw" firstAttribute="top" secondItem="mtS-IC-WWm" secondAttribute="bottom" constant="45" id="8cw-wo-vSq"/>
+                <constraint firstItem="rIi-9a-sbA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="44" id="AQH-r9-xkr"/>
+                <constraint firstItem="sfH-9x-PLa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="B1j-wV-k7X"/>
+                <constraint firstItem="sfH-9x-PLa" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="NBc-Kq-uMe"/>
+                <constraint firstItem="mtS-IC-WWm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="36" id="OMu-8x-WrV"/>
+                <constraint firstAttribute="trailing" secondItem="O32-4B-gNw" secondAttribute="trailing" constant="36" id="OOY-dJ-Rus"/>
+                <constraint firstAttribute="trailing" secondItem="rIi-9a-sbA" secondAttribute="trailing" constant="44" id="SVr-7z-5Hl"/>
+                <constraint firstItem="mtS-IC-WWm" firstAttribute="centerX" secondItem="sfH-9x-PLa" secondAttribute="centerX" id="VIg-pP-Z9f"/>
+                <constraint firstItem="mtS-IC-WWm" firstAttribute="top" secondItem="sfH-9x-PLa" secondAttribute="bottom" constant="20" id="cMb-xd-Kf5"/>
+                <constraint firstItem="rIi-9a-sbA" firstAttribute="top" secondItem="O32-4B-gNw" secondAttribute="bottom" constant="24" id="pmQ-t4-Ddg"/>
+                <constraint firstItem="O32-4B-gNw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="36" id="qNT-3I-X2B"/>
+                <constraint firstAttribute="trailing" secondItem="mtS-IC-WWm" secondAttribute="trailing" constant="36" id="vX8-x1-yLd"/>
+                <constraint firstAttribute="bottom" secondItem="rIi-9a-sbA" secondAttribute="bottom" constant="44" id="wmI-KE-BpY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="361" height="641"/>
+            <connections>
+                <outlet property="continueButton" destination="rIi-9a-sbA" id="Zwp-kp-Fzz"/>
+                <outlet property="mainTitle" destination="sfH-9x-PLa" id="6HL-N2-kDD"/>
+                <outlet property="subtitle" destination="mtS-IC-WWm" id="UgK-tr-Asg"/>
+                <outlet property="videoView" destination="O32-4B-gNw" id="AeI-6N-QHD"/>
+            </connections>
+            <point key="canvasLocation" x="199.27536231884059" y="-6.3616071428571423"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="btn_bg" width="304" height="56"/>
+    </resources>
+</document>

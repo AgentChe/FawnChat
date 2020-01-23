@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AlP-b1-uMX">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Merriweather-Black.ttf">
+            <string>Merriweather-Black</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="xHV-xb-Zra">
+            <objects>
+                <viewController storyboardIdentifier="splash" id="AlP-b1-uMX" customClass="SplashViewController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZRf-i4-AIb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="YRs-dt-Onb">
+                                <rect key="frame" x="143" y="309" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="CkD-qJ-hO1"/>
+                                    <constraint firstAttribute="width" constant="128" id="LlS-cR-IaM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="64"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-zq-TtT">
+                                <rect key="frame" x="55" y="452" width="304" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="304" id="kHj-xx-adY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Merriweather-Black" family="Merriweather" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5Py-kk-kOd">
+                                <rect key="frame" x="188.5" y="470" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbh-9W-JLp" customClass="AnimationSubview" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="7574-like"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W3M-zq-TtT" firstAttribute="top" secondItem="YRs-dt-Onb" secondAttribute="bottom" constant="15" id="5Ob-41-PuR"/>
+                            <constraint firstAttribute="bottom" secondItem="lbh-9W-JLp" secondAttribute="bottom" id="Emd-Gv-1Pn"/>
+                            <constraint firstItem="lbh-9W-JLp" firstAttribute="leading" secondItem="egK-S4-s1J" secondAttribute="leading" id="MKA-2i-yEh"/>
+                            <constraint firstItem="lbh-9W-JLp" firstAttribute="top" secondItem="egK-S4-s1J" secondAttribute="top" id="TE4-xH-Duj"/>
+                            <constraint firstItem="YRs-dt-Onb" firstAttribute="centerX" secondItem="egK-S4-s1J" secondAttribute="centerX" id="WLh-ZA-wfn"/>
+                            <constraint firstItem="W3M-zq-TtT" firstAttribute="centerX" secondItem="YRs-dt-Onb" secondAttribute="centerX" id="iI3-7i-M2h"/>
+                            <constraint firstItem="5Py-kk-kOd" firstAttribute="centerX" secondItem="YRs-dt-Onb" secondAttribute="centerX" id="iow-fF-2mN"/>
+                            <constraint firstItem="YRs-dt-Onb" firstAttribute="centerY" secondItem="egK-S4-s1J" secondAttribute="centerY" constant="-80" id="len-aV-7vh"/>
+                            <constraint firstItem="5Py-kk-kOd" firstAttribute="top" secondItem="W3M-zq-TtT" secondAttribute="bottom" constant="18" id="pvp-Vb-kuj"/>
+                            <constraint firstItem="egK-S4-s1J" firstAttribute="trailing" secondItem="lbh-9W-JLp" secondAttribute="trailing" id="qHH-uv-LpS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="egK-S4-s1J"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationBack" destination="lbh-9W-JLp" id="dK4-gF-ZI9"/>
+                        <outlet property="helloLabel" destination="W3M-zq-TtT" id="Fc6-H9-mgq"/>
+                        <outlet property="userImageView" destination="YRs-dt-Onb" id="igN-ys-JXA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pj4-Xm-nUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="207" y="53"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launch_icon" width="100" height="100"/>
+    </resources>
+</document>

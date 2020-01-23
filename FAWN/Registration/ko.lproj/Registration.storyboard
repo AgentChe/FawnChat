@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8oy-1w-cEl">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Merriweather-Black.ttf">
+            <string>Merriweather-Black</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Onboarding-->
+        <scene sceneID="IVS-xj-IWi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="dm1-59-ZAx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3LY-T4-xUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3322" y="-348"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="4im-za-R74">
+            <objects>
+                <viewController modalTransitionStyle="partialCurl" modalPresentationStyle="overCurrentContext" id="Gmj-H9-wvr" customClass="RegistrationViewController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TYA-U4-je4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bckground_image" translatesAutoresizingMaskIntoConstraints="NO" id="WIY-ri-IcL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-p9-Mnm">
+                                <rect key="frame" x="92" y="166" width="191.5" height="75.5"/>
+                                <fontDescription key="fontDescription" name="Merriweather-Black" family="Merriweather" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="실시간 익명 채팅앱" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuc-jq-ZFO">
+                                <rect key="frame" x="102.5" y="241.5" width="170" height="18.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="4d6-yr-Itc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUG-JT-htg" customClass="GradientButton" customModule="FAWN" customModuleProvider="target">
+                                <rect key="frame" x="36" y="396" width="303" height="64"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="303" id="Nix-57-Le0"/>
+                                    <constraint firstAttribute="height" constant="64" id="wbO-k0-1Sq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="  facebook으로 계속하기" image="fb_button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="37"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.97647058823529409" green="0.42745098039215684" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.9933658242225647" green="0.80165988206863403" blue="0.0026512835174798965" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapOnFacebookLogin:" destination="Gmj-H9-wvr" eventType="touchUpInside" id="0dH-bo-4XL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zi-yK-gyC">
+                                <rect key="frame" x="138.5" y="502" width="98" height="33"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="다른 옵션 선택">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.28512874119999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapOnEmail:" destination="Gmj-H9-wvr" eventType="touchUpInside" id="QJd-M3-FMv"/>
+                                    <segue destination="r9l-L0-yFf" kind="show" id="Emk-s2-w4K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7l-W1-fYR">
+                                <rect key="frame" x="16" y="617" width="343" height="26"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="11"/>
+                                <state key="normal" title="가입하시면 저희 이용 약관에 동의하게 됩니다">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.39568661970000002" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapOnTerms:" destination="Gmj-H9-wvr" eventType="touchUpInside" id="N7j-RA-rhN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희는 Facebook에 어떠한 사항도 게시하지 않습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il5-eN-YOr">
+                                <rect key="frame" x="67.5" y="596" width="240" height="13"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="11"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.39568661970000002" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1mc-p9-Mnm" firstAttribute="centerY" secondItem="WIY-ri-IcL" secondAttribute="centerY" constant="-130" id="3xB-l9-Std"/>
+                            <constraint firstItem="g7l-W1-fYR" firstAttribute="leading" secondItem="b0y-bJ-cSG" secondAttribute="leading" constant="16" id="6Yf-DT-Spk"/>
+                            <constraint firstItem="il5-eN-YOr" firstAttribute="centerX" secondItem="g7l-W1-fYR" secondAttribute="centerX" id="7TF-Dk-bd1"/>
+                            <constraint firstItem="9Zi-yK-gyC" firstAttribute="top" secondItem="yUG-JT-htg" secondAttribute="bottom" constant="42" id="A1V-Gi-tyC"/>
+                            <constraint firstItem="yUG-JT-htg" firstAttribute="top" secondItem="cuc-jq-ZFO" secondAttribute="bottom" constant="136" id="BeX-Ut-k4C"/>
+                            <constraint firstItem="WIY-ri-IcL" firstAttribute="leading" secondItem="b0y-bJ-cSG" secondAttribute="leading" id="IZt-SZ-CPb"/>
+                            <constraint firstItem="b0y-bJ-cSG" firstAttribute="trailing" secondItem="WIY-ri-IcL" secondAttribute="trailing" id="KcF-79-Cno"/>
+                            <constraint firstItem="9Zi-yK-gyC" firstAttribute="centerX" secondItem="yUG-JT-htg" secondAttribute="centerX" id="O4g-Sa-4bz"/>
+                            <constraint firstItem="b0y-bJ-cSG" firstAttribute="bottom" secondItem="g7l-W1-fYR" secondAttribute="bottom" constant="24" id="Oc9-3z-EiI"/>
+                            <constraint firstItem="yUG-JT-htg" firstAttribute="centerX" secondItem="WIY-ri-IcL" secondAttribute="centerX" id="Res-LR-YmQ"/>
+                            <constraint firstItem="cuc-jq-ZFO" firstAttribute="top" secondItem="1mc-p9-Mnm" secondAttribute="bottom" id="irS-KF-fzc"/>
+                            <constraint firstItem="b0y-bJ-cSG" firstAttribute="trailing" secondItem="g7l-W1-fYR" secondAttribute="trailing" constant="16" id="ntt-6z-3nl"/>
+                            <constraint firstItem="WIY-ri-IcL" firstAttribute="height" secondItem="TYA-U4-je4" secondAttribute="height" id="pPx-UN-s71"/>
+                            <constraint firstItem="1mc-p9-Mnm" firstAttribute="centerX" secondItem="WIY-ri-IcL" secondAttribute="centerX" id="u8N-4v-UKS"/>
+                            <constraint firstItem="g7l-W1-fYR" firstAttribute="top" secondItem="il5-eN-YOr" secondAttribute="bottom" constant="8" id="uZv-fF-4yR"/>
+                            <constraint firstItem="b0y-bJ-cSG" firstAttribute="bottom" secondItem="WIY-ri-IcL" secondAttribute="bottom" id="wtq-xI-VVz"/>
+                            <constraint firstItem="cuc-jq-ZFO" firstAttribute="centerX" secondItem="1mc-p9-Mnm" secondAttribute="centerX" id="wyS-n2-lx3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b0y-bJ-cSG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vZn-hb-7Bx"/>
+                    <connections>
+                        <segue destination="dm1-59-ZAx" kind="show" identifier="onboarding" id="f8U-TX-ATq"/>
+                        <segue destination="org-7c-syq" kind="presentation" identifier="start" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="bca-Px-4F8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLN-Iz-ryX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751.1999999999998" y="106.59670164917542"/>
+        </scene>
+        <!--Start View Controller-->
+        <scene sceneID="uSA-pE-kF1">
+            <objects>
+                <viewController storyboardIdentifier="StartViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="org-7c-syq" customClass="StartViewController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1rD-lI-p0P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="o7g-DM-m0c">
+                                <rect key="frame" x="123.5" y="189.5" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="bLZ-o0-YAN"/>
+                                    <constraint firstAttribute="height" constant="128" id="x0v-Tw-Ssz"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="64"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti7-vz-sIE">
+                                <rect key="frame" x="35.5" y="336" width="304" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="304" id="ryN-ZP-I8r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Merriweather-Black" family="Merriweather" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-hI-i9J">
+                                <rect key="frame" x="169" y="406" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다시 오셨군요! 채팅은 그대로 있어요. 랜덤 매칭할 준비가 됐나요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJA-6x-nej">
+                                <rect key="frame" x="35.5" y="354" width="304" height="34.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="304" id="2n5-N0-Hly"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="0.70928697183098588" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-FB-AMu" customClass="GradientButton" customModule="FAWN" customModuleProvider="target">
+                                <rect key="frame" x="43.5" y="571" width="288" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="DyA-H4-eh7"/>
+                                    <constraint firstAttribute="height" constant="56" id="ouD-rD-VxW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="계속하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="26"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.91952770949999996" green="0.42760524150000001" blue="0.43920248750000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="1" green="0.58823529409999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapOnContinue:" destination="org-7c-syq" eventType="touchUpInside" id="WCi-wT-Z16"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ti7-vz-sIE" firstAttribute="centerX" secondItem="o7g-DM-m0c" secondAttribute="centerX" id="18s-3Y-oxf"/>
+                            <constraint firstItem="g3h-FB-AMu" firstAttribute="centerX" secondItem="PEs-Rw-GBj" secondAttribute="centerX" id="1pp-2f-On4"/>
+                            <constraint firstItem="ULb-hI-i9J" firstAttribute="centerX" secondItem="o7g-DM-m0c" secondAttribute="centerX" id="KAT-nx-nby"/>
+                            <constraint firstItem="PEs-Rw-GBj" firstAttribute="bottom" secondItem="g3h-FB-AMu" secondAttribute="bottom" constant="40" id="PPs-Tu-rem"/>
+                            <constraint firstItem="Ti7-vz-sIE" firstAttribute="top" secondItem="o7g-DM-m0c" secondAttribute="bottom" constant="18.5" id="eqF-fm-pSb"/>
+                            <constraint firstItem="YJA-6x-nej" firstAttribute="top" secondItem="Ti7-vz-sIE" secondAttribute="bottom" constant="18" id="mRX-8W-hZg"/>
+                            <constraint firstItem="o7g-DM-m0c" firstAttribute="centerX" secondItem="PEs-Rw-GBj" secondAttribute="centerX" id="qce-f0-oWv"/>
+                            <constraint firstItem="ULb-hI-i9J" firstAttribute="top" secondItem="Ti7-vz-sIE" secondAttribute="bottom" constant="70" id="rlA-sm-Mx7"/>
+                            <constraint firstItem="o7g-DM-m0c" firstAttribute="centerY" secondItem="PEs-Rw-GBj" secondAttribute="centerY" constant="-80" id="x9c-4Y-xYz"/>
+                            <constraint firstItem="YJA-6x-nej" firstAttribute="centerX" secondItem="o7g-DM-m0c" secondAttribute="centerX" id="xC5-Fv-UKn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PEs-Rw-GBj"/>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="ULb-hI-i9J" id="xsB-gy-e1f"/>
+                        <outlet property="continueButton" destination="g3h-FB-AMu" id="Psu-e8-IcR"/>
+                        <outlet property="messageLabel" destination="Ti7-vz-sIE" id="gyU-EB-WTR"/>
+                        <outlet property="submessageLabel" destination="YJA-6x-nej" id="gJY-IT-h2x"/>
+                        <outlet property="userImageView" destination="o7g-DM-m0c" id="cIx-xp-eJW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEW-6v-dey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3121" y="878"/>
+        </scene>
+        <!--NotifyViewController-->
+        <scene sceneID="xzn-ut-lFE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" referencedIdentifier="NotifyViewController" id="UgA-PY-FhJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1I-1D-7X6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3890" y="754"/>
+        </scene>
+        <!--Email View Controller-->
+        <scene sceneID="zNk-Pr-YTu">
+            <objects>
+                <viewController id="r9l-L0-yFf" customClass="EmailViewController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="49X-sO-FlQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bckground_image" translatesAutoresizingMaskIntoConstraints="NO" id="XgS-LB-n1Z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="9gl-Pm-R6R">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="241" verticalHuggingPriority="243" horizontalCompressionResistancePriority="747" verticalCompressionResistancePriority="745" translatesAutoresizingMaskIntoConstraints="NO" id="HSM-i6-aBS">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="400.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일을 알려 주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br6-CS-FQk">
+                                                <rect key="frame" x="87.5" y="32" width="200" height="85.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="zPU-3c-KFo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Merriweather-Black" family="Merriweather" pointSize="34"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3q-iR-jef" customClass="GradientButton" customModule="FAWN" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="294.5" width="305" height="56"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="kva-em-3jt"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                                <state key="normal" title="계속하기">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="26"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                        <color key="value" red="0.97647058823529409" green="0.42745098039215684" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                        <color key="value" red="0.99336582419999997" green="0.80165988210000005" blue="0.002651283517" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="tapOnContinue:" destination="r9l-L0-yFf" eventType="touchUpInside" id="6OH-5n-uPX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정을 생성하거나 로그인하시려면 이메일을 확인하세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htz-JI-UXI">
+                                                <rect key="frame" x="43" y="131.5" width="289" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="289" id="gJr-jh-peH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="여기에 입력" adjustsFontSizeToFit="NO" minimumFontSize="17" background="textfield_bg" disabledBackground="textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="SuB-xQ-IIg">
+                                                <rect key="frame" x="35" y="220.5" width="305" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="G1E-z0-ab3"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유효하지 않은 이메일 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xx-1c-A8L">
+                                                <rect key="frame" x="35" y="196.5" width="305" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="0.98039215686274506" green="0.2196078431372549" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="x4Z-AW-nBn">
+                                                <rect key="frame" x="177.5" y="240.5" width="20" height="20"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="SuB-xQ-IIg" secondAttribute="trailing" constant="35" id="6DE-TG-orm"/>
+                                            <constraint firstItem="SuB-xQ-IIg" firstAttribute="top" secondItem="3xx-1c-A8L" secondAttribute="bottom" constant="8" id="6NP-Of-t74"/>
+                                            <constraint firstItem="SuB-xQ-IIg" firstAttribute="leading" secondItem="HSM-i6-aBS" secondAttribute="leading" constant="35" id="HfJ-Pc-T70"/>
+                                            <constraint firstItem="g3q-iR-jef" firstAttribute="leading" secondItem="HSM-i6-aBS" secondAttribute="leading" constant="35" id="J22-NH-KhS"/>
+                                            <constraint firstAttribute="trailing" secondItem="g3q-iR-jef" secondAttribute="trailing" constant="35" id="JU1-Gm-m7v"/>
+                                            <constraint firstItem="br6-CS-FQk" firstAttribute="centerX" secondItem="HSM-i6-aBS" secondAttribute="centerX" id="JwP-Hl-h5R"/>
+                                            <constraint firstItem="x4Z-AW-nBn" firstAttribute="top" secondItem="htz-JI-UXI" secondAttribute="bottom" constant="60" id="KXu-WM-Cct"/>
+                                            <constraint firstItem="br6-CS-FQk" firstAttribute="top" secondItem="HSM-i6-aBS" secondAttribute="top" constant="32" id="OFH-U3-yel"/>
+                                            <constraint firstItem="3xx-1c-A8L" firstAttribute="leading" secondItem="SuB-xQ-IIg" secondAttribute="leading" id="OFO-RW-18v"/>
+                                            <constraint firstAttribute="bottom" secondItem="g3q-iR-jef" secondAttribute="bottom" constant="50" id="Wg2-6G-5Cf"/>
+                                            <constraint firstItem="x4Z-AW-nBn" firstAttribute="centerX" secondItem="HSM-i6-aBS" secondAttribute="centerX" id="X4N-eU-OqT"/>
+                                            <constraint firstItem="3xx-1c-A8L" firstAttribute="trailing" secondItem="SuB-xQ-IIg" secondAttribute="trailing" id="YKA-qY-G7f"/>
+                                            <constraint firstItem="g3q-iR-jef" firstAttribute="top" secondItem="SuB-xQ-IIg" secondAttribute="bottom" constant="24" id="k8Y-lx-mFO"/>
+                                            <constraint firstItem="SuB-xQ-IIg" firstAttribute="top" secondItem="htz-JI-UXI" secondAttribute="bottom" constant="40" id="pBw-kF-m3R"/>
+                                            <constraint firstItem="htz-JI-UXI" firstAttribute="centerX" secondItem="br6-CS-FQk" secondAttribute="centerX" id="vM0-oa-Edw"/>
+                                            <constraint firstItem="htz-JI-UXI" firstAttribute="top" secondItem="br6-CS-FQk" secondAttribute="bottom" constant="14" id="xF6-N3-g7W"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HSM-i6-aBS" secondAttribute="bottom" id="89L-o3-yZn"/>
+                                    <constraint firstItem="HSM-i6-aBS" firstAttribute="centerX" secondItem="9gl-Pm-R6R" secondAttribute="centerX" id="EtC-3z-n4U"/>
+                                    <constraint firstAttribute="trailing" secondItem="HSM-i6-aBS" secondAttribute="trailing" id="N6K-m8-EKj"/>
+                                    <constraint firstItem="HSM-i6-aBS" firstAttribute="leading" secondItem="9gl-Pm-R6R" secondAttribute="leading" id="uMH-E1-UzT"/>
+                                    <constraint firstItem="HSM-i6-aBS" firstAttribute="top" secondItem="9gl-Pm-R6R" secondAttribute="top" id="x34-QD-AJ2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="K31-y8-2cX" firstAttribute="bottom" secondItem="9gl-Pm-R6R" secondAttribute="bottom" id="F1o-mU-SO0"/>
+                            <constraint firstItem="9gl-Pm-R6R" firstAttribute="leading" secondItem="K31-y8-2cX" secondAttribute="leading" id="Gkh-t6-y7w"/>
+                            <constraint firstItem="K31-y8-2cX" firstAttribute="trailing" secondItem="9gl-Pm-R6R" secondAttribute="trailing" id="IsG-9K-wud"/>
+                            <constraint firstItem="XgS-LB-n1Z" firstAttribute="leading" secondItem="49X-sO-FlQ" secondAttribute="leading" id="LGk-DO-cmf"/>
+                            <constraint firstItem="9gl-Pm-R6R" firstAttribute="top" secondItem="K31-y8-2cX" secondAttribute="top" id="Pke-Xx-gBW"/>
+                            <constraint firstAttribute="trailing" secondItem="XgS-LB-n1Z" secondAttribute="trailing" id="WZC-UY-Gzn"/>
+                            <constraint firstItem="K31-y8-2cX" firstAttribute="bottom" secondItem="XgS-LB-n1Z" secondAttribute="bottom" id="XRj-oV-GSO"/>
+                            <constraint firstItem="XgS-LB-n1Z" firstAttribute="height" secondItem="49X-sO-FlQ" secondAttribute="height" id="ocZ-pX-hCE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K31-y8-2cX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="idA-ID-7ei"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="x4Z-AW-nBn" id="ie2-Zg-lZo"/>
+                        <outlet property="continueButton" destination="g3q-iR-jef" id="gRe-Zi-Mvt"/>
+                        <outlet property="invalidEmailLabel" destination="3xx-1c-A8L" id="q4k-75-fFK"/>
+                        <outlet property="scrollView" destination="9gl-Pm-R6R" id="wm9-tk-SeK"/>
+                        <outlet property="textField" destination="SuB-xQ-IIg" id="CH0-od-ISe"/>
+                        <segue destination="4Me-8b-wR9" kind="show" identifier="code" id="IcH-68-CkV"/>
+                        <segue destination="UwC-41-TY1" kind="show" identifier="onboarding" id="Zfq-Nr-DNK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XKr-be-gdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3504.8000000000002" y="106.59670164917542"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vbN-H6-RhT">
+            <objects>
+                <navigationController storyboardIdentifier="registr" automaticallyAdjustsScrollViewInsets="NO" id="8oy-1w-cEl" customClass="FAWNNavigationController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="FDU-JA-yC8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gmj-H9-wvr" kind="relationship" relationship="rootViewController" id="Vt8-Kq-xs7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ncm-zQ-ZUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1812" y="106.59670164917542"/>
+        </scene>
+        <!--Onboarding-->
+        <scene sceneID="GK8-zA-UOJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="UwC-41-TY1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="koj-8K-OW9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqw-Ea-JYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4070" y="-63"/>
+        </scene>
+        <!--code-->
+        <scene sceneID="jnK-Av-g0Q">
+            <objects>
+                <viewControllerPlaceholder storyboardName="code" id="4Me-8b-wR9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eSk-7a-GEY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ou-u7-bN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4287.1999999999998" y="109.29535232383809"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bckground_image" width="375" height="667"/>
+        <image name="fb_button" width="10" height="18"/>
+        <image name="launch_icon" width="100" height="100"/>
+        <image name="textfield_bg" width="42.5" height="50"/>
+    </resources>
+</document>

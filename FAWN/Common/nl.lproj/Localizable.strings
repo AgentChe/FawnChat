@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  FAWN
+
+  Created by Алексей Петров on 27/06/2019.
+  Copyright © 2019 Алексей Петров. All rights reserved.
+*/
+
+"first_reason" = "Onmiddellijk & Echt";
+"first_reason_sub" = "Elke klik levert een onmiddellijke chat op met een echte vent.";
+"first_btn" = "Gesnapt";
+"second_btn" = "Zeker";
+"tried_btn" = "Cool";
+"second_reason" = "Alleen favorieten";
+"second_reason_sub" = "Voel je een vonk? Laat hem blijven. Niet jouw ding? Ruil hem in voor een beter iemand.";
+"tried_reason" = "Anoniem";
+"tried_reason_sub" = "Alle namen en avatars zijn verzonnen.";
+"hello" = "Hallo, ";
+"send_message" = "We hebben ze zojuist gezonden naar \n";
+"search_look" = "Op zoek naar wat actie...";
+"how_ask" = "Wat vind je van ?";
+"wait_string" = "Wachten op antwoord van de partner ...";
+"sharing" = "Deel Fawn";
+"restore" = "Herstel aankopen";
+"contact" = "Neem contact met ons op";
+"push" = "Pushmeldingen";
+"private_polisy" = "Privacybeleid";
+"terms" = "Servicevoorwaarden";
+"no_chats_msg" = "Nog geen chats, blijf zoeken naar een match.";
+"new_search" = "Opnieuw zoeken";
+"match_push" = "Een match!";
+"match_push_sub" = "Je match wacht op je antwoord";
+"messages_push" = "Berichten";
+"messages_push_sub" = "Iemand heeft je een nieuw bericht gestuurd";
+"users_push" = "Gebruikers online";
+"users_push_sub" = "Nieuwe gebruiker is op zoek naar een match";
+"knock_push" = "Klop-klop";
+"knock_push_sub" = "Als je op het punt staat iets leuks te missen";

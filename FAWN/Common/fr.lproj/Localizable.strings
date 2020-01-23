@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  FAWN
+
+  Created by Алексей Петров on 27/06/2019.
+  Copyright © 2019 Алексей Петров. All rights reserved.
+*/
+
+"first_reason" = "IInstantané et authentique";
+"first_reason_sub" = "Chaque connection crée une discussion en temps réel avec une vraie personne";
+"first_btn" = "Compris";
+"second_btn" = "Bien sûr";
+"tried_btn" = "C’est cool";
+"second_reason" = "Favoris seulement";
+"second_reason_sub" = "Le courant passe bien ? Restez branché. Ce n’est pas votre truc ? Laissez tomber, vous trouverez mieux.";
+"tried_reason" = "Anonyme";
+"tried_reason_sub" = "Tous les noms et avatars sont fictifs";
+"hello" = "Bonjour";
+"send_message" = "Nous venons d'envoyer à \n";
+"search_look" = "En quête d'action…";
+"how_ask" = "Que diriez-vous ";
+"wait_string" = "Waiting for the partner reply...";
+"sharing" = "Partager Fawn";
+"restore" = "Restaurer les achats";
+"contact" = "Nous contacter";
+"push" = "Notifications push";
+"private_polisy" = "Politique de confidentialité";
+"terms" = "Conditions d'utilisation";
+"no_chats_msg" = "Pas encore de chats, continuez à chercher un match.";
+"new_search" = "Nouvelle recherche";
+"match_push" = "Un match !";
+"match_push_sub" = "Votre match attend votrre réponse";
+"messages_push" = "Message";
+"messages_push_sub" = "Quelqu'un vous a envoyé un nouveau message";
+"users_push" = "Utilisateurs en ligne";
+"users_push_sub" = "Nouvel utilisateur recherchant un match";
+"knock_push" = "Knock-knocks (others)";
+"knock_push_sub" = "When you're about to miss something cool going on";
