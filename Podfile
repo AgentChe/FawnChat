@@ -7,9 +7,9 @@ target 'FAWN' do
   use_frameworks!
 
   pod 'DatingKit', :git => '../DatingKit'
+  
   pod 'AlamofireImage', '~> 3.5'
   pod 'RevealingTableViewCell'
-  # pod 'NextGrowingTextView'
   pod 'lottie-ios'
   pod 'SwiftyStoreKit'
   pod 'TKImageShowing'
@@ -25,14 +25,6 @@ target 'FAWN' do
 
   pod 'Amplitude-iOS', '~> 4.0.4'
   pod 'ReverseExtension', :git => 'https://github.com/alexdelarge05/ReverseExtension.git', :commit =>  'f46463468b608c9189846c374863cdeb03f15bb4'
-  pod 'NotificationBannerSwift', '2.5.1'
+  pod 'NotificationBannerSwift'
 
-end
-
-post_install do |installer|
- installer.pods_project.targets.each do |target|
-     target.build_configurations.each do |config|
-         config.build_settings['SWIFT_VERSION'] = '4.2'
-     end
- end
 end
