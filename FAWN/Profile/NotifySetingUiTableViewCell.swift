@@ -46,7 +46,7 @@ class NotifySetingUiTableViewCell: UITableViewCell {
             break
         case .none:
             break
-        case .knocks:
+        case .knocks?:
             NotificationManager.shared.knocksPush(enable: sender.isOn)
             break
         }

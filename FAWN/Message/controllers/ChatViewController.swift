@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import NextGrowingTextView
+//import NextGrowingTextView
 import ReverseExtension
 import Amplitude_iOS
 import DatingKit
@@ -58,11 +58,12 @@ class ChatViewController: UIViewController, ChatViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        if #available(iOS 13.0, *) {
-            overrideUserInterfaceStyle = .light
-        }
-                
+
+        // TODO: !
+//        if #available(iOS 13.0, *) {
+//            preferredUserInterfaceStyle = .light
+//        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.close), name: ReportViewController.reportNotify, object: nil)
                    
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
