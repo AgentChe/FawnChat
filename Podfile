@@ -3,6 +3,10 @@ platform :ios, '11.0'
 
 target 'FAWN' do
   use_frameworks!
+  
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Kingfisher'
 
   pod 'AlamofireImage'
   pod 'RevealingTableViewCell'

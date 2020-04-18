@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iHv-S8-3hK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Merriweather-Black.ttf">
+            <string>Merriweather-Black</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Registration View Controller-->
+        <scene sceneID="STV-vO-WR8">
+            <objects>
+                <viewController storyboardIdentifier="RegistrationViewController" modalTransitionStyle="partialCurl" modalPresentationStyle="overCurrentContext" id="iHv-S8-3hK" customClass="RegistrationViewController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WZY-dp-IwB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bckground_image" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-ai-OK5">
+                                <rect key="frame" x="0.0" y="-34" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l85-dY-hQ7">
+                                <rect key="frame" x="123.5" y="249" width="167.5" height="70"/>
+                                <fontDescription key="fontDescription" name="Merriweather-Black" family="Merriweather" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gay Chat &amp; Dating" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bb-dQ-ypD">
+                                <rect key="frame" x="122" y="319" width="170" height="17.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="0qJ-IA-5KV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPD-C4-RIj" customClass="GradientButton" customModule="FAWN" customModuleProvider="target">
+                                <rect key="frame" x="55.5" y="472.5" width="303" height="64"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="9TR-La-kLd"/>
+                                    <constraint firstAttribute="width" constant="303" id="pal-o8-4O5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="  Continue with Facebook" image="fb_button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="37"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.97647058819999999" green="0.42745098040000001" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.99336582419999997" green="0.80165988210000005" blue="0.002651283517" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tz-an-ERJ">
+                                <rect key="frame" x="125.5" y="578.5" width="163" height="32"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="or use another option">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.28512874119999998" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whd-oE-jZf">
+                                <rect key="frame" x="16" y="813" width="382" height="25"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="11"/>
+                                <state key="normal" title="By registering, you agree to our Terms &amp; Conditions">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.39568661970000002" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We never post anything on Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuU-Lv-BGs">
+                                <rect key="frame" x="115.5" y="792" width="183" height="13"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="11"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.39568661970000002" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6tz-an-ERJ" firstAttribute="centerX" secondItem="JPD-C4-RIj" secondAttribute="centerX" id="Aje-lh-7pt"/>
+                            <constraint firstItem="l85-dY-hQ7" firstAttribute="centerX" secondItem="lgt-ai-OK5" secondAttribute="centerX" id="Erb-Wb-e3G"/>
+                            <constraint firstItem="UFL-NW-pNa" firstAttribute="trailing" secondItem="lgt-ai-OK5" secondAttribute="trailing" id="Gwu-dk-Nz6"/>
+                            <constraint firstItem="JPD-C4-RIj" firstAttribute="top" secondItem="4bb-dQ-ypD" secondAttribute="bottom" constant="136" id="JwH-fi-XOR"/>
+                            <constraint firstItem="lgt-ai-OK5" firstAttribute="height" secondItem="WZY-dp-IwB" secondAttribute="height" id="RaO-oB-NaY"/>
+                            <constraint firstItem="Whd-oE-jZf" firstAttribute="top" secondItem="zuU-Lv-BGs" secondAttribute="bottom" constant="8" id="UhD-Vc-5IU"/>
+                            <constraint firstItem="zuU-Lv-BGs" firstAttribute="centerX" secondItem="Whd-oE-jZf" secondAttribute="centerX" id="Xn2-Ur-Aul"/>
+                            <constraint firstItem="6tz-an-ERJ" firstAttribute="top" secondItem="JPD-C4-RIj" secondAttribute="bottom" constant="42" id="bAc-RE-t4l"/>
+                            <constraint firstItem="UFL-NW-pNa" firstAttribute="trailing" secondItem="Whd-oE-jZf" secondAttribute="trailing" constant="16" id="dSH-qq-0c1"/>
+                            <constraint firstItem="JPD-C4-RIj" firstAttribute="centerX" secondItem="lgt-ai-OK5" secondAttribute="centerX" id="frz-19-jPm"/>
+                            <constraint firstItem="lgt-ai-OK5" firstAttribute="leading" secondItem="UFL-NW-pNa" secondAttribute="leading" id="hhk-7l-Z6a"/>
+                            <constraint firstItem="UFL-NW-pNa" firstAttribute="bottom" secondItem="Whd-oE-jZf" secondAttribute="bottom" constant="24" id="jBw-wf-Jvi"/>
+                            <constraint firstItem="l85-dY-hQ7" firstAttribute="centerY" secondItem="lgt-ai-OK5" secondAttribute="centerY" constant="-130" id="pM9-p5-tGG"/>
+                            <constraint firstItem="UFL-NW-pNa" firstAttribute="bottom" secondItem="lgt-ai-OK5" secondAttribute="bottom" id="rM7-Ty-zV6"/>
+                            <constraint firstItem="4bb-dQ-ypD" firstAttribute="centerX" secondItem="l85-dY-hQ7" secondAttribute="centerX" id="rj5-kk-Top"/>
+                            <constraint firstItem="4bb-dQ-ypD" firstAttribute="top" secondItem="l85-dY-hQ7" secondAttribute="bottom" id="vnF-Xz-4YH"/>
+                            <constraint firstItem="Whd-oE-jZf" firstAttribute="leading" secondItem="UFL-NW-pNa" secondAttribute="leading" constant="16" id="vtv-II-eRE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UFL-NW-pNa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cMr-la-gW6"/>
+                    <connections>
+                        <outlet property="continueWithAnotherOptionButton" destination="6tz-an-ERJ" id="x3r-1X-elh"/>
+                        <outlet property="continueWithFBButton" destination="JPD-C4-RIj" id="E8Z-ZU-sdm"/>
+                        <outlet property="termsButton" destination="Whd-oE-jZf" id="U1J-Xw-x13"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hl0-3T-9BH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751.1999999999998" y="106.59670164917542"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bckground_image" width="375" height="667"/>
+        <image name="fb_button" width="10" height="18"/>
+    </resources>
+</document>

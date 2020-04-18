@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k3w-Jx-Nfj">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Merriweather-Black.ttf">
+            <string>Merriweather-Black</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Registration Confirm Code View Controller-->
+        <scene sceneID="k71-ev-Bkf">
+            <objects>
+                <viewController storyboardIdentifier="RegistrationConfirmCodeViewController" modalTransitionStyle="flipHorizontal" id="k3w-Jx-Nfj" customClass="RegistrationConfirmCodeViewController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EWR-hC-QSc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bckground_image" translatesAutoresizingMaskIntoConstraints="NO" id="euf-D1-exV">
+                                <rect key="frame" x="0.0" y="-34" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the Code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7n-pd-BMk">
+                                <rect key="frame" x="16" y="76" width="382" height="43"/>
+                                <fontDescription key="fontDescription" name="Merriweather-Black" family="Merriweather" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've just sent to usersomeinbox@domain.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dte-ds-mCg">
+                                <rect key="frame" x="35" y="133" width="344" height="49"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="gi8-i4-Scm">
+                                <rect key="frame" x="70" y="213" width="274" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="npG-Cm-ZHz" userLabel="1">
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="34"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" textContentType="one-time-code"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0L-Q3-e1a" userLabel="2">
+                                        <rect key="frame" x="59" y="0.0" width="38" height="34"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" textContentType="one-time-code"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q3u-VT-WCy" userLabel="3">
+                                        <rect key="frame" x="118" y="0.0" width="38" height="34"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" textContentType="one-time-code"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="huf-St-MWK" userLabel="4">
+                                        <rect key="frame" x="177" y="0.0" width="38" height="34"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" textContentType="one-time-code"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ehl-dA-3sQ" userLabel="5">
+                                        <rect key="frame" x="236" y="0.0" width="38" height="34"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" textContentType="one-time-code"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code_image" translatesAutoresizingMaskIntoConstraints="NO" id="Rfs-Tn-IdE" userLabel="code_image1">
+                                <rect key="frame" x="81" y="222" width="16" height="16"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code_image" translatesAutoresizingMaskIntoConstraints="NO" id="unR-Q7-WTf" userLabel="code_image2">
+                                <rect key="frame" x="140" y="222" width="16" height="16"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code_image" translatesAutoresizingMaskIntoConstraints="NO" id="rdz-4u-nfa" userLabel="code_image3">
+                                <rect key="frame" x="199" y="222" width="16" height="16"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code_image" translatesAutoresizingMaskIntoConstraints="NO" id="6cI-Q2-pBf" userLabel="code_image4">
+                                <rect key="frame" x="258" y="222" width="16" height="16"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code_image" translatesAutoresizingMaskIntoConstraints="NO" id="ttl-WO-n1e" userLabel="code_image5">
+                                <rect key="frame" x="317" y="222" width="16" height="16"/>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbH-Yg-pLB">
+                                <rect key="frame" x="70" y="193" width="72.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.21960784310000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8g-lh-gJl">
+                                <rect key="frame" x="132" y="273" width="150" height="33"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="Send a new code">
+                                    <color key="titleColor" red="1" green="0.58823529409999997" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dte-ds-mCg" firstAttribute="leading" secondItem="HkR-oU-r17" secondAttribute="leading" constant="35" id="0bG-g9-jUS"/>
+                            <constraint firstItem="euf-D1-exV" firstAttribute="height" secondItem="EWR-hC-QSc" secondAttribute="height" id="1N4-bW-Ffe"/>
+                            <constraint firstItem="HkR-oU-r17" firstAttribute="trailing" secondItem="Dte-ds-mCg" secondAttribute="trailing" constant="35" id="1lD-tA-xbc"/>
+                            <constraint firstItem="euf-D1-exV" firstAttribute="leading" secondItem="HkR-oU-r17" secondAttribute="leading" id="3Fl-UV-2Ki"/>
+                            <constraint firstItem="Rfs-Tn-IdE" firstAttribute="centerY" secondItem="npG-Cm-ZHz" secondAttribute="centerY" id="9Fq-CE-dYf"/>
+                            <constraint firstItem="rdz-4u-nfa" firstAttribute="centerX" secondItem="Q3u-VT-WCy" secondAttribute="centerX" id="9kp-yx-TCA"/>
+                            <constraint firstItem="wbH-Yg-pLB" firstAttribute="leading" secondItem="gi8-i4-Scm" secondAttribute="leading" id="ANu-7i-r1g"/>
+                            <constraint firstItem="HkR-oU-r17" firstAttribute="trailing" secondItem="euf-D1-exV" secondAttribute="trailing" id="B4u-8a-hI9"/>
+                            <constraint firstItem="rdz-4u-nfa" firstAttribute="centerY" secondItem="Q3u-VT-WCy" secondAttribute="centerY" id="JN0-5N-fZg"/>
+                            <constraint firstItem="6cI-Q2-pBf" firstAttribute="centerX" secondItem="huf-St-MWK" secondAttribute="centerX" id="PK3-a4-zrR"/>
+                            <constraint firstItem="HkR-oU-r17" firstAttribute="bottom" secondItem="euf-D1-exV" secondAttribute="bottom" id="PkD-PK-mfU"/>
+                            <constraint firstItem="Q7n-pd-BMk" firstAttribute="leading" secondItem="HkR-oU-r17" secondAttribute="leading" constant="16" id="T7X-aM-1C3"/>
+                            <constraint firstItem="ttl-WO-n1e" firstAttribute="centerY" secondItem="Ehl-dA-3sQ" secondAttribute="centerY" id="Tl8-FN-b6Z"/>
+                            <constraint firstItem="K8g-lh-gJl" firstAttribute="centerX" secondItem="euf-D1-exV" secondAttribute="centerX" id="UPA-89-fuw"/>
+                            <constraint firstItem="gi8-i4-Scm" firstAttribute="leading" secondItem="HkR-oU-r17" secondAttribute="leading" constant="70" id="Uhh-nk-FJg"/>
+                            <constraint firstItem="Dte-ds-mCg" firstAttribute="top" secondItem="Q7n-pd-BMk" secondAttribute="bottom" constant="14" id="XHL-0f-KmZ"/>
+                            <constraint firstItem="ttl-WO-n1e" firstAttribute="centerX" secondItem="Ehl-dA-3sQ" secondAttribute="centerX" id="YkY-31-jXl"/>
+                            <constraint firstItem="HkR-oU-r17" firstAttribute="trailing" secondItem="gi8-i4-Scm" secondAttribute="trailing" constant="70" id="cBW-DX-Qqq"/>
+                            <constraint firstItem="HkR-oU-r17" firstAttribute="trailing" secondItem="Q7n-pd-BMk" secondAttribute="trailing" constant="16" id="fkZ-jC-TL8"/>
+                            <constraint firstItem="Rfs-Tn-IdE" firstAttribute="centerX" secondItem="npG-Cm-ZHz" secondAttribute="centerX" id="lsm-2d-dkk"/>
+                            <constraint firstItem="6cI-Q2-pBf" firstAttribute="centerY" secondItem="huf-St-MWK" secondAttribute="centerY" id="moc-6S-pKA"/>
+                            <constraint firstItem="unR-Q7-WTf" firstAttribute="centerY" secondItem="E0L-Q3-e1a" secondAttribute="centerY" id="na6-UT-3WG"/>
+                            <constraint firstItem="gi8-i4-Scm" firstAttribute="top" secondItem="Dte-ds-mCg" secondAttribute="bottom" constant="31" id="rTO-Ai-akb"/>
+                            <constraint firstItem="unR-Q7-WTf" firstAttribute="centerX" secondItem="E0L-Q3-e1a" secondAttribute="centerX" id="u96-Rt-YXQ"/>
+                            <constraint firstItem="K8g-lh-gJl" firstAttribute="top" secondItem="gi8-i4-Scm" secondAttribute="bottom" constant="26" id="uOu-NA-Hfu"/>
+                            <constraint firstItem="Q7n-pd-BMk" firstAttribute="top" secondItem="HkR-oU-r17" secondAttribute="top" constant="32" id="unc-DO-QQA"/>
+                            <constraint firstItem="gi8-i4-Scm" firstAttribute="top" secondItem="wbH-Yg-pLB" secondAttribute="bottom" constant="4" id="yCO-pn-z5C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HkR-oU-r17"/>
+                    </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="wbH-Yg-pLB" id="Hqm-Cz-gXj"/>
+                        <outlet property="messageLabel" destination="Dte-ds-mCg" id="goR-h3-ZGP"/>
+                        <outlet property="sendNewCodeButton" destination="K8g-lh-gJl" id="1Xy-7o-Tx2"/>
+                        <outletCollection property="textFields" destination="npG-Cm-ZHz" collectionClass="NSMutableArray" id="gth-VZ-NpU"/>
+                        <outletCollection property="textFields" destination="E0L-Q3-e1a" collectionClass="NSMutableArray" id="sKp-KC-RVx"/>
+                        <outletCollection property="textFields" destination="Q3u-VT-WCy" collectionClass="NSMutableArray" id="lLQ-Ux-qe6"/>
+                        <outletCollection property="textFields" destination="huf-St-MWK" collectionClass="NSMutableArray" id="kaX-Gp-7HS"/>
+                        <outletCollection property="textFields" destination="Ehl-dA-3sQ" collectionClass="NSMutableArray" id="8cY-kt-yBW"/>
+                        <outletCollection property="images" destination="Rfs-Tn-IdE" collectionClass="NSMutableArray" id="rcT-QR-fDl"/>
+                        <outletCollection property="images" destination="unR-Q7-WTf" collectionClass="NSMutableArray" id="Jgi-a9-ZMo"/>
+                        <outletCollection property="images" destination="rdz-4u-nfa" collectionClass="NSMutableArray" id="JZK-rd-5d7"/>
+                        <outletCollection property="images" destination="6cI-Q2-pBf" collectionClass="NSMutableArray" id="mBT-b5-8Ci"/>
+                        <outletCollection property="images" destination="ttl-WO-n1e" collectionClass="NSMutableArray" id="acc-av-14S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uQ-gf-4En" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4287.1999999999998" y="109.29535232383809"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bckground_image" width="375" height="667"/>
+        <image name="code_image" width="16" height="16"/>
+    </resources>
+</document>
