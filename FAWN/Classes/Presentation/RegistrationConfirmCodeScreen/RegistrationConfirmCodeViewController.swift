@@ -37,8 +37,6 @@ final class RegistrationConfirmCodeViewController: UIViewController {
         
         Amplitude.instance()?.log(event: .codeScr)
         
-        viewModel.requireCode.accept(email)
-        
         textFields.forEach { [weak self] textField in
             textField.delegate = self
         }

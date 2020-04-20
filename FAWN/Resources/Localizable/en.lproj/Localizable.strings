@@ -37,3 +37,33 @@
 "knock_push" = "Knock-knocks (others)";
 "knock_push_sub" = "When you're about to miss something cool going on";
 
+// Onboarding
+"Onboarding.Info1Title" = "Only Real";
+"Onboarding.Info1SubTitle" = "A feed of real guys who are\nor were online recently.";
+"Onboarding.Info1Button" = "Get it";
+
+"Onboarding.Info2Title" = "Only Mutual";
+"Onboarding.Info2SubTitle" = "Connect via chat to get to\nknow each other better.";
+"Onboarding.Info2Button" = "Sure";
+
+"Onboarding.Info3Title" = "Only Favs";
+"Onboarding.Info3SubTitle" = "Catch that spark and share\nyour feelings!";
+"Onboarding.Info3Button" = "Cool";
+
+"Onboarding.BirthdayTitle" = "I was born on...";
+"Onboarding.BirthdaySubTitle" = "Must be 18 and over\nto use FAWN.";
+"Onboarding.BirthdayButton" = "Continue";
+
+"Onboarding.NameTitle" = "Tell Us Your Name";
+"Onboarding.NameButton" = "Continue";
+
+"Onboarding.PhotosTitle" = "Add Some Photos";
+"Onboarding.PhotosSubTitle" = "Keep it decent. NSFW content\nwon't be uploaded.";
+"Onboarding.PhotosAdd" = "Add";
+"Onboarding.PhotosContinue" = "Continue";
+
+// Image picker
+"ImagePicker.TakePhoto" = "Take photo";
+"ImagePicker.CameraRoll" = "Camera roll";
+"ImagePicker.PhotoLibrary" = "Photo library";
+"ImagePicker.Cancel" = "Cancel";

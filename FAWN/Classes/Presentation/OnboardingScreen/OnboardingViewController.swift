@@ -14,11 +14,15 @@ final class OnboardingViewController: UIViewController {
         OnboardingViewController()
     }
     
+    let onboardingView = OnboardingView()
+    
     private let viewModel = OnboardingViewModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
         
-        view.backgroundColor = .green
+        view = onboardingView
     }
+    
+    
 }

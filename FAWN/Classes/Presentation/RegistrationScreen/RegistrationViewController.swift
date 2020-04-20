@@ -29,6 +29,8 @@ final class RegistrationViewController: UIViewController {
         
         Amplitude.instance()?.log(event: .loginScr)
         
+        goToOnboardingScreen()
+        
         viewModel.authWithFBComplete(vc: self)
             .drive(onNext: { [weak self] new in
                 guard let isNew = new else {
