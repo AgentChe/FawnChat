@@ -84,14 +84,16 @@ final class OnboardingView: UIView {
         }
         
         birthdayView.didContinueWithData = { [unowned self] date in
-            print(date.yearMonthDay)
             self.move(on: self.nameView, from: self.birthdayView)
             self.nameView.setup()
         }
         
         nameView.didContinueWithName = { [unowned self] name in
-            print(name)
             self.move(on: self.photosView, from: self.nameView)
+        }
+        
+        photosView.didContinueWithUrls = { [unowned self] urls in
+            print(urls)
         }
     }
     

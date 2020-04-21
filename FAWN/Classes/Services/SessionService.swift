@@ -9,10 +9,22 @@
 import RxSwift
 
 final class SessionService {
+    static let shared = SessionService()
+    
+    private init() {}
+    
     private struct Constants {
         static let userTokenKey = "user_token_key"
     }
     
+    var userToken: String? {
+        UserDefaults.standard.string(forKey: Constants.userTokenKey)
+    }
+}
+
+// MARK: Create user
+
+extension SessionService {
     static func createUser(with email: String) -> Single<Token?> {
         RestAPITransport()
             .callServerApi(requestBody: CreateUserRequest(email: email))

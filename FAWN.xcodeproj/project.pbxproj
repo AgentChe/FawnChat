@@ -158,6 +158,9 @@
 		96838B91244CE12300C71B37 /* OnboardingPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838B90244CE12300C71B37 /* OnboardingPhotosView.swift */; };
 		96838B93244CEBDC00C71B37 /* SetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838B92244CEBDC00C71B37 /* SetRequest.swift */; };
 		96838B95244CEFAB00C71B37 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838B94244CEFAB00C71B37 /* ImagePicker.swift */; };
+		96838BC1244F699100C71B37 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838BC0244F699100C71B37 /* ImageService.swift */; };
+		96838BC3244F72C000C71B37 /* OnboardingPhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838BC2244F72C000C71B37 /* OnboardingPhotosManager.swift */; };
+		969CF6CB244F8D8D001BC979 /* ImageTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CF6CA244F8D8D001BC979 /* ImageTransformation.swift */; };
 		96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -415,6 +418,9 @@
 		96838B90244CE12300C71B37 /* OnboardingPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPhotosView.swift; sourceTree = "<group>"; };
 		96838B92244CEBDC00C71B37 /* SetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRequest.swift; sourceTree = "<group>"; };
 		96838B94244CEFAB00C71B37 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		96838BC0244F699100C71B37 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		96838BC2244F72C000C71B37 /* OnboardingPhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPhotosManager.swift; sourceTree = "<group>"; };
+		969CF6CA244F8D8D001BC979 /* ImageTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransformation.swift; sourceTree = "<group>"; };
 		96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -702,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				96650332244B9BF20028F735 /* SessionService.swift */,
+				96838BC0244F699100C71B37 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -719,6 +726,7 @@
 			children = (
 				96650330244B9B5C0028F735 /* TokenTransformation.swift */,
 				9665033A244BB3F70028F735 /* CheckResponseForError.swift */,
+				969CF6CA244F8D8D001BC979 /* ImageTransformation.swift */,
 			);
 			path = Transformation;
 			sourceTree = "<group>";
@@ -832,6 +840,7 @@
 		9665033C244C871D0028F735 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96838BC4244F72C400C71B37 /* Utils */,
 				96650341244C8E740028F735 /* OnboardingInfoView.swift */,
 				96838B8C244CAB7700C71B37 /* OnboardingBirthdayView.swift */,
 				96838B8E244CD5A900C71B37 /* OnboardingNameView.swift */,
@@ -920,6 +929,14 @@
 				96838B82244C9D4100C71B37 /* Localizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		96838BC4244F72C400C71B37 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				96838BC2244F72C000C71B37 /* OnboardingPhotosManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		96D3A598244B738900EC35CF /* old */ = {
@@ -1200,6 +1217,7 @@
 				139EE96722CCA1CE0085CCB2 /* NotificationResponce.swift in Sources */,
 				96725EAA244B3573002A9457 /* UIDeviceExtension.swift in Sources */,
 				96650325244B8FD00028F735 /* RegistrationConfirmCodeViewModel.swift in Sources */,
+				969CF6CB244F8D8D001BC979 /* ImageTransformation.swift in Sources */,
 				1348CA04237C96C5006E977E /* ManualySearchView.swift in Sources */,
 				96725EAE244B3582002A9457 /* SizeUtils.swift in Sources */,
 				96650327244B90420028F735 /* RegistrationEmailViewModel.swift in Sources */,
@@ -1230,12 +1248,14 @@
 				1348157E223CE3ED00E727A4 /* FAWNModel.xcdatamodeld in Sources */,
 				96725EC3244B3770002A9457 /* RestAPITransport.swift in Sources */,
 				135EA537237B624300831666 /* SayNoView.swift in Sources */,
+				96838BC3244F72C000C71B37 /* OnboardingPhotosManager.swift in Sources */,
 				96650337244BB18B0028F735 /* RequireConfirmCodeRequest.swift in Sources */,
 				96725EBB244B35E1002A9457 /* SignError.swift in Sources */,
 				13213E082370253800A584CF /* NoInternetView.swift in Sources */,
 				131F12DB2288A94500BDEB65 /* ReportViewController.swift in Sources */,
 				13FF838C22A31606002FB2D4 /* MensCountTableViewCell.swift in Sources */,
 				13F55A2622DBD12D001D290C /* LoadViewController.swift in Sources */,
+				96838BC1244F699100C71B37 /* ImageService.swift in Sources */,
 				139D6AC622D1336700587F34 /* NotifyEnablingViewController.swift in Sources */,
 				13BA6E3A22C16CD0000D7B58 /* AppDelegate+RootVC.swift in Sources */,
 				1399CD6422D13FFE007CDDED /* NotifySetingUiTableViewCell.swift in Sources */,

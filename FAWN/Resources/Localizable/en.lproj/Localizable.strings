@@ -37,6 +37,9 @@
 "knock_push" = "Knock-knocks (others)";
 "knock_push_sub" = "When you're about to miss something cool going on";
 
+// Utils
+"Utils.OK" = "OK";
+
 // Onboarding
 "Onboarding.Info1Title" = "Only Real";
 "Onboarding.Info1SubTitle" = "A feed of real guys who are\nor were online recently.";
@@ -61,6 +64,8 @@
 "Onboarding.PhotosSubTitle" = "Keep it decent. NSFW content\nwon't be uploaded.";
 "Onboarding.PhotosAdd" = "Add";
 "Onboarding.PhotosContinue" = "Continue";
+
+"Onboarding.FailedUploadImage" = "Failied upload image";
 
 // Image picker
 "ImagePicker.TakePhoto" = "Take photo";
