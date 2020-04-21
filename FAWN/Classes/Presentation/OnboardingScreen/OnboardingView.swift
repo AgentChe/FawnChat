@@ -8,13 +8,24 @@
 
 import UIKit
 
+protocol OnboardingViewDelegate: class {
+    func didSettedName(name: String)
+    func didSettedBirthdate(birthdate: Date)
+    func didSettedPhotos(urls: [String])
+    func didSettedNotificationsToken(token: String?)
+}
+
 final class OnboardingView: UIView {
+    weak var delegate: OnboardingViewDelegate?
+    
     private lazy var info1View = makeInfoView("Onboarding.Info1Title", "Onboarding.Info1SubTitle", "tenor-7", "Onboarding.Info1Button")
     private lazy var info2View = makeInfoView("Onboarding.Info2Title", "Onboarding.Info2SubTitle", "tenor-5", "Onboarding.Info2Button")
     private lazy var info3View = makeInfoView("Onboarding.Info3Title", "Onboarding.Info3SubTitle", "tenor-8", "Onboarding.Info3Button")
     private lazy var birthdayView = makeBirthdayView()
     private lazy var nameView = makeNameView()
     private lazy var photosView = makePhotosView()
+    private lazy var welcomeView = makeWelcomeView()
+    private lazy var notificationsView = makeNotificationsView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,9 +74,29 @@ final class OnboardingView: UIView {
         return view
     }
     
+    private func makeWelcomeView() -> OnboardingWelcomeView {
+        let view = OnboardingWelcomeView()
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    private func makeNotificationsView() -> OnboardingNotificationsView {
+        let view = OnboardingNotificationsView()
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
     // MARK: Private
     
     private func navigate() {
+        var _name = ""
+        var _birthdate = Date()
+        var _photoUrls = [String]()
+        
         move(on: info1View)
         info1View.setup()
         
@@ -84,16 +115,36 @@ final class OnboardingView: UIView {
         }
         
         birthdayView.didContinueWithData = { [unowned self] date in
+            self.delegate?.didSettedBirthdate(birthdate: date)
+            _birthdate = date
+            
             self.move(on: self.nameView, from: self.birthdayView)
             self.nameView.setup()
         }
         
         nameView.didContinueWithName = { [unowned self] name in
+            self.delegate?.didSettedName(name: name)
+            _name = name
+            
             self.move(on: self.photosView, from: self.nameView)
         }
         
         photosView.didContinueWithUrls = { [unowned self] urls in
-            print(urls)
+            self.delegate?.didSettedPhotos(urls: urls)
+            _photoUrls = urls
+            
+            self.welcomeView.setup(name: _name, birthdate: _birthdate, photos: _photoUrls)
+            self.move(on: self.welcomeView, from: self.photosView)
+        }
+        
+        welcomeView.didContinue = { [unowned self] in
+            self.move(on: self.notificationsView, from: self.welcomeView)
+        }
+        
+        notificationsView.didContinueWithNotificationsToken = { [unowned self] token in
+            self.delegate?.didSettedNotificationsToken(token: token)
+            
+            self.notificationsView.isHidden = true
         }
     }
     

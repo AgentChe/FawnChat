@@ -10,5 +10,8 @@ import RxSwift
 import RxCocoa
 
 struct OnboardingViewModel {
-    
+    let name = BehaviorRelay<String>(value: "")
+    let birthdate = BehaviorRelay<Date>(value: Date())
+    let photoUrls = BehaviorRelay<[String]>(value: [])
+    let notificationsToken = BehaviorRelay<String?>(value: "")
 }

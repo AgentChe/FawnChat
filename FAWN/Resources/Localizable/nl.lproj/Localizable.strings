@@ -66,6 +66,10 @@
 "Onboarding.PhotosAdd" = "Add";
 "Onboarding.PhotosContinue" = "Continue";
 
+"Onboarding.WelcomeHi" = "Hi, %@, %i";
+"Onboarding.WelcomeContinue" = "Continue";
+"Onboarding.WelcomeRandomize" = "Randomize ava!";
+
 "Onboarding.FailedUploadImage" = "Failied upload image";
 
 // Image picker

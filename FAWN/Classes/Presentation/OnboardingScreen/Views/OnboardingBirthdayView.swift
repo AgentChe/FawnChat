@@ -60,6 +60,7 @@ final class OnboardingBirthdayView: UIView {
         view.datePickerMode = .countDownTimer
         view.datePickerMode = .date
         view.timeZone = NSTimeZone.local
+        view.date = Calendar.current.date(byAdding: .year, value: -20, to: Date()) ?? Date()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

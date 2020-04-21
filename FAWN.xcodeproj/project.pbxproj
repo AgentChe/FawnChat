@@ -152,6 +152,7 @@
 		96725EBF244B3684002A9457 /* PurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725EBE244B3684002A9457 /* PurchaseError.swift */; };
 		96725EC1244B373B002A9457 /* APIRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725EC0244B373B002A9457 /* APIRequestBody.swift */; };
 		96725EC3244B3770002A9457 /* RestAPITransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725EC2244B3770002A9457 /* RestAPITransport.swift */; };
+		9679E465244FB76D00D7476D /* OnboardingNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679E464244FB76D00D7476D /* OnboardingNotificationsView.swift */; };
 		96838B80244C9D4100C71B37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96838B82244C9D4100C71B37 /* Localizable.strings */; };
 		96838B8D244CAB7700C71B37 /* OnboardingBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838B8C244CAB7700C71B37 /* OnboardingBirthdayView.swift */; };
 		96838B8F244CD5A900C71B37 /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838B8E244CD5A900C71B37 /* OnboardingNameView.swift */; };
@@ -161,6 +162,9 @@
 		96838BC1244F699100C71B37 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838BC0244F699100C71B37 /* ImageService.swift */; };
 		96838BC3244F72C000C71B37 /* OnboardingPhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838BC2244F72C000C71B37 /* OnboardingPhotosManager.swift */; };
 		969CF6CB244F8D8D001BC979 /* ImageTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CF6CA244F8D8D001BC979 /* ImageTransformation.swift */; };
+		969CF6CD244F9D5A001BC979 /* OnboardingWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CF6CC244F9D5A001BC979 /* OnboardingWelcomeView.swift */; };
+		969CF6CF244FA878001BC979 /* RandomizeAvatarRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CF6CE244FA878001BC979 /* RandomizeAvatarRequest.swift */; };
+		969CF6D1244FA94B001BC979 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CF6D0244FA94B001BC979 /* ProfileService.swift */; };
 		96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -403,6 +407,7 @@
 		96725EBE244B3684002A9457 /* PurchaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseError.swift; sourceTree = "<group>"; };
 		96725EC0244B373B002A9457 /* APIRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestBody.swift; sourceTree = "<group>"; };
 		96725EC2244B3770002A9457 /* RestAPITransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPITransport.swift; sourceTree = "<group>"; };
+		9679E464244FB76D00D7476D /* OnboardingNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationsView.swift; sourceTree = "<group>"; };
 		96838B81244C9D4100C71B37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		96838B83244C9D5000C71B37 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		96838B84244C9D5400C71B37 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -421,6 +426,9 @@
 		96838BC0244F699100C71B37 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		96838BC2244F72C000C71B37 /* OnboardingPhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPhotosManager.swift; sourceTree = "<group>"; };
 		969CF6CA244F8D8D001BC979 /* ImageTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransformation.swift; sourceTree = "<group>"; };
+		969CF6CC244F9D5A001BC979 /* OnboardingWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeView.swift; sourceTree = "<group>"; };
+		969CF6CE244FA878001BC979 /* RandomizeAvatarRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomizeAvatarRequest.swift; sourceTree = "<group>"; };
+		969CF6D0244FA94B001BC979 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -709,6 +717,7 @@
 			children = (
 				96650332244B9BF20028F735 /* SessionService.swift */,
 				96838BC0244F699100C71B37 /* ImageService.swift */,
+				969CF6D0244FA94B001BC979 /* ProfileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -845,6 +854,8 @@
 				96838B8C244CAB7700C71B37 /* OnboardingBirthdayView.swift */,
 				96838B8E244CD5A900C71B37 /* OnboardingNameView.swift */,
 				96838B90244CE12300C71B37 /* OnboardingPhotosView.swift */,
+				969CF6CC244F9D5A001BC979 /* OnboardingWelcomeView.swift */,
+				9679E464244FB76D00D7476D /* OnboardingNotificationsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -909,6 +920,7 @@
 				96650336244BB18B0028F735 /* RequireConfirmCodeRequest.swift */,
 				96650338244BB25D0028F735 /* ConfirmCodeRequest.swift */,
 				96838B92244CEBDC00C71B37 /* SetRequest.swift */,
+				969CF6CE244FA878001BC979 /* RandomizeAvatarRequest.swift */,
 			);
 			path = RequestBody;
 			sourceTree = "<group>";
@@ -1198,6 +1210,7 @@
 				9665032D244B99CF0028F735 /* Token.swift in Sources */,
 				133E6EA122A8E4C60089BDE1 /* SubtitleButtonTableViewCell.swift in Sources */,
 				96650329244B906D0028F735 /* OnboardingViewModel.swift in Sources */,
+				969CF6CF244FA878001BC979 /* RandomizeAvatarRequest.swift in Sources */,
 				139D6AC222D0983F00587F34 /* GradientButton.swift in Sources */,
 				130FA484225BB8BF00165301 /* ProfileViewController.swift in Sources */,
 				135EA53D237B6ED100831666 /* NoOneView.swift in Sources */,
@@ -1221,10 +1234,12 @@
 				1348CA04237C96C5006E977E /* ManualySearchView.swift in Sources */,
 				96725EAE244B3582002A9457 /* SizeUtils.swift in Sources */,
 				96650327244B90420028F735 /* RegistrationEmailViewModel.swift in Sources */,
+				9679E465244FB76D00D7476D /* OnboardingNotificationsView.swift in Sources */,
 				96650331244B9B5C0028F735 /* TokenTransformation.swift in Sources */,
 				96725EA8244B356E002A9457 /* TextAttributes.swift in Sources */,
 				13DE5036223E6DC400261ACD /* OldOnboardingViewController.swift in Sources */,
 				13A247AF223D4EA000B7FD34 /* RegistrationViewController.swift in Sources */,
+				969CF6D1244FA94B001BC979 /* ProfileService.swift in Sources */,
 				96725EB9244B35DE002A9457 /* DataBaseError.swift in Sources */,
 				13D8D60A22A451B900BCD1FA /* ButtonTableViewCell.swift in Sources */,
 				96650342244C8E740028F735 /* OnboardingInfoView.swift in Sources */,
@@ -1235,6 +1250,7 @@
 				13DCFFF422A285BD008A9B08 /* PaygateViewController.swift in Sources */,
 				96725EB5244B35D0002A9457 /* Model.swift in Sources */,
 				139EE96922CCAA270085CCB2 /* NotificationRequest.swift in Sources */,
+				969CF6CD244F9D5A001BC979 /* OnboardingWelcomeView.swift in Sources */,
 				96725EBF244B3684002A9457 /* PurchaseError.swift in Sources */,
 				133E6E9A22A85DDF0089BDE1 /* TrialViewController.swift in Sources */,
 				96725EA0244B3540002A9457 /* DateExtension.swift in Sources */,

@@ -24,5 +24,29 @@ final class OnboardingViewController: UIViewController {
         view = onboardingView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        onboardingView.delegate = self
+    }
+}
+
+// MARK: OnboardingViewDelegate
+
+extension OnboardingViewController: OnboardingViewDelegate {
+    func didSettedName(name: String) {
+        viewModel.name.accept(name)
+    }
     
+    func didSettedBirthdate(birthdate: Date) {
+        viewModel.birthdate.accept(birthdate)
+    }
+    
+    func didSettedPhotos(urls: [String]) {
+        viewModel.photoUrls.accept(urls)
+    }
+    
+    func didSettedNotificationsToken(token: String?) {
+        viewModel.notificationsToken.accept(token)
+    }
 }
