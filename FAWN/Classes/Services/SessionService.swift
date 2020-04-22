@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import DatingKit
 
 final class SessionService {
     static let shared = SessionService()
@@ -41,6 +42,7 @@ extension SessionService {
             .map { TokenTransformation.fromCreateUserResponse($0) }
             .do(onSuccess: { token in
                 UserDefaults.standard.set(token?.token, forKey: Constants.userTokenKey)
+                CacheTool.shared.saveToken(token: token?.token ?? "")
             })
     }
 }
@@ -60,6 +62,7 @@ extension SessionService {
             .map { TokenTransformation.fromCreateUserResponse($0) }
             .do(onSuccess: { token in
                 UserDefaults.standard.set(token?.token, forKey: Constants.userTokenKey)
+                CacheTool.shared.saveToken(token: token?.token ?? "")
             })
     }
 }
