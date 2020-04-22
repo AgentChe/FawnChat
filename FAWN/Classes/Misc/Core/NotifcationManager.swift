@@ -12,7 +12,7 @@ import Firebase
 import DatingKit
 
 protocol NotificationDelegate: class {
-    func notificationRequestWasEnd(succses: Bool)
+    func notificationRequestWasEnd(success: Bool)
 }
 
 enum PushType: Int {
@@ -105,14 +105,12 @@ class NotificationManager: NSObject {
           return false
     }
     
-    func requestAccses() {
+    func requestAccess() {
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (granted, error) in
             DispatchQueue.main.async { [weak self] in
-//                UIApplication.shared.registerForRemoteNotifications()
-               
-                self!.delegate?.notificationRequestWasEnd(succses: granted)
+                self!.delegate?.notificationRequestWasEnd(success: granted)
 
             }
         }
@@ -171,11 +169,6 @@ class NotificationManager: NSObject {
         }
     }
     
-    
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-//        delegate?.notificationRequestWasEnd(succses: false)
-    }
-    
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         print(userInfo)
         guard let type: String = userInfo["type"] as? String else {
@@ -232,11 +225,7 @@ class NotificationManager: NSObject {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        delegate?.notificationRequestWasEnd(succses: true)
-        
-        
         guard let token =  Messaging.messaging().fcmToken else {return}
-//        let dataDict:[String: String] = ["token": token]
         let setKeyRequest: NotificationSetKey = NotificationSetKey(parameters: ["notification_key" : token])
         RequestManager.shared.requset(setKeyRequest) { (result) in
             _ = 0
@@ -251,7 +240,6 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
         completionHandler([])
     }
     
@@ -259,11 +247,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        // Print message ID.
-       
-        
-        // Print full message.
-        print(userInfo)
+
         guard let type: String = userInfo["type"] as? String else {
                        return
                    }
@@ -322,18 +306,12 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
 extension NotificationManager: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         let setKeyRequest: NotificationSetKey = NotificationSetKey(parameters: ["notification_key" : fcmToken])
         RequestManager.shared.requset(setKeyRequest) { (result) in
-            _ = 0
-//            let tehnical: Technical = result as! Technical
-
+            
         }
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {

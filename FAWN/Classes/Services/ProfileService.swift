@@ -9,6 +9,24 @@
 import RxSwift
 
 final class ProfileService {
+    
+}
+
+// MARK: Profile
+
+extension ProfileService {
+    static func fillProfile(name: String, birthdate: Date) -> Single<Bool> {
+        guard let userToken = SessionService.shared.userToken else {
+            return .deferred { .just(false) }
+        }
+        
+        return RestAPITransport()
+            .callServerApi(requestBody: SetRequest(userToken: userToken,
+                                                   name: name,
+                                                   birthdate: birthdate.yearMonthDay))
+            .map { (try? !CheckResponseForError.isError(jsonResponse: $0)) ?? false }
+    }
+    
     static func randomizeAvatar() -> Single<String?> {
         guard let userToken = SessionService.shared.userToken else {
             return .deferred { .just(nil) }
@@ -16,6 +34,6 @@ final class ProfileService {
         
         return RestAPITransport()
             .callServerApi(requestBody: RandomizeAvatarRequest(userToken: userToken))
-            .map { ImageTransformation.avatarUrlFromRandomizeResponse(response: $0) } 
+            .map { ImageTransformation.avatarUrlFromRandomizeResponse(response: $0) }
     }
 }

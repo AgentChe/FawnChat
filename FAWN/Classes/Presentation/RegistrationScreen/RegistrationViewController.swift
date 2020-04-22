@@ -13,7 +13,8 @@ import RxSwift
 
 final class RegistrationViewController: UIViewController {
     static func make() -> UIViewController {
-        UIStoryboard(name: "RegistrationScreen", bundle: .main).instantiateInitialViewController()!
+        let vc = UIStoryboard(name: "RegistrationScreen", bundle: .main).instantiateInitialViewController()!
+        return FAWNNavigationController(rootViewController: vc)
     }
     
     @IBOutlet private weak var continueWithFBButton: GradientButton!
@@ -28,8 +29,6 @@ final class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         
         Amplitude.instance()?.log(event: .loginScr)
-        
-        goToOnboardingScreen()
         
         viewModel.authWithFBComplete(vc: self)
             .drive(onNext: { [weak self] new in

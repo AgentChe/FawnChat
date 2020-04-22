@@ -16,9 +16,19 @@ final class SessionService {
     private struct Constants {
         static let userTokenKey = "user_token_key"
     }
-    
+}
+
+// MARK: Token
+
+extension SessionService {
     var userToken: String? {
         UserDefaults.standard.string(forKey: Constants.userTokenKey)
+    }
+    
+    static func check(token: String) -> Single<Bool> {
+        RestAPITransport()
+            .callServerApi(requestBody: CheckUserTokenRequest(userToken: token))
+            .map { (try? !CheckResponseForError.isError(jsonResponse: $0)) ?? false }
     }
 }
 

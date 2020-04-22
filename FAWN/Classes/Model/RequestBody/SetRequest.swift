@@ -23,6 +23,34 @@ struct SetRequest: APIRequestBody {
     private let pushNotificationsToken: String?
     private let appUUID: String?
     
+    init(userToken: String,
+         name: String? = nil,
+         birthdate: String? = nil,
+         storeCountry: String? = nil,
+         version: String? = nil,
+         market: String? = nil,
+         locale: String? = nil,
+         notifyOnMessage: Bool? = nil,
+         notifyOnMatch: Bool? = nil,
+         notifyOnUsers: Bool? = nil,
+         notifyOnKnocks: Bool? = nil,
+         pushNotificationsToken: String? = nil,
+         appUUID: String? = nil) {
+        self.userToken = userToken
+        self.name = name
+        self.birthdate = birthdate
+        self.storeCountry = storeCountry
+        self.version = version
+        self.market = market
+        self.locale = locale
+        self.notifyOnMessage = notifyOnMessage
+        self.notifyOnMatch = notifyOnMatch
+        self.notifyOnUsers = notifyOnUsers
+        self.notifyOnKnocks = notifyOnKnocks
+        self.pushNotificationsToken = pushNotificationsToken
+        self.appUUID = appUUID
+    }
+    
     var url: String {
         GlobalDefinitions.Backend.domain + "/api/users/set"
     }

@@ -20,7 +20,7 @@ class NotifyViewController: UIViewController {
         UserDefaults.standard.set(true, forKey: NotificationManager.kWasShow)   //bool(forKey: NotificationManager.kWasShow) = true
         NotificationManager.shared.startManagment()
         NotificationManager.shared.delegate = self
-        NotificationManager.shared.requestAccses()
+        NotificationManager.shared.requestAccess()
         
     }
     
@@ -53,7 +53,7 @@ extension NotifyViewController: PaygateViewDelegate {
 
 extension NotifyViewController: NotificationDelegate {
     
-    func notificationRequestWasEnd(succses: Bool) {
+    func notificationRequestWasEnd(success: Bool) {
 //        dismiss(animated: true, completion: nil)
         UIView.animate(withDuration: 0.4, animations: {
             self.firstLabelView.alpha = 0.0

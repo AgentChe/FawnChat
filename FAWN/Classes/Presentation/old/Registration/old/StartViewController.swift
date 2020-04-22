@@ -91,7 +91,7 @@ class StartViewController: UIViewController {
     
     func requestNotify() {
         NotificationManager.shared.startManagment()
-        NotificationManager.shared.requestAccses()
+        NotificationManager.shared.requestAccess()
 //        let show: Bool = UserDefaults.standard.bool(forKey: NotificationManager.kWasShow)
 //
 //        if UserDefaults.standard.bool(forKey: NotificationManager.kWasShow) == false {

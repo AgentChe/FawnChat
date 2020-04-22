@@ -135,7 +135,6 @@
 		96650337244BB18B0028F735 /* RequireConfirmCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96650336244BB18B0028F735 /* RequireConfirmCodeRequest.swift */; };
 		96650339244BB25D0028F735 /* ConfirmCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96650338244BB25D0028F735 /* ConfirmCodeRequest.swift */; };
 		9665033B244BB3F70028F735 /* CheckResponseForError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665033A244BB3F70028F735 /* CheckResponseForError.swift */; };
-		9665033E244C87350028F735 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665033D244C87350028F735 /* OnboardingView.swift */; };
 		96650340244C8A110028F735 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665033F244C8A110028F735 /* VideoView.swift */; };
 		96650342244C8E740028F735 /* OnboardingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96650341244C8E740028F735 /* OnboardingInfoView.swift */; };
 		96725EA0244B3540002A9457 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725E9F244B3540002A9457 /* DateExtension.swift */; };
@@ -153,6 +152,9 @@
 		96725EC1244B373B002A9457 /* APIRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725EC0244B373B002A9457 /* APIRequestBody.swift */; };
 		96725EC3244B3770002A9457 /* RestAPITransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725EC2244B3770002A9457 /* RestAPITransport.swift */; };
 		9679E465244FB76D00D7476D /* OnboardingNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679E464244FB76D00D7476D /* OnboardingNotificationsView.swift */; };
+		9679E4922450B5B000D7476D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679E4912450B5B000D7476D /* SplashViewController.swift */; };
+		9679E4942450B60000D7476D /* CheckUserTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679E4932450B60000D7476D /* CheckUserTokenRequest.swift */; };
+		9679E4962450B87700D7476D /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679E4952450B87700D7476D /* SplashViewModel.swift */; };
 		96838B80244C9D4100C71B37 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96838B82244C9D4100C71B37 /* Localizable.strings */; };
 		96838B8D244CAB7700C71B37 /* OnboardingBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838B8C244CAB7700C71B37 /* OnboardingBirthdayView.swift */; };
 		96838B8F244CD5A900C71B37 /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96838B8E244CD5A900C71B37 /* OnboardingNameView.swift */; };
@@ -390,7 +392,6 @@
 		96650336244BB18B0028F735 /* RequireConfirmCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequireConfirmCodeRequest.swift; sourceTree = "<group>"; };
 		96650338244BB25D0028F735 /* ConfirmCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeRequest.swift; sourceTree = "<group>"; };
 		9665033A244BB3F70028F735 /* CheckResponseForError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckResponseForError.swift; sourceTree = "<group>"; };
-		9665033D244C87350028F735 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9665033F244C8A110028F735 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		96650341244C8E740028F735 /* OnboardingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInfoView.swift; sourceTree = "<group>"; };
 		96725E9F244B3540002A9457 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -408,6 +409,9 @@
 		96725EC0244B373B002A9457 /* APIRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestBody.swift; sourceTree = "<group>"; };
 		96725EC2244B3770002A9457 /* RestAPITransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPITransport.swift; sourceTree = "<group>"; };
 		9679E464244FB76D00D7476D /* OnboardingNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationsView.swift; sourceTree = "<group>"; };
+		9679E4912450B5B000D7476D /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		9679E4932450B60000D7476D /* CheckUserTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserTokenRequest.swift; sourceTree = "<group>"; };
+		9679E4952450B87700D7476D /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		96838B81244C9D4100C71B37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		96838B83244C9D5000C71B37 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		96838B84244C9D5400C71B37 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				9665030D244B83A10028F735 /* old */,
+				9679E4902450B59A00D7476D /* SplashScreen */,
 				96650321244B8F9B0028F735 /* RegistrationConfirmCodeScreen */,
 				96650316244B8B890028F735 /* RegistrationEmailScreen */,
 				96650313244B8AE70028F735 /* OnboardingScreen */,
@@ -823,7 +828,6 @@
 				9665033C244C871D0028F735 /* Views */,
 				96650314244B8AFB0028F735 /* OnboardingViewController.swift */,
 				96650328244B906D0028F735 /* OnboardingViewModel.swift */,
-				9665033D244C87350028F735 /* OnboardingView.swift */,
 			);
 			path = OnboardingScreen;
 			sourceTree = "<group>";
@@ -921,6 +925,7 @@
 				96650338244BB25D0028F735 /* ConfirmCodeRequest.swift */,
 				96838B92244CEBDC00C71B37 /* SetRequest.swift */,
 				969CF6CE244FA878001BC979 /* RandomizeAvatarRequest.swift */,
+				9679E4932450B60000D7476D /* CheckUserTokenRequest.swift */,
 			);
 			path = RequestBody;
 			sourceTree = "<group>";
@@ -933,6 +938,15 @@
 				13D55AB7229F256F006F8598 /* tenor-5.mp4 */,
 			);
 			path = Video;
+			sourceTree = "<group>";
+		};
+		9679E4902450B59A00D7476D /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9679E4912450B5B000D7476D /* SplashViewController.swift */,
+				9679E4952450B87700D7476D /* SplashViewModel.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		96838B7D244C9D2300C71B37 /* Localizable */ = {
@@ -1204,6 +1218,7 @@
 				96838B93244CEBDC00C71B37 /* SetRequest.swift in Sources */,
 				13B992F32259F514002E329C /* ChatsViewController.swift in Sources */,
 				139B705F223D65D500A4625A /* FAWNNavigationController.swift in Sources */,
+				9679E4922450B5B000D7476D /* SplashViewController.swift in Sources */,
 				96650340244C8A110028F735 /* VideoView.swift in Sources */,
 				13D3E61E22BAC54D00FB8ED1 /* AmplitudeEvents.swift in Sources */,
 				13F55A1C22DBAF86001D290C /* StartViewController.swift in Sources */,
@@ -1223,6 +1238,7 @@
 				13D55AB3229F2137006F8598 /* FirsGayCollectionViewCell.swift in Sources */,
 				13D6A4CD22AD0FA200465884 /* DeleteAccountViewController.swift in Sources */,
 				1363D3A4224A9F6900C6AFEB /* MainViewController.swift in Sources */,
+				9679E4962450B87700D7476D /* SplashViewModel.swift in Sources */,
 				135B1ADC23A1A68E00CDCCE1 /* StartSearchViewController.swift in Sources */,
 				96650315244B8AFC0028F735 /* OnboardingViewController.swift in Sources */,
 				13981B14237055A7007E6396 /* UIImage+Download.swift in Sources */,
@@ -1255,11 +1271,11 @@
 				133E6E9A22A85DDF0089BDE1 /* TrialViewController.swift in Sources */,
 				96725EA0244B3540002A9457 /* DateExtension.swift in Sources */,
 				96650323244B8FB10028F735 /* RegistrationConfirmCodeViewController.swift in Sources */,
+				9679E4942450B60000D7476D /* CheckUserTokenRequest.swift in Sources */,
 				13B06CB1230E8ABA00ABB6B1 /* PurchaseManager.swift in Sources */,
 				13FEEDFB22A7AF6800515311 /* HelloView.swift in Sources */,
 				135C631622CB66E500EFC391 /* NotifyViewController.swift in Sources */,
 				96725EC1244B373B002A9457 /* APIRequestBody.swift in Sources */,
-				9665033E244C87350028F735 /* OnboardingView.swift in Sources */,
 				1312939622A5AE9800D6A145 /* CentralPriceTagView.swift in Sources */,
 				1348157E223CE3ED00E727A4 /* FAWNModel.xcdatamodeld in Sources */,
 				96725EC3244B3770002A9457 /* RestAPITransport.swift in Sources */,

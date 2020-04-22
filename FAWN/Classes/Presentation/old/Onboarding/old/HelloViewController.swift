@@ -113,7 +113,7 @@ class HelloViewController: UIViewController {
         let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
         if isRegisteredForRemoteNotifications {
             NotificationManager.shared.startManagment()
-            NotificationManager.shared.requestAccses()
+            NotificationManager.shared.requestAccess()
             if PurchaseManager.shared.showUponLogin {
                 PurchaseManager.shared.loadProducts { (config) in
                     self.performSegue(withIdentifier: "paygate", sender: config)

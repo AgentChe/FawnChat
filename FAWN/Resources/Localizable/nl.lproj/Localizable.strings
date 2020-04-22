@@ -70,6 +70,11 @@
 "Onboarding.WelcomeContinue" = "Continue";
 "Onboarding.WelcomeRandomize" = "Randomize ava!";
 
+"Onboarding.NotificationsTitlePart1" = "Final step";
+"Onboarding.NotificationsTitlePart2" = " before you begin";
+"Onboarding.NotificationsFooterPart1" = "If you accept the permission\nrequest FAWN will notify you\non ";
+"Onboarding.NotificationsFooterPart2" = "new matches and messages";
+
 "Onboarding.FailedUploadImage" = "Failied upload image";
 
 // Image picker

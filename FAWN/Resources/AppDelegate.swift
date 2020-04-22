@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = FAWNNavigationController(rootViewController: RegistrationViewController.make())
+        window?.rootViewController = FAWNNavigationController(rootViewController: SplashViewController.make())
         window?.makeKeyAndVisible()
         
         DatingKit.isLogined { (isLoginned) in
@@ -54,10 +54,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         NotificationManager.shared.application(application: application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
-    }
-    
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        NotificationManager.shared.application(application: application, didFailToRegisterForRemoteNotificationsWithError: error)
     }
 }

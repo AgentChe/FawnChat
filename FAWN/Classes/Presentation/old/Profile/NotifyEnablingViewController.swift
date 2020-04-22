@@ -75,7 +75,7 @@ class NotifyEnablingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if !UIApplication.shared.isRegisteredForRemoteNotifications {
-            NotificationManager.shared.requestAccses()
+            NotificationManager.shared.requestAccess()
         }
 
     }
@@ -94,7 +94,7 @@ class NotifyEnablingViewController: UIViewController {
 
 extension NotifyEnablingViewController: NotificationDelegate {
     
-    func notificationRequestWasEnd(succses: Bool) {
+    func notificationRequestWasEnd(success: Bool) {
         
     }
 }
