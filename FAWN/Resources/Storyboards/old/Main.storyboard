@@ -140,22 +140,11 @@
                         <outlet property="profileItem" destination="k0D-ai-1Re" id="cOW-W9-Cf3"/>
                         <outlet property="searchButton" destination="fHe-cc-pNl" id="Z8u-JD-mYb"/>
                         <segue destination="wHh-F9-cEp" kind="show" identifier="chat" id="meM-ur-gJw"/>
-                        <segue destination="uob-6n-ztV" kind="presentation" identifier="paygate" modalTransitionStyle="crossDissolve" id="cv7-oO-TvG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlT-3Y-KMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="493.60000000000002" y="-15.742128935532236"/>
-        </scene>
-        <!--Paygate-->
-        <scene sceneID="k5r-9t-om6">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Paygate" id="uob-6n-ztV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="azs-aD-LdH"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1mn-ep-VaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1143" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m6F-2j-T8a">

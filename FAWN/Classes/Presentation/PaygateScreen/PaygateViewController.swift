@@ -10,36 +10,31 @@ import UIKit
 import Amplitude_iOS
 import DatingKit
 
-
-protocol PaygateViewDelegate: class {
-    func purchaseWasEndet()
+@objc protocol PaygateViewControllerDelegate: class {
+    @objc optional func wasClosed()
+    @objc optional func wasPurchased()
+    @objc optional func wasRestored()
 }
 
 class PaygateViewController: UIViewController {
-
+    static func make() -> PaygateViewController {
+        UIStoryboard(name: "PaygateScreen", bundle: .main).instantiateInitialViewController() as! PaygateViewController
+    }
+    
     @IBOutlet weak var lineImageView: UIImageView!
-    
     @IBOutlet weak var privacyButton: UIButton!
-    
     @IBOutlet weak var termsButton: UIButton!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var restoreButton: UIButton!
-    
     @IBOutlet weak var closeButton: UIButton!
-    
     @IBOutlet weak var headerView: UIView!
-    
     @IBOutlet weak var activityView: UIView!
     
-    private var configBundle: ConfigBundle!
+    private var configBundle: ConfigBundle?
     
     private var currentID: String = ""
     
-    weak var delegate: PaygateViewDelegate!
-    
-//    var trial: ConfigTrial!
+    weak var delegate: PaygateViewControllerDelegate!
     
     func config(bundle: ConfigBundle) {
         configBundle = bundle
@@ -47,8 +42,6 @@ class PaygateViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        
-//        closeButton.isHidden = !configBundle.isShowTrial
         navigationController?.setNavigationBarHidden(true, animated: true)
         if UIDevice.modelName.contains("SE") || UIDevice.modelName.contains("5s")  {
             headerView.frame.size = CGSize(width: headerView.frame.size.width, height: 160)
@@ -67,13 +60,9 @@ class PaygateViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        Amplitude.instance()?.log(event: .paygateScr)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         activityView.isHidden = true
         navigationController?.setToolbarHidden(true, animated: true)
         tableView.register(UINib(nibName: "MensCountTableViewCell", bundle: .main), forCellReuseIdentifier: "MensCountTableViewCell")
@@ -86,6 +75,19 @@ class PaygateViewController: UIViewController {
         termsButton.titleLabel?.textAlignment = .center
         restoreButton.titleLabel?.numberOfLines = 0
         restoreButton.titleLabel?.textAlignment = .center
+        
+        PurchaseManager.shared.loadProducts { [weak self] (bundle) in
+            if bundle == nil {
+                self?.dismiss(animated: true) {
+                    self?.delegate?.wasClosed?()
+                }
+                return
+            }
+            
+            self?.configBundle = bundle
+            self?.tableView.dataSource = self
+            self?.tableView.reloadData()
+        }
     }
     
     
@@ -102,9 +104,11 @@ class PaygateViewController: UIViewController {
                 switch status {
                     
                 case .succes:
-                    self.delegate.purchaseWasEndet()
+                    self.delegate.wasPurchased?()
                     self.activityView.isHidden = true
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true) { [weak self] in
+                        self?.delegate.wasClosed?()
+                    }
                 case .error:
                     let alert = UIAlertController(title: "ERROR", message: "Something went wrong", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
@@ -173,7 +177,6 @@ class PaygateViewController: UIViewController {
     }
     
     @objc func tapOnPay(_ sender: UIButton) {
-        
         buy(id: currentID)
     }
     
@@ -193,9 +196,11 @@ class PaygateViewController: UIViewController {
             switch status {
                 
             case .restored:
-                self.delegate.purchaseWasEndet()
+                self.delegate.wasRestored?()
                 self.activityView.isHidden = true
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true) { [weak self] in
+                    self?.delegate.wasClosed?()
+                }
             case .failed:
                 let alert = UIAlertController(title: "ERROR", message: "Restore Failed", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
@@ -207,32 +212,45 @@ class PaygateViewController: UIViewController {
     }
     
     @IBAction func tapOnClose(_ sender: Any) {
-        if configBundle.isShowTrial {
+        if configBundle?.isShowTrial == true {
             performSegue(withIdentifier: "trial", sender: nil)
         } else {
-            dismiss(animated: true) {
-                 self.delegate.purchaseWasEndet()
+            dismiss(animated: true) { [weak self] in
+                self?.delegate.wasClosed?()
             }
         }
-        
-        
     }
     
     @objc func tapOnLeft() {
-       currentID = configBundle.priceBundle.leftPriceTag.id
+        guard let configBundle = self.configBundle else {
+            return
+        }
+        
+        currentID = configBundle.priceBundle.leftPriceTag.id
     }
     
     @objc func tapOnCenter() {
+        guard let configBundle = self.configBundle else {
+            return
+        }
+        
         currentID = configBundle.priceBundle.centralPriceTag.id
     }
     
     @objc func tapOnRight() {
+        guard let configBundle = self.configBundle else {
+            return
+        }
+        
         currentID = configBundle.priceBundle.reightPriceTag.id
     }
    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "trial" {
+            guard let configBundle = self.configBundle else {
+                return
+            }
+            
             tableView.isHidden = true
             closeButton.isHidden = true
             lineImageView.isHidden = true
@@ -251,7 +269,7 @@ extension PaygateViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell: MensCountTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MensCountTableViewCell", for: indexPath) as! MensCountTableViewCell
-            cell.config(bundle: configBundle.mensCounterBundle)
+            cell.config(bundle: configBundle!.mensCounterBundle)
             return cell
         }
         if indexPath.row == 1 {
@@ -259,7 +277,7 @@ extension PaygateViewController: UITableViewDataSource {
             cell.leftButton.addTarget(self, action: #selector(tapOnLeft), for: .touchUpInside)
             cell.centralButton.addTarget(self, action: #selector(tapOnCenter), for: .touchUpInside)
             cell.rightButton.addTarget(self, action: #selector(tapOnRight), for: .touchUpInside)
-            cell.config(with: configBundle.priceBundle)
+            cell.config(with: configBundle!.priceBundle)
             return cell
         }
         if indexPath.row == 2 {
@@ -278,34 +296,28 @@ extension PaygateViewController: UITableViewDataSource {
 }
 
 extension PaygateViewController: ModalHandler {
-    
     func modalDismissed() {
-      
-        dismiss(animated: true) {
-            self.delegate.purchaseWasEndet()
+        dismiss(animated: true) { [weak self] in
+            self?.delegate.wasClosed?()
         }
     }
-    
-}
-
-extension PaygateViewController: UITableViewDelegate {
-    
 }
 
 extension PaygateViewController: PaymentFlowDelegate {
-    
     func purchase() {
          activityView.isHidden = true
     }
     
     func paymentSuccses() {
-        delegate.purchaseWasEndet()
+        delegate.wasPurchased?()
         activityView.isHidden = true
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) { [weak self] in
+            self?.delegate.wasClosed?()
+        }
     }
     
-    
     func paymentInfoWasLoad(config bundle: ConfigBundle) {
+        self.configBundle = bundle
         tableView.reloadData()
     }
     

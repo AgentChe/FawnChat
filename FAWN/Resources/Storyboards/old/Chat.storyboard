@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Te-ZR-3gF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Te-ZR-3gF">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,14 +13,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Paygate-->
-        <scene sceneID="QG9-Dy-o3P">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Paygate" id="mHI-wq-Fav" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pgC-VE-ket" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="612" y="-273"/>
-        </scene>
         <!--Chat View Controller-->
         <scene sceneID="jGJ-P5-A2g">
             <objects>
@@ -324,7 +316,6 @@
                         <outlet property="userImageView" destination="faS-FO-3pC" id="hbx-99-uBN"/>
                         <segue destination="7S4-j3-P20" kind="presentation" identifier="map" modalPresentationStyle="overCurrentContext" id="mPa-iI-wsf"/>
                         <segue destination="plb-IW-feY" kind="presentation" identifier="report" id="eWE-g4-CCY"/>
-                        <segue destination="mHI-wq-Fav" kind="presentation" identifier="paygate" id="yNK-Oi-dde"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnZ-HK-hNu" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -106,12 +106,7 @@ class MainViewController: UIViewController {
             let pageViewController: PageViewController = segue.destination as! PageViewController
             delegate = pageViewController
         }
-        if segue.identifier == "paygate" {
-            let paygate: PaygateViewController = segue.destination as! PaygateViewController
-            paygate.delegate = self
-            let config: ConfigBundle = sender as! ConfigBundle
-            paygate.config(bundle: config)
-        }
+        
         if segue.identifier == "chat" {
             guard let chat: ChatItem = ScreenManager.shared.pushChat else { return }
             delegate?.tapOnChats()
@@ -134,17 +129,4 @@ extension MainViewController: UIPageViewControllerDelegate, UIPageViewController
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return nil
     }
-    
-    
-}
-
-extension MainViewController: PaygateViewDelegate {
-    func purchaseWasEndet() {
-        paygateOnScreen = false
-        mainPageController.isHidden = false
-        helloView.isHidden = true
-        searchButton.isUserInteractionEnabled = true
-        chatButton.isUserInteractionEnabled = true
-    }
-    
 }

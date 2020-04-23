@@ -26,7 +26,7 @@ final class PhotosSlider: UIView {
     private var isConfigured = false
     
     func setup(urls: [URL]) {
-        self.urls = urls + urls + urls
+        self.urls = urls
         
         layoutIfNeeded()
     }

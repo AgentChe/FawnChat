@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgf-gV-knb">
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgf-gV-knb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faggots" translatesAutoresizingMaskIntoConstraints="NO" id="75N-nx-XqY">
@@ -76,7 +76,7 @@
                                     <constraint firstItem="CSC-TS-8bn" firstAttribute="top" secondItem="jU6-7H-vMU" secondAttribute="bottom" constant="16" id="z3X-2i-IgS"/>
                                 </constraints>
                             </view>
-                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PNW-Db-QWR">
+                            <tableView hidden="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PNW-Db-QWR">
                                 <rect key="frame" x="8" y="0.0" width="359" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="W98-pe-HaT">
@@ -133,7 +133,7 @@
                         <outlet property="tableView" destination="PNW-Db-QWR" id="JIO-JX-5KH"/>
                         <segue destination="NZ9-VK-ZfT" kind="presentation" identifier="report" modalPresentationStyle="overCurrentContext" id="syd-dF-zk6"/>
                         <segue destination="jXH-tR-7XW" kind="presentation" identifier="paygate" id="v3t-yL-Hfb"/>
-                        <segue destination="7TT-sr-mAg" kind="show" identifier="chat" id="m1h-ty-RYg"/>
+                        <segue destination="xXM-WN-F6G" kind="show" identifier="chat" id="kMO-rd-B8v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -157,12 +157,12 @@
             <point key="canvasLocation" x="2356" y="113"/>
         </scene>
         <!--ChatViewController-->
-        <scene sceneID="hb6-pj-gMD">
+        <scene sceneID="saZ-NF-4SO">
             <objects>
-                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatViewController" id="7TT-sr-mAg" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="K7G-3N-VlK"/>
+                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatViewController" id="xXM-WN-F6G" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fKW-Ll-thJ"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="42O-aJ-agf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fO-JT-h8G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2281" y="461"/>
         </scene>

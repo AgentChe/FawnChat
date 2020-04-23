@@ -131,12 +131,21 @@ final class SearchViewController: UIViewController {
     // MARK: Private
     
     private func showPaygateScreen() {
-//        let storyboard = UIStoryboard(name: "Payment", bundle: .main)
-//        let vc = storyboard.instantiateInitialViewController() as! PaymentViewController
-//        vc.modalPresentationStyle = .overCurrentContext
-//        vc.modalTransitionStyle = .coverVertical
-//        vc.delegate = self
-//
-//        present(vc, animated: true)
+        let vc = PaygateViewController.make()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .coverVertical
+        vc.delegate = self
+
+        present(vc, animated: true)
+    }
+}
+
+extension SearchViewController: PaygateViewControllerDelegate {
+    func wasPurchased() {
+        viewModel.downloadProposedInterlocutors.accept(Void())
+    }
+    
+    func wasRestored() {
+        viewModel.downloadProposedInterlocutors.accept(Void())
     }
 }

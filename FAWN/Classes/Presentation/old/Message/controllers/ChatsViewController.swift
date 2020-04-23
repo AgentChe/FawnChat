@@ -146,12 +146,7 @@ class ChatsViewController: UIViewController {
             let reportController: ReportViewController = segue.destination as! ReportViewController
             reportController.config(chat: chat)
         }
-        if segue.identifier == "paygate" {
-            let paygate: PaygateViewController = segue.destination as! PaygateViewController
-            paygate.delegate = self
-            let config: ConfigBundle = sender as! ConfigBundle
-            paygate.config(bundle: config)
-        }
+        
         if segue.identifier == "chat" {
              guard let chat: ChatItem = sender as? ChatItem else {
                  return
@@ -161,12 +156,6 @@ class ChatsViewController: UIViewController {
          }
     }
 
-}
-
-extension ChatsViewController: PaygateViewDelegate {
-    func purchaseWasEndet() {
-        paygateOnScreen = false
-    }
 }
 
 extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {

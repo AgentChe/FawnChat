@@ -102,10 +102,6 @@ class ChatViewController: UIViewController, ChatViewProtocol {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
             
-        Amplitude.instance()?.log(event: .chatScr, with: ["user_id" : String(DatingKit.user.userData!.id),
-                                                          "user_email" : DatingKit.user.userData!.email,
-                                                          "companion_id" : currentChat.chatID])
-            
         ScreenManager.shared.chatItemOnScreen = currentChat
         guard presenter != nil else { return }
         guard currentChat != nil else { return }
@@ -329,20 +325,11 @@ class ChatViewController: UIViewController, ChatViewProtocol {
 
         if segue.identifier == "paygate" {
             guard let paygate: PaygateViewController = segue.destination as? PaygateViewController else {return}
-            paygate.delegate = self
             let config: ConfigBundle = sender as! ConfigBundle
             paygate.config(bundle: config)
     
         }
         
-    }
-        
-}
-
- extension ChatViewController: PaygateViewDelegate {
-        
-    func purchaseWasEndet() {
-            
     }
         
 }
