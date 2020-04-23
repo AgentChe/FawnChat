@@ -10,6 +10,7 @@ import Foundation
 import UserNotifications
 import Firebase
 import DatingKit
+import NotificationBannerSwift
 
 protocol NotificationDelegate: class {
     func notificationRequestWasEnd(success: Bool)
@@ -177,51 +178,55 @@ class NotificationManager: NSObject {
         
         let state = UIApplication.shared.applicationState
         if state == .active {
+            if let type = Int(type), let pushType = PushType(rawValue: type), pushType == .match {
+                NotificationBanner(customView: NotificationView(text: "Notifications.Match".localized)).show()
+            }
+            
             return
         }
              
-             if let pushType: PushType = PushType(rawValue: Int(type)!) {
+         if let pushType: PushType = PushType(rawValue: Int(type)!) {
+             
+             if pushType == .message {
                  
-                 if pushType == .message {
-                     
-                     guard let chatIdSt: String = userInfo["chat_id"] as? String  else { return }
-                     guard let chatId: Int = Int(chatIdSt) else { return }
-                     guard let name: String = userInfo["name"] as? String else { return }
-                     guard let avatat: String = userInfo["avatar"] as? String else { return }
-                     
-                     ScreenManager.shared.pushChat = ChatItem(chatID: chatId,
-                                                              partnerName: name,
-                                                              avatarURL: avatat)
-                     NotificationCenter.default.post(name: NotificationManager.kMessageNotify,
-                                                     object: nil)
-                     
-                 }
+                 guard let chatIdSt: String = userInfo["chat_id"] as? String  else { return }
+                 guard let chatId: Int = Int(chatIdSt) else { return }
+                 guard let name: String = userInfo["name"] as? String else { return }
+                 guard let avatat: String = userInfo["avatar"] as? String else { return }
                  
-                 if pushType == .match {
-                     guard let match: String = userInfo["match_id"] as? String  else { return }
-                     guard let name: String = userInfo["name"] as? String  else { return }
-                     guard let avatar: String = userInfo["avatar"] as? String  else { return }
-                     guard let avatarTransparent: String = userInfo["avatar_transparent_hi_res"] as? String  else { return }
-                     guard let avatarStartColor: String = userInfo["avatar_start_color"] as? String  else { return }
-                     guard let avatarEndColor: String = userInfo["avatar_end_color"] as? String  else { return }
-                     guard let user: String = userInfo["user_id"] as? String  else { return }
-                     guard let matchID: Int = Int(match) else { return }
-                     guard let userID: Int = Int(user) else { return }
-                     
-                     ScreenManager.shared.match = DKMatch(matchID: matchID,
-                                                          name: name,
-                                                          avatar: avatar,
-                                                          avatarTransparent: avatarTransparent,
-                                                          avatarStartColor: avatarStartColor,
-                                                          avatarEndColor: avatarEndColor,
-                                                          partnerID: userID,
-                                                          gender: .woman)
-                     NotificationCenter.default.post(name: NotificationManager.kMatchNotify,
-                                                     object: nil)
-                     
-                 }
+                 ScreenManager.shared.pushChat = ChatItem(chatID: chatId,
+                                                          partnerName: name,
+                                                          avatarURL: avatat)
+                 NotificationCenter.default.post(name: NotificationManager.kMessageNotify,
+                                                 object: nil)
                  
              }
+             
+             if pushType == .match {
+                 guard let match: String = userInfo["match_id"] as? String  else { return }
+                 guard let name: String = userInfo["name"] as? String  else { return }
+                 guard let avatar: String = userInfo["avatar"] as? String  else { return }
+                 guard let avatarTransparent: String = userInfo["avatar_transparent_hi_res"] as? String  else { return }
+                 guard let avatarStartColor: String = userInfo["avatar_start_color"] as? String  else { return }
+                 guard let avatarEndColor: String = userInfo["avatar_end_color"] as? String  else { return }
+                 guard let user: String = userInfo["user_id"] as? String  else { return }
+                 guard let matchID: Int = Int(match) else { return }
+                 guard let userID: Int = Int(user) else { return }
+                 
+                 ScreenManager.shared.match = DKMatch(matchID: matchID,
+                                                      name: name,
+                                                      avatar: avatar,
+                                                      avatarTransparent: avatarTransparent,
+                                                      avatarStartColor: avatarStartColor,
+                                                      avatarEndColor: avatarEndColor,
+                                                      partnerID: userID,
+                                                      gender: .woman)
+                 NotificationCenter.default.post(name: NotificationManager.kMatchNotify,
+                                                 object: nil)
+                 
+             }
+             
+         }
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

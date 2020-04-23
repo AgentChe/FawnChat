@@ -119,6 +119,7 @@
 		9665033B244BB3F70028F735 /* CheckResponseForError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665033A244BB3F70028F735 /* CheckResponseForError.swift */; };
 		96650340244C8A110028F735 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665033F244C8A110028F735 /* VideoView.swift */; };
 		96650342244C8E740028F735 /* OnboardingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96650341244C8E740028F735 /* OnboardingInfoView.swift */; };
+		966584CC2452382C0056E853 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966584CB2452382C0056E853 /* NotificationView.swift */; };
 		96725EA0244B3540002A9457 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725E9F244B3540002A9457 /* DateExtension.swift */; };
 		96725EA2244B3544002A9457 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725EA1244B3544002A9457 /* StringExtension.swift */; };
 		96725EA6244B3568002A9457 /* RxActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725EA5244B3568002A9457 /* RxActivityIndicator.swift */; };
@@ -293,6 +294,7 @@
 		9665033A244BB3F70028F735 /* CheckResponseForError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckResponseForError.swift; sourceTree = "<group>"; };
 		9665033F244C8A110028F735 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		96650341244C8E740028F735 /* OnboardingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInfoView.swift; sourceTree = "<group>"; };
+		966584CB2452382C0056E853 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		96725E9F244B3540002A9457 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		96725EA1244B3544002A9457 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		96725EA5244B3568002A9457 /* RxActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxActivityIndicator.swift; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 				9665033F244C8A110028F735 /* VideoView.swift */,
 				96838B94244CEFAB00C71B37 /* ImagePicker.swift */,
 				9679E4B62451C4B500D7476D /* PhotosSlider.swift */,
+				966584CB2452382C0056E853 /* NotificationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1151,6 +1154,7 @@
 				9679E4962450B87700D7476D /* SplashViewModel.swift in Sources */,
 				9679E4B22450DCC100D7476D /* NoProposedInterlocutorsView.swift in Sources */,
 				96650315244B8AFC0028F735 /* OnboardingViewController.swift in Sources */,
+				966584CC2452382C0056E853 /* NotificationView.swift in Sources */,
 				9679E49A2450CD0400D7476D /* SearchViewController.swift in Sources */,
 				9679E4A42450D48900D7476D /* DislikeProposedInterlocutorRequest.swift in Sources */,
 				13981B14237055A7007E6396 /* UIImage+Download.swift in Sources */,

@@ -40,6 +40,8 @@
 // Utils
 "Utils.OK" = "OK";
 
+"Notifications.Match" = "You have a match!";
+
 // Onboarding
 "Onboarding.Info1Title" = "Only Real";
 "Onboarding.Info1SubTitle" = "A feed of real guys who are\nor were online recently.";

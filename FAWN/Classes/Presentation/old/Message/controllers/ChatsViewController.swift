@@ -30,6 +30,7 @@ class ChatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.register(UINib(nibName: "ChatsTableViewCell", bundle: .main), forCellReuseIdentifier: "ChatsTableViewCell")
         emptyMessage.alpha = 0.0
         tableView.alpha = 0.0

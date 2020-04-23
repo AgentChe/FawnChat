@@ -33,7 +33,7 @@ final class SplashViewController: UIViewController {
                     NotificationBanner(customView: NoInternetView.instanceFromNib()).show()
                     return
                 }
-                
+
                 switch step {
                 case .main:
                     self?.goToMainScreen()
@@ -41,6 +41,7 @@ final class SplashViewController: UIViewController {
                     self?.goToRegistrationScreen()
                 }
             })
+            .disposed(by: disposeBag)
     }
     
     // MARK: Lazy initialization
