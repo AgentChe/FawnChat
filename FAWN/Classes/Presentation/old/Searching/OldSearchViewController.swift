@@ -21,7 +21,7 @@ enum SearchScreenStates {
     case manualy
 }
 
-class SearchViewController: UIViewController {
+class OldSearchViewController: UIViewController {
     
     private var isAnimate: Bool = false
     private var userShow: UserShow?
@@ -373,7 +373,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: PaygateViewDelegate {
+extension OldSearchViewController: PaygateViewDelegate {
     
     
     
@@ -386,7 +386,7 @@ extension SearchViewController: PaygateViewDelegate {
 }
     
 
-extension SearchViewController: MainViewControllerDelegate {
+extension OldSearchViewController: MainViewControllerDelegate {
     
     func tapOnChats() {
         self.performSegue(withIdentifier: "pause", sender: nil)

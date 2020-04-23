@@ -147,16 +147,6 @@
             </objects>
             <point key="canvasLocation" x="493.60000000000002" y="-15.742128935532236"/>
         </scene>
-        <!--Searching-->
-        <scene sceneID="Prs-q4-qKE">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Searching" id="MP1-Si-oLU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Srn-mZ-bts"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZWa-tr-FDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="799" y="452"/>
-        </scene>
         <!--Paygate-->
         <scene sceneID="k5r-9t-om6">
             <objects>

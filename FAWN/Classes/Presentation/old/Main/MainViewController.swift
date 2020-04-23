@@ -9,7 +9,6 @@
 import UIKit
 import DatingKit
 
-
 protocol MainViewControllerDelegate: class {
     func tapOnChats()
     func tapOnSearch()
@@ -83,12 +82,10 @@ class MainViewController: UIViewController {
     
     @IBAction func tapOnSearch(_ sender: UIButton) {
         search()
-//        SearchManager.shared.startSearch()
     }
     
     @IBAction func tapOnChats(_ sender: UIButton) {
         delegate?.tapOnChats()
-//        pauseView.isHidden = false
         sender.setImage(#imageLiteral(resourceName: "chat_btn_hight"), for: .normal)
         searchButton.setImage(#imageLiteral(resourceName: "search_btn"), for: .normal)
         profileItem.image = #imageLiteral(resourceName: "profile_icon")

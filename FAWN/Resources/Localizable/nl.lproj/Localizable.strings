@@ -82,3 +82,11 @@
 "ImagePicker.CameraRoll" = "Camera roll";
 "ImagePicker.PhotoLibrary" = "Photo library";
 "ImagePicker.Cancel" = "Cancel";
+
+// Search
+"Search.NoProposedInterlocutorsTitle" = "No One's Here Right Now";
+"Search.NoProposedInterlocutorsSubTitle" = "On Fawn people appear in real time.\nWait a bit and try one more time";
+"Search.NoProposedInterlocutorsNewSearch" = "New Search";
+
+"Search.Sure" = "Sure";
+"Search.HowAbout" = "How About\n%@, %i?";

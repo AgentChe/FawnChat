@@ -8,6 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Paygate-->
+        <scene sceneID="Hmi-qj-LyX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Paygate" id="vFI-zy-lQH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxV-a8-8fY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2225" y="-763"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -20,13 +28,23 @@
                     </view>
                     <connections>
                         <segue destination="pti-HR-4Ym" kind="presentation" identifier="pause" modalPresentationStyle="currentContext" id="NYY-J2-u2f"/>
-                        <segue destination="s36-Be-S9X" kind="presentation" identifier="pay" id="pFm-aA-RVA"/>
-                        <segue destination="NO5-mr-Wl8" kind="show" identifier="chat" id="12R-Jx-wwe"/>
+                        <segue destination="vFI-zy-lQH" kind="presentation" identifier="pay" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="YzX-f0-k7b"/>
+                        <segue destination="7kI-Uq-Dg6" kind="show" identifier="chat" id="yeV-1i-NVq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
+        </scene>
+        <!--ChatViewController-->
+        <scene sceneID="foX-Rg-7pC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatViewController" id="7kI-Uq-Dg6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Id6-UO-5ZJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nQa-zg-s1K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="108"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oFz-u6-bSA">
@@ -65,24 +83,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wic-am-KvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2538" y="-321"/>
-        </scene>
-        <!--Paygate-->
-        <scene sceneID="JNJ-u9-ery">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Paygate" id="s36-Be-S9X" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gFx-o6-GZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2217" y="-791"/>
-        </scene>
-        <!--ChatViewController-->
-        <scene sceneID="f9u-HO-4sr">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatViewController" id="NO5-mr-Wl8" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="q7m-oy-ser"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SBx-7H-fuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2085" y="108"/>
         </scene>
     </scenes>
 </document>

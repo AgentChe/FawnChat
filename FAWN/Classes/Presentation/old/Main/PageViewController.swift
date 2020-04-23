@@ -16,7 +16,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     // MARK: UIPageViewControllerDataSource
     
     lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newVc(viewController: "search", storyBoard: "Searching"),
+        return [SearchViewController.make(),
                 self.newVc(viewController: "chats", storyBoard:  "Messages")]
     }()
     
@@ -24,7 +24,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-        // This sets up the first view that will show up on our page control
+        
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
                                direction: .forward,
@@ -37,12 +37,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
             if let subView = view as? UIScrollView {
                 subView.isScrollEnabled = false
             }
-            
         }
         
         configurePageControl()
-        
-        // Do any additional setup after loading the view.
     }
     
     func configurePageControl() {
@@ -63,7 +60,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     // MARK: Delegate methords
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
+        self.pageControl.currentPage = orderedViewControllers.firstIndex(of: pageContentViewController)!
     }
     
     // MARK: Data source functions.
@@ -79,10 +76,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
             return orderedViewControllers.last
         }
         
-        return  nil //orderedViewControllers[nextIndex]
+        return nil
     }
-    
-    
 }
 
 extension PageViewController: MainViewControllerDelegate {
