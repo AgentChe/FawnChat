@@ -115,15 +115,17 @@ final class SearchViewController: UIViewController {
     // MARK: Make constraints
     
     private func makeConstraints() {
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        emptyView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        emptyView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        emptyView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        emptyView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            
+            emptyView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emptyView.topAnchor.constraint(equalTo: view.topAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     // MARK: Private
