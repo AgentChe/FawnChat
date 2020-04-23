@@ -59,13 +59,6 @@ class ChatViewController: UIViewController, ChatViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: !
-//        if #available(iOS 13.0, *) {
-//            preferredUserInterfaceStyle = .light
-//        }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.close), name: ReportViewController.reportNotify, object: nil)
-                   
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
                    
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -170,8 +163,10 @@ class ChatViewController: UIViewController, ChatViewProtocol {
         actionSheet.addAction(UIAlertAction(title: "Unmatch", style: .default, handler: { (action) in
             self.showUnmatchAlert()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Report", style: .default, handler: { (action) in
-            self.performSegue(withIdentifier: "report", sender: nil)
+        actionSheet.addAction(UIAlertAction(title: "Report", style: .default, handler: { [unowned self] (action) in
+            let vc = ReportViewController(on: .chatInterlocutor(self.currentChat))
+            vc.delegate = self 
+            self.present(vc, animated: true)
         }))
         actionSheet.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
         actionSheet.view.tintColor = #colorLiteral(red: 1, green: 0.3303741813, blue: 0.3996370435, alpha: 1)
@@ -200,14 +195,11 @@ class ChatViewController: UIViewController, ChatViewProtocol {
         presenter?.send(message: Message(text: textInputView.text, sender: user.id, matchID: currentChat.chatID))
         textInputView.text = ""
     }
-        
     
     @objc func close() {
         self.navigationController?.popViewController(animated: true)
     }
-       
-        
-        
+    
     @objc func keyboardWillHide(_ sender: Notification) {
         if let userInfo = (sender as NSNotification).userInfo {
             if var keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size.height {
@@ -317,21 +309,13 @@ class ChatViewController: UIViewController, ChatViewProtocol {
     //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "report" {
-            let reportController: ReportViewController = segue.destination as! ReportViewController
-            reportController.config(chat: currentChat)
-        }
-        
-
         if segue.identifier == "paygate" {
             guard let paygate: PaygateViewController = segue.destination as? PaygateViewController else {return}
             let config: ConfigBundle = sender as! ConfigBundle
             paygate.config(bundle: config)
     
         }
-        
     }
-        
 }
 
 extension ChatViewController: UITableViewDelegate {
@@ -389,4 +373,12 @@ class NoView: UIView, ChatNoViewProtocol {
     var subTitle: String = ""
     
     
+}
+
+extension ChatViewController: ReportViewControllerDelegate {
+    func reportWasCreated(reportOn: ReportViewController.ReportOn) {
+        if case let .chatInterlocutor(chatItem) = reportOn {
+            close()
+        }
+    }
 }

@@ -141,12 +141,6 @@ class ChatsViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "report" {
-            let chat: ChatItem = sender as! ChatItem
-            let reportController: ReportViewController = segue.destination as! ReportViewController
-            reportController.config(chat: chat)
-        }
-        
         if segue.identifier == "chat" {
              guard let chat: ChatItem = sender as? ChatItem else {
                  return
@@ -199,10 +193,11 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let editAction = UITableViewRowAction(style: .default, title: "Report") { (rowAction, indexPath) in
+        let editAction = UITableViewRowAction(style: .default, title: "Report") { [weak self] (rowAction, indexPath) in
             let cell: ChatsTableViewCell = tableView.cellForRow(at: indexPath) as! ChatsTableViewCell
-            self.performSegue(withIdentifier: "report", sender: cell.item)
-            
+            let vc = ReportViewController(on: .chatInterlocutor(cell.item))
+            vc.delegate = self
+            self?.present(vc, animated: true)
         }
         editAction.backgroundColor = .clear
         
@@ -222,4 +217,8 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         return [deleteAction, editAction]
     }
     
+}
+
+extension ChatsViewController: ReportViewControllerDelegate {
+    func reportWasCreated(reportOn: ReportViewController.ReportOn) {}
 }

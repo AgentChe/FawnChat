@@ -35,9 +35,7 @@ final class SearchViewController: UIViewController {
         collectionView
             .report
             .emit(onNext: { [weak self] proposedInterlocutor in
-//                let vc = ReportViewController(on: .proposedInterlocutor(proposedInterlocutor))
-//                vc.delegate = self
-//                self?.present(vc, animated: true)
+                self?.goToReportScreen(proposedInterlocutor: proposedInterlocutor)
             })
             .disposed(by: disposeBag)
         
@@ -85,7 +83,7 @@ final class SearchViewController: UIViewController {
         viewModel
             .needPayment
             .emit(onNext: { [weak self] in
-                self?.showPaygateScreen()
+                self?.goToPaygateScreen()
             })
             .disposed(by: disposeBag)
     }
@@ -130,12 +128,20 @@ final class SearchViewController: UIViewController {
     
     // MARK: Private
     
-    private func showPaygateScreen() {
+    private func goToPaygateScreen() {
         let vc = PaygateViewController.make()
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .coverVertical
         vc.delegate = self
 
+        present(vc, animated: true)
+    }
+    
+    private func goToReportScreen(proposedInterlocutor: ProposedInterlocutor) {
+        let vc = ReportViewController(on: .proposedInterlocutor(proposedInterlocutor))
+        vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
+        
         present(vc, animated: true)
     }
 }
@@ -147,5 +153,13 @@ extension SearchViewController: PaygateViewControllerDelegate {
     
     func wasRestored() {
         viewModel.downloadProposedInterlocutors.accept(Void())
+    }
+}
+
+extension SearchViewController: ReportViewControllerDelegate {
+    func reportWasCreated(reportOn: ReportViewController.ReportOn) {
+        if case let .proposedInterlocutor(proposedInterlocutor) = reportOn {
+            collectionView.remove(proposedInterlocutor: proposedInterlocutor)
+        }
     }
 }

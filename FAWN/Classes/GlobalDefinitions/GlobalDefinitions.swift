@@ -7,6 +7,12 @@
 //
 
 final class GlobalDefinitions {
+    struct ChatService {
+        static let wsDomain = "ws://84.201.169.190"
+        static let restDomain = "http://84.201.169.190"
+        static let appKey = "693e5cbf-12f2-4d37-9b8f-578b887246fd"
+    }
+    
     struct Backend {
         static let domain = "https://test.fawn.chat"
         static let apiKey = "aIlfMTHipXdSapMc"

@@ -94,6 +94,9 @@
 		13FF838D22A31606002FB2D4 /* MensCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF838B22A31606002FB2D4 /* MensCountTableViewCell.xib */; };
 		13FF839122A318B9002FB2D4 /* BundleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF838F22A318B9002FB2D4 /* BundleTableViewCell.xib */; };
 		6E007F8D47D435C5C0FA1318 /* Pods_FAWN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269EFA9978C30D09F8AF20E8 /* Pods_FAWN.framework */; };
+		9616895C2452261B003CBD09 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9616895B2452261B003CBD09 /* ReportViewController.xib */; };
+		9616895E24522787003CBD09 /* CreateReportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616895D24522787003CBD09 /* CreateReportRequest.swift */; };
+		9616896024522B4E003CBD09 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616895F24522B4E003CBD09 /* ReportViewModel.swift */; };
 		9621E4C8244B2EC8005CF320 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621E4C7244B2EC8005CF320 /* GlobalDefinitions.swift */; };
 		9665030C244B82300028F735 /* RegistrationScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9665030B244B82300028F735 /* RegistrationScreen.storyboard */; };
 		96650312244B84E70028F735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96650311244B84E70028F735 /* LaunchScreen.storyboard */; };
@@ -265,6 +268,9 @@
 		269EFA9978C30D09F8AF20E8 /* Pods_FAWN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FAWN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DCD7981EE68AC26DBBF6D8 /* Pods-FAWN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAWN.debug.xcconfig"; path = "Target Support Files/Pods-FAWN/Pods-FAWN.debug.xcconfig"; sourceTree = "<group>"; };
 		8D93FDAE1410176F968B5E3B /* Pods-FAWN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAWN.release.xcconfig"; path = "Target Support Files/Pods-FAWN/Pods-FAWN.release.xcconfig"; sourceTree = "<group>"; };
+		9616895B2452261B003CBD09 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
+		9616895D24522787003CBD09 /* CreateReportRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReportRequest.swift; sourceTree = "<group>"; };
+		9616895F24522B4E003CBD09 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 		9621E4C7244B2EC8005CF320 /* GlobalDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDefinitions.swift; sourceTree = "<group>"; };
 		9665030B244B82300028F735 /* RegistrationScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegistrationScreen.storyboard; sourceTree = "<group>"; };
 		96650311244B84E70028F735 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -363,7 +369,6 @@
 				1391250C2281EF81001D9074 /* ChatViewController.swift */,
 				13B992F22259F514002E329C /* ChatsViewController.swift */,
 				133DB40C22623E3B00F2FD7A /* MapViewController.swift */,
-				131F12DA2288A94500BDEB65 /* ReportViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -526,6 +531,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9616895A2452214F003CBD09 /* ReportScreen */ = {
+			isa = PBXGroup;
+			children = (
+				131F12DA2288A94500BDEB65 /* ReportViewController.swift */,
+				9616895F24522B4E003CBD09 /* ReportViewModel.swift */,
+				9616895B2452261B003CBD09 /* ReportViewController.xib */,
+			);
+			path = ReportScreen;
+			sourceTree = "<group>";
+		};
 		9621E4BB244B2C9B005CF320 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +604,7 @@
 			isa = PBXGroup;
 			children = (
 				9665030D244B83A10028F735 /* old */,
+				9616895A2452214F003CBD09 /* ReportScreen */,
 				13DCFFF022A284BC008A9B08 /* PaygateScreen */,
 				9679E4972450C9A400D7476D /* SearchScreen */,
 				9679E4902450B59A00D7476D /* SplashScreen */,
@@ -812,6 +828,7 @@
 				9679E49F2450D08200D7476D /* GetProposedInterlocutorsRequest.swift */,
 				9679E4A12450D43400D7476D /* LikeProposedInterlocutorRequest.swift */,
 				9679E4A32450D48900D7476D /* DislikeProposedInterlocutorRequest.swift */,
+				9616895D24522787003CBD09 /* CreateReportRequest.swift */,
 			);
 			path = RequestBody;
 			sourceTree = "<group>";
@@ -1028,6 +1045,7 @@
 				133E6EA222A8E4C60089BDE1 /* SubtitleButtonTableViewCell.xib in Resources */,
 				13D55ABA229F2570006F8598 /* tenor-5.mp4 in Resources */,
 				136D4885227DB2FF00E11C76 /* ChatPartnerTableViewCell.xib in Resources */,
+				9616895C2452261B003CBD09 /* ReportViewController.xib in Resources */,
 				13F9425E224FE9E00082EFD3 /* Merriweather-Light.ttf in Resources */,
 				1363D3A8224AACB800C6AFEB /* Montserrat-SemiBold.ttf in Resources */,
 				96650320244B8F930028F735 /* RegistrationConfirmCodeScreen.storyboard in Resources */,
@@ -1093,6 +1111,7 @@
 				133E6E9D22A8DB1E0089BDE1 /* ReasonTableViewCell.swift in Sources */,
 				96650318244B8BA30028F735 /* RegistrationEmailViewController.swift in Sources */,
 				13B992FA2259FB54002E329C /* ChatsTableViewCell.swift in Sources */,
+				9616895E24522787003CBD09 /* CreateReportRequest.swift in Sources */,
 				96650335244BA05F0028F735 /* UIViewExtension.swift in Sources */,
 				13BB090E2299D70800DC8034 /* PageViewController.swift in Sources */,
 				96725EA6244B3568002A9457 /* RxActivityIndicator.swift in Sources */,
@@ -1152,6 +1171,7 @@
 				96725EB9244B35DE002A9457 /* DataBaseError.swift in Sources */,
 				13D8D60A22A451B900BCD1FA /* ButtonTableViewCell.swift in Sources */,
 				96650342244C8E740028F735 /* OnboardingInfoView.swift in Sources */,
+				9616896024522B4E003CBD09 /* ReportViewModel.swift in Sources */,
 				1362D1A9225E5C7D0069FBD4 /* MenuView.swift in Sources */,
 				9679E4B72451C4B500D7476D /* PhotosSlider.swift in Sources */,
 				96725EA2244B3544002A9457 /* StringExtension.swift in Sources */,
@@ -1358,9 +1378,10 @@
 			baseConfigurationReference = 44DCD7981EE68AC26DBBF6D8 /* Pods-FAWN.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FAWN/Searching/FAWN.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 60;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = QUHL86J75B;
 				ENABLE_BITCODE = NO;
@@ -1371,14 +1392,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 2.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = chat.fawn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Fawn;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1387,9 +1409,10 @@
 			baseConfigurationReference = 8D93FDAE1410176F968B5E3B /* Pods-FAWN.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FAWN/Searching/FAWN.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 60;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = QUHL86J75B;
@@ -1401,14 +1424,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.8;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = chat.fawn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Fawn;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

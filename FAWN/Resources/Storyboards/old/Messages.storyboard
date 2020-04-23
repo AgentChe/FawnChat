@@ -131,21 +131,12 @@
                     <connections>
                         <outlet property="emptyMessage" destination="Rgf-gV-knb" id="DS0-Hg-DG2"/>
                         <outlet property="tableView" destination="PNW-Db-QWR" id="JIO-JX-5KH"/>
-                        <segue destination="NZ9-VK-ZfT" kind="presentation" identifier="report" modalPresentationStyle="overCurrentContext" id="syd-dF-zk6"/>
                         <segue destination="7TT-sr-mAg" kind="show" identifier="chat" id="m1h-ty-RYg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.8" y="359.37031484257875"/>
-        </scene>
-        <!--report-->
-        <scene sceneID="j2h-o6-ba1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="report" id="NZ9-VK-ZfT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZaU-vO-dE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2280" y="48"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="hb6-pj-gMD">
