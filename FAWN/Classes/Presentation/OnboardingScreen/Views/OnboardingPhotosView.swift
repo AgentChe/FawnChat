@@ -19,9 +19,7 @@ final class OnboardingPhotosView: UIView {
     private lazy var imageView3 = makeImageView(tag: 3)
     private lazy var addButton = makeAddButton()
     private lazy var continueButton = makeContinueButton()
-    private lazy var activityIndicator = makeActivityIndicator()
     
-    private lazy var imagePicker = makeImagePicker()
     private let photosManager = OnboardingPhotosManager()
     
     override init(frame: CGRect) {
@@ -60,20 +58,11 @@ final class OnboardingPhotosView: UIView {
         return view
     }
     
-    private func makeImageView(tag: Int) -> UIImageView {
-        let view = UIImageView()
-        view.tag = tag
-        view.clipsToBounds = true
-        view.contentMode = .scaleAspectFill
+    private func makeImageView(tag: Int) -> OnboardingPhotoView {
+        let view = OnboardingPhotoView(tag: tag)
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "onboarding_photo_frame")
-        view.layer.cornerRadius = 12
-        view.isUserInteractionEnabled = true 
         addSubview(view)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(sender:)))
-        view.addGestureRecognizer(tapGesture)
-        
         return view
     }
     
@@ -99,22 +88,6 @@ final class OnboardingPhotosView: UIView {
         view.addTarget(self, action: #selector(continueButtonTapped(sender:)), for: .touchUpInside)
         addSubview(view)
         return view
-    }
-    
-    private func makeActivityIndicator() -> UIActivityIndicatorView {
-        let view = UIActivityIndicatorView(style: .whiteLarge)
-        view.hidesWhenStopped = true
-        view.translatesAutoresizingMaskIntoConstraints = false 
-        addSubview(view)
-        return view
-    }
-    
-    private func makeImagePicker() -> ImagePicker? {
-        guard let vc = AppDelegate.shared.window?.rootViewController else {
-            return nil
-        }
-        
-        return ImagePicker(presentationController: vc, delegate: self)
     }
     
     // MARK: Make constraints
@@ -153,9 +126,6 @@ final class OnboardingPhotosView: UIView {
         continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 36).isActive = true
         continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -36).isActive = true
         continueButton.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        
-        activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        activityIndicator.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 20).isActive = true
     }
     
     // MARK: Private
@@ -163,72 +133,44 @@ final class OnboardingPhotosView: UIView {
     @objc
     private func addButtonTapped(sender: Any) {
         let imageViews = [imageView1, imageView2, imageView3]
-        if let withoutImageView = imageViews.first(where: { !photosManager.isContansImage(imageViewTag: $0.tag) }) {
-            photosManager.willBeAdded(for: withoutImageView.tag)
-        } else {
-            photosManager.willBeAdded(for: imageView3.tag)
+        if let withoutImageView = imageViews.first(where: { !photosManager.isContainsUrl(for: $0.tag) && !photosManager.isBlocked(tag: $0.tag) }) {
+            withoutImageView.select()
+        } else if let lastImageView = imageViews.last, !photosManager.isBlocked(tag: lastImageView.tag) {
+            lastImageView.select()
         }
-        
-        imagePicker?.present(from: self)
     }
     
     @objc
     private func continueButtonTapped(sender: Any) {
-        blockUI(isBlock: true)
-        
-        photosManager.upload { [weak self] success in
-            self?.blockUI(isBlock: false)
-            
-            if success {
-                self?.didContinueWithUrls?(self?.photosManager.getUrls() ?? [])
-            } else {
-                self?.showError()
-            }
-        }
-    }
-    
-    @objc
-    private func imageViewTapped(sender: UITapGestureRecognizer) {
-        guard let imageView = sender.view as? UIImageView else {
+        guard !photosManager.isEmpty() else {
             return
         }
         
-        photosManager.willBeAdded(for: imageView.tag)
+        [imageView1, imageView2, imageView3].forEach { $0.cancel() }
         
-        imagePicker?.present(from: self)
+        didContinueWithUrls?(photosManager.getUrls())
+    }
+}
+
+// MARK: OnboardingPhotoViewDelegate
+
+extension OnboardingPhotosView: OnboardingPhotoViewDelegate {
+    func photoUploadSuccessfully(with url: String, for tag: Int) {
+        photosManager.set(url: url, for: tag)
     }
     
-    private func blockUI(isBlock: Bool) {
-        imageView1.isUserInteractionEnabled = !isBlock
-        imageView2.isUserInteractionEnabled = !isBlock
-        imageView3.isUserInteractionEnabled = !isBlock
-        addButton.isUserInteractionEnabled = !isBlock
-        continueButton.isUserInteractionEnabled = !isBlock
-        
-        isBlock ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
-    }
-    
-    private func showError() {
+    func photoUploadFailure(with error: String) {
         guard let rootVC = AppDelegate.shared.window?.rootViewController else {
             return
         }
         
-        let alert = UIAlertController(title: nil, message: "Onboarding.FailedUploadImage".localized, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Utils.OK".localized, style: .cancel))
         
         rootVC.present(alert, animated: true)
     }
-}
-
-extension OnboardingPhotosView: ImagePickerDelegate {
-    func didSelect(image: UIImage?) {
-        guard let image = image, let imageViewTag = photosManager.willBeAddedForImageViewTag else {
-            return
-        }
-        
-        let imageViews = [imageView1, imageView2, imageView3]
-        imageViews.first(where: { $0.tag == imageViewTag })?.image = image
-        
-        photosManager.add(image: image)
+    
+    func blockTagForSelect(tag: Int, isBlocked: Bool) {
+        photosManager.blockSelect(tag: tag, isBlocked: isBlocked)
     }
 }

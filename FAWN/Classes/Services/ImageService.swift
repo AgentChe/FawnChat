@@ -11,9 +11,9 @@ import Alamofire
 import RxSwift
 
 final class ImageService {
-    static func upload(image: UIImage) -> Single<String?> {
+    static func upload(image: UIImage) -> Single<ImageTransformation.UploadedImage> {
         guard let userToken = SessionService.shared.userToken else {
-            return .deferred { .just(nil) }
+            return .deferred { .just((nil, nil)) }
         }
         
         return upload(url: GlobalDefinitions.Backend.domain + "/api/users/add_photo",
