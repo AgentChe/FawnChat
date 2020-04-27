@@ -47,11 +47,10 @@ final class SearchViewController: UIViewController {
         
         collectionView
             .changeItemsCount
+            .distinctUntilChanged()
+            .filter { $0 == 0 }
             .emit(onNext: { [weak self] count in
-                let isEmpty = count == 0
-            
-                self?.collectionView.isHidden = isEmpty
-                self?.emptyView.isHidden = !isEmpty
+                self?.viewModel.downloadProposedInterlocutors.accept(Void())
             })
             .disposed(by: disposeBag)
         
@@ -59,6 +58,9 @@ final class SearchViewController: UIViewController {
             .proposedInterlocutors
             .drive(onNext: { [weak self] proposedInterlocutors in
                 self?.collectionView.add(proposedInterlocutors: proposedInterlocutors)
+                
+                self?.collectionView.isHidden = proposedInterlocutors.isEmpty
+                self?.emptyView.isHidden = !proposedInterlocutors.isEmpty
             })
             .disposed(by: disposeBag)
         

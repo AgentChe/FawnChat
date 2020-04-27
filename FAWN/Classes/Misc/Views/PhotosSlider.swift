@@ -26,6 +26,16 @@ final class PhotosSlider: UIView {
     private var isConfigured = false
     
     func setup(urls: [URL]) {
+        slideIndicators.forEach { $0.removeFromSuperview() }
+        slideIndicators = []
+        
+        slides.forEach { $0.removeFromSuperview() }
+        slides = []
+        
+        subviews.forEach { $0.removeFromSuperview() }
+        
+        isConfigured = false
+        
         self.urls = urls
         
         layoutIfNeeded()

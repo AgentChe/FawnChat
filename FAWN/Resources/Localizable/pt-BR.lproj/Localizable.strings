@@ -69,7 +69,7 @@
 
 "Onboarding.WelcomeHi" = "Hi, %@, %i";
 "Onboarding.WelcomeContinue" = "Continue";
-"Onboarding.WelcomeRandomize" = "Randomize ava!";
+"Onboarding.WelcomeRandomize" = "Randomize Avatar";
 
 "Onboarding.NotificationsTitlePart1" = "Final step";
 "Onboarding.NotificationsTitlePart2" = " before you begin";
