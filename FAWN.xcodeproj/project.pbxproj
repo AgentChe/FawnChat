@@ -296,6 +296,7 @@
 		9665033F244C8A110028F735 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		96650341244C8E740028F735 /* OnboardingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInfoView.swift; sourceTree = "<group>"; };
 		966584CB2452382C0056E853 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		966B20EC245A0D90007997AD /* FAWN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FAWN.entitlements; sourceTree = "<group>"; };
 		96725E9F244B3540002A9457 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		96725EA1244B3544002A9457 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		96725EA5244B3568002A9457 /* RxActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxActivityIndicator.swift; sourceTree = "<group>"; };
@@ -420,6 +421,7 @@
 		13481559223CD3A600E727A4 /* FAWN */ = {
 			isa = PBXGroup;
 			children = (
+				966B20EC245A0D90007997AD /* FAWN.entitlements */,
 				1348157C223CE3ED00E727A4 /* FAWNModel.xcdatamodeld */,
 				9621E4BB244B2C9B005CF320 /* Classes */,
 				9621E4BC244B2CA2005CF320 /* Resources */,
@@ -1386,7 +1388,7 @@
 			baseConfigurationReference = 44DCD7981EE68AC26DBBF6D8 /* Pods-FAWN.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = FAWN/FAWN.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 62;
@@ -1417,7 +1419,7 @@
 			baseConfigurationReference = 8D93FDAE1410176F968B5E3B /* Pods-FAWN.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = FAWN/FAWN.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 62;
