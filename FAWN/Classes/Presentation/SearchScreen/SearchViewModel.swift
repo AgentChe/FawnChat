@@ -10,6 +10,11 @@ import RxSwift
 import RxCocoa
 
 final class SearchViewModel {
+    enum Step {
+        case proposedInterlocutors([ProposedInterlocutor])
+        case needPayment
+    }
+    
     let like = PublishRelay<ProposedInterlocutor>()
     private(set) lazy var likeWasPut = createLikeComplete()
     
@@ -17,25 +22,27 @@ final class SearchViewModel {
     private(set) lazy var dislikeWasPut = createDislikeComplete()
     
     let downloadProposedInterlocutors = PublishRelay<Void>()
-    private(set) lazy var proposedInterlocutors = createProposedInterlocutors()
+    private(set) lazy var step = createStep()
     
-    private(set) lazy var needPayment = _needPayment.asSignal()
-    private let _needPayment = PublishRelay<Void>()
-    
-    private func createProposedInterlocutors() -> Driver<[ProposedInterlocutor]> {
+    private func createStep() -> Driver<Step> {
         downloadProposedInterlocutors
             .startWith(Void())
             .flatMapLatest {
                 SearchService
                     .proposedInterlocuters()
-                    .do(onError: { [weak self] error in
+                    .map { (false, $0) }
+                    .catchError { error in
                         if let paymentError = error as? PaymentError, paymentError == .needPayment {
-                            self?._needPayment.accept(Void())
+                            return .just((true, []))
+                        } else {
+                            return .just((false, []))
                         }
-                    })
-                    .catchErrorJustReturn([])
+                    }
             }
-            .asDriver(onErrorJustReturn: [])
+            .map {
+                $0 ? Step.needPayment : Step.proposedInterlocutors($1)
+            }
+            .asDriver(onErrorDriveWith: .never())
     }
     
     private func createLikeComplete() -> Signal<ProposedInterlocutor> {

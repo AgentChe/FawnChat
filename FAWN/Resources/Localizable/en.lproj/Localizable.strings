@@ -88,6 +88,8 @@
 "Search.NoProposedInterlocutorsTitle" = "No One's Here Right Now";
 "Search.NoProposedInterlocutorsSubTitle" = "On Fawn people appear in real time.\nWait a bit and try one more time";
 "Search.NoProposedInterlocutorsNewSearch" = "New Search";
+"Search.NeedPaymentTitle" = "That's all for the next 24 hours";
+"Search.NeedPaymentSubTitle" = "Come back tomorrow or join Fawn Club and connect with guys online right now";
 
 "Search.Sure" = "Sure";
 "Search.HowAbout" = "How About\n%@, %i?";

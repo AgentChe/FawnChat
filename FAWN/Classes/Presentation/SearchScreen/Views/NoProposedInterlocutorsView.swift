@@ -9,6 +9,10 @@
 import UIKit
 
 final class NoProposedInterlocutorsView: UIView {
+    enum DisplayType {
+        case noProposedInterlocutors, needPayment
+    }
+    
     var newSearchTapped: (() -> Void)?
     
     private lazy var imageView = makeImageView()
@@ -26,6 +30,17 @@ final class NoProposedInterlocutorsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setup(type: DisplayType) {
+        switch type {
+        case .noProposedInterlocutors:
+            titleLabel.attributedText = "Search.NoProposedInterlocutorsTitle".localized.attributed(with: makeTitleAttrs())
+            subTitleLabel.attributedText = "Search.NoProposedInterlocutorsSubTitle".localized.attributed(with: makeSubTitleAttrs())
+        case .needPayment:
+            titleLabel.attributedText = "Search.NeedPaymentTitle".localized.attributed(with: makeTitleAttrs())
+            subTitleLabel.attributedText = "Search.NeedPaymentSubTitle".localized.attributed(with: makeSubTitleAttrs())
+        }
+    }
+    
     // MARK: Lazy initialization
     
     private func makeImageView() -> UIImageView {
@@ -39,31 +54,16 @@ final class NoProposedInterlocutorsView: UIView {
     }
     
     private func makeTitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: 1))
-            .font(Font.Merriweather.regular(size: 22))
-            .lineHeight(28)
-            .textAlignment(.center)
-        
         let view = UILabel()
         view.numberOfLines = 0
-        view.attributedText = "Search.NoProposedInterlocutorsTitle".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
     private func makeSubTitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(.white)
-            .font(Font.Merriweather.regular(size: 17))
-            .lineHeight(22)
-            .letterSpacing(-0.6)
-            .textAlignment(.center)
-        
         let view = UILabel()
         view.numberOfLines = 0
-        view.attributedText = "Search.NoProposedInterlocutorsSubTitle".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -79,6 +79,23 @@ final class NoProposedInterlocutorsView: UIView {
         view.addTarget(self, action: #selector(newSearchTapped(sender:)), for: .touchUpInside)
         addSubview(view)
         return view
+    }
+    
+    private func makeTitleAttrs() -> TextAttributes {
+        TextAttributes()
+            .textColor(UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: 1))
+            .font(Font.Merriweather.regular(size: 22))
+            .lineHeight(28)
+            .textAlignment(.center)
+    }
+    
+    private func makeSubTitleAttrs() -> TextAttributes {
+        TextAttributes()
+            .textColor(.white)
+            .font(Font.Merriweather.regular(size: 17))
+            .lineHeight(22)
+            .letterSpacing(-0.6)
+            .textAlignment(.center)
     }
     
     // MARK: Make constraints

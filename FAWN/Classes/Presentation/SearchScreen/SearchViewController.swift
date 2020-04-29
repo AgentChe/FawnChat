@@ -39,12 +39,6 @@ final class SearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel
-            .proposedInterlocutors
-            .map { !$0.isEmpty }
-            .drive(emptyView.rx.isHidden)
-            .disposed(by: disposeBag)
-        
         collectionView
             .changeItemsCount
             .distinctUntilChanged()
@@ -55,12 +49,24 @@ final class SearchViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel
-            .proposedInterlocutors
-            .drive(onNext: { [weak self] proposedInterlocutors in
-                self?.collectionView.add(proposedInterlocutors: proposedInterlocutors)
-                
-                self?.collectionView.isHidden = proposedInterlocutors.isEmpty
-                self?.emptyView.isHidden = !proposedInterlocutors.isEmpty
+            .step
+            .drive(onNext: { [weak self] step in
+                switch step {
+                case .proposedInterlocutors(let proposedInterlocutors):
+                    self?.collectionView.add(proposedInterlocutors: proposedInterlocutors)
+                    
+                    self?.collectionView.isHidden = proposedInterlocutors.isEmpty
+                    self?.emptyView.isHidden = !proposedInterlocutors.isEmpty
+                    
+                    if proposedInterlocutors.isEmpty {
+                        self?.emptyView.setup(type: .noProposedInterlocutors)
+                    }
+                case .needPayment:
+                    self?.emptyView.isHidden = false
+                    self?.emptyView.setup(type: .needPayment)
+                    
+                    self?.goToPaygateScreen()
+                }
             })
             .disposed(by: disposeBag)
         
@@ -80,13 +86,6 @@ final class SearchViewController: UIViewController {
         collectionView
             .dislike
             .emit(to: viewModel.dislike)
-            .disposed(by: disposeBag)
-        
-        viewModel
-            .needPayment
-            .emit(onNext: { [weak self] in
-                self?.goToPaygateScreen()
-            })
             .disposed(by: disposeBag)
     }
     
