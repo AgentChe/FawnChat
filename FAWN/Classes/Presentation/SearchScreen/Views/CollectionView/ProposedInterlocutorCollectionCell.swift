@@ -47,7 +47,6 @@ final class ProposedInterlocutorCollectionCell: UICollectionViewCell {
     
     private func makePhotoSlider() -> PhotosSlider {
         let view = PhotosSlider()
-        view.backgroundColor = .red
         view.layer.cornerRadius = 26
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.translatesAutoresizingMaskIntoConstraints = false

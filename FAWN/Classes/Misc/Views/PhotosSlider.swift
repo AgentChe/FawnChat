@@ -38,6 +38,7 @@ final class PhotosSlider: UIView {
         
         self.urls = urls
         
+        setNeedsLayout()
         layoutIfNeeded()
     }
     
