@@ -107,10 +107,8 @@
 	<key>amplitude_key</key>
 	<string>af6bf8b69bb04a1778efe4315620566e</string>
 	<key>api_key</key>
-	<string>aIlfMTHipXdSapMc</string>
-	<key>base_url</key>
-	<string>https://test.fawn.chat/api</string>
-	<key>test_amplitude_key</key>
 	<string>v23mM-4?L6$cT!Lk</string>
+	<key>base_url</key>
+	<string>https://fawn.chat/api</string>
 </dict>
 </plist>

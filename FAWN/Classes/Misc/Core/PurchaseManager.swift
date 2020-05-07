@@ -87,7 +87,7 @@ class PurchaseRequset: APIRequestV1 {
     
 }
 
-class ReciptValidate: APIRequestV1 {
+private class ReciptValidate: APIRequestV1 {
     
     var url: String {
         return "/payments/validate_receipt"
@@ -139,19 +139,12 @@ class PurchaseManager: NSObject {
     }
     
     func gettingStart() {
-        self.validateResipt {
-            
-        }
-        
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
                 switch purchase.transaction.transactionState {
                 case .purchased, .restored:
                     if purchase.needsFinishTransaction {
                         SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
-                    self.validateResipt {
-                        
                     }
                 case .failed, .purchasing, .deferred:
                     break // do nothing
@@ -220,22 +213,14 @@ class PurchaseManager: NSObject {
                                 self.products[product.productIdentifier] = product
                                 SKProductStorePromotionController.default().update(storePromotionVisibility: SKProductStorePromotionVisibility.default,
                                                                                    for: product,
-                                                                                   completionHandler: { (error) in
-                                                                                    if error != nil {
-                                                                                        debugPrint(error!.localizedDescription)
-                                                                                    } else {
-                                                                                        debugPrint("Succses")
-                                                                                    }
-                                })
+                                                                                   completionHandler: nil)
                             }
                             
                             let returnedConfig: ConfigBundle = self.configBundle(with: self.products, and: paygateData.data!)
                             
-                            self.validateResipt {
-                                self.isLoaded = true
-                                self.isStartLoad = false
-                                completion(returnedConfig)
-                            }
+                            self.isLoaded = true
+                            self.isStartLoad = false
+                            completion(returnedConfig)
                         })
                     } else {
                         self.isStartLoad = false
@@ -343,12 +328,6 @@ class PurchaseManager: NSObject {
             else {
                 completion(.failed)
             }
-        }
-    }
-    
-    func loadResipt() {
-        validateResipt {
-            debugPrint("Validating Resipt")
         }
     }
     
