@@ -191,7 +191,7 @@
 		133E6E9C22A8DB1E0089BDE1 /* ReasonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonTableViewCell.xib; sourceTree = "<group>"; };
 		133E6E9F22A8E4C60089BDE1 /* SubtitleButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleButtonTableViewCell.swift; sourceTree = "<group>"; };
 		133E6EA022A8E4C60089BDE1 /* SubtitleButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtitleButtonTableViewCell.xib; sourceTree = "<group>"; };
-		13481557223CD3A600E727A4 /* FAWN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FAWN.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13481557223CD3A600E727A4 /* Gay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1348155A223CD3A600E727A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13481568223CD3A700E727A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13481577223CDDA000E727A4 /* ScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenManager.swift; path = Managers/ScreenManager.swift; sourceTree = "<group>"; };
@@ -413,7 +413,7 @@
 		13481558223CD3A600E727A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13481557223CD3A600E727A4 /* FAWN.app */,
+				13481557223CD3A600E727A4 /* Gay.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -949,7 +949,7 @@
 			);
 			name = FAWN;
 			productName = FAWN;
-			productReference = 13481557223CD3A600E727A4 /* FAWN.app */;
+			productReference = 13481557223CD3A600E727A4 /* Gay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1405,7 +1405,7 @@
 				MARKETING_VERSION = 2.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = chat.fawn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Gay;
 				PROVISIONING_PROFILE_SPECIFIER = "FAWN Development";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_REFLECTION_METADATA_LEVEL = none;
@@ -1436,7 +1436,7 @@
 				);
 				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = chat.fawn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Gay;
 				PROVISIONING_PROFILE_SPECIFIER = Fawn;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
