@@ -47,6 +47,16 @@ extension SearchService {
             .callServerApi(requestBody: DislikeProposedInterlocutorRequest(userToken: userToken, proposedInterlocutorId: id))
             .map { try CheckResponseForError.throwIfError(response: $0) }
     }
+    
+    static func unmatch(chatId: String) -> Single<Void> {
+        guard let userToken = SessionService.shared.userToken else {
+            return .deferred { .error(SignError.tokenNotFound) }
+        }
+        
+        return RestAPITransport()
+            .callServerApi(requestBody: UnmatchRequest(userToken: userToken, chatId: chatId))
+            .map { _ in Void() }
+    }
 }
 
 // MARK: Report

@@ -14,11 +14,11 @@ final class GlobalDefinitions {
     }
     
     struct Backend {
-        static let domain = "https://fawn.chat" // prod 
-//        static let domain = "https://test.fawn.chat" // dev
+//        static let domain = "https://fawn.chat" // prod
+        static let domain = "http://test.fawn.chat" // dev
         
-        static let apiKey = "v23mM-4?L6$cT!Lk" // prod
-//        static let apiKey = "aIlfMTHipXdSapMc" // dev
+//        static let apiKey = "v23mM-4?L6$cT!Lk" // prod
+        static let apiKey = "aIlfMTHipXdSapMc" // dev
     }
     
     struct TermsOfService {

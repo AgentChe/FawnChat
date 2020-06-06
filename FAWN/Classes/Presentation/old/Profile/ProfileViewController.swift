@@ -11,8 +11,6 @@ import DatingKit
 
 
 class ProfileViewController: UIViewController {
-
-    
     @IBOutlet weak var activityView: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
@@ -255,4 +253,12 @@ extension ProfileViewController: PaymentFlowDelegate {
     }
     
     
+}
+
+// MARK: Make
+
+extension ProfileViewController {
+    static func make() -> ProfileViewController {
+        UIStoryboard(name: "Profile", bundle: .main).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+    }
 }

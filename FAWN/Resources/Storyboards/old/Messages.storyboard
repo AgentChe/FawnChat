@@ -19,10 +19,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Chats View Controller-->
+        <!--View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController storyboardIdentifier="chats" id="8rJ-Kc-sve" customClass="ChatsViewController" customModule="FAWN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chats" id="8rJ-Kc-sve" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,22 +131,11 @@
                     <connections>
                         <outlet property="emptyMessage" destination="Rgf-gV-knb" id="DS0-Hg-DG2"/>
                         <outlet property="tableView" destination="PNW-Db-QWR" id="JIO-JX-5KH"/>
-                        <segue destination="7TT-sr-mAg" kind="show" identifier="chat" id="m1h-ty-RYg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.8" y="359.37031484257875"/>
-        </scene>
-        <!--ChatViewController-->
-        <scene sceneID="hb6-pj-gMD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatViewController" id="7TT-sr-mAg" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="K7G-3N-VlK"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="42O-aJ-agf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2281" y="461"/>
         </scene>
     </scenes>
     <resources>

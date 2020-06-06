@@ -24,7 +24,10 @@ target 'FAWN' do
 
   pod 'Fabric'
   pod 'Crashlytics'
+  
+  pod 'Starscream'
 
   pod 'ReverseExtension', :git => 'https://github.com/alexdelarge05/ReverseExtension.git', :commit =>  'f46463468b608c9189846c374863cdeb03f15bb4'
-
+  pod 'DatingKit', :git => 'https://bitbucket.org/sergeyzhilkin/dating-kit.git', :branch => 'fix'
+  
 end

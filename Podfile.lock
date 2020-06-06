@@ -164,6 +164,7 @@ PODS:
     - SDWebImage/Core (= 5.2.5)
   - SDWebImage/Core (5.2.5)
   - SnapKit (5.0.1)
+  - Starscream (4.0.3)
   - SwiftyStoreKit (0.15.0)
   - TKImageShowing (1.1.0):
     - SDWebImage (~> 5.2.3)
@@ -172,7 +173,7 @@ DEPENDENCIES:
   - AlamofireImage
   - Amplitude-iOS
   - Crashlytics
-  - DatingKit (from `https://bitbucket.org/sergeyzhilkin/dating-kit.git`, branch `develop`)
+  - DatingKit (from `https://bitbucket.org/sergeyzhilkin/dating-kit.git`, branch `fix`)
   - Fabric
   - Firebase/Analytics
   - Firebase/Auth
@@ -186,6 +187,7 @@ DEPENDENCIES:
   - ReverseExtension (from `https://github.com/alexdelarge05/ReverseExtension.git`, commit `f46463468b608c9189846c374863cdeb03f15bb4`)
   - RxCocoa
   - RxSwift
+  - Starscream
   - SwiftyStoreKit
   - TKImageShowing
 
@@ -234,12 +236,13 @@ SPEC REPOS:
     - RxSwift
     - SDWebImage
     - SnapKit
+    - Starscream
     - SwiftyStoreKit
     - TKImageShowing
 
 EXTERNAL SOURCES:
   DatingKit:
-    :branch: develop
+    :branch: fix
     :git: https://bitbucket.org/sergeyzhilkin/dating-kit.git
   ReverseExtension:
     :commit: f46463468b608c9189846c374863cdeb03f15bb4
@@ -247,7 +250,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DatingKit:
-    :commit: 3794870940b8e4c7478b52f102912c00ba81f4f4
+    :commit: a04f9ec2e64142c180f5db327b1551cb410ae5bd
     :git: https://bitbucket.org/sergeyzhilkin/dating-kit.git
   ReverseExtension:
     :commit: f46463468b608c9189846c374863cdeb03f15bb4
@@ -299,9 +302,10 @@ SPEC CHECKSUMS:
   RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
   SDWebImage: 4eabf2fa6695c95c47724214417a9c036c965e4a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Starscream: ef06f0961fff0880bca0604416d61141e4faca67
   SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
   TKImageShowing: 771d31183fd6533509421d2d137d4a59e771fc9e
 
-PODFILE CHECKSUM: 93d806395071c2bbfbc2dea0f0d34c15cadce0c4
+PODFILE CHECKSUM: 6a10b4ab5cc62eb2161527cc69ae4543b19590be
 
 COCOAPODS: 1.8.4

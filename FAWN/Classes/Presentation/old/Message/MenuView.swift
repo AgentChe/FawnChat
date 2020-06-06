@@ -29,8 +29,7 @@ extension MenuView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: GIFCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "GIFCollectionViewCell", for: indexPath) as! GIFCollectionViewCell
-        return cell
+        return UICollectionViewCell()
     }
     
     
