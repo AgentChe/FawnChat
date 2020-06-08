@@ -52,15 +52,20 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>The photos you&apos;ll take will be used for your public profile</string>
+	<string>The photos you'll take will be used for your public profile</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This application requires location services to work</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This application requires location services to work</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>The photos you&apos;ll upload will be used for your public profile</string>
+	<string>The photos you'll upload will be used for your public profile</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SF-Pro-Text-Bold.otf</string>
+		<string>SF-Pro-Text-Light.otf</string>
+		<string>SF-Pro-Text-Medium.otf</string>
+		<string>SF-Pro-Text-Regular.otf</string>
+		<string>SF-Pro-Text-Semibold.otf</string>
 		<string>Merriweather-UltraBold.ttf</string>
 		<string>Merriweather-UltraBdIt.ttf</string>
 		<string>Merriweather-LightIt.ttf</string>

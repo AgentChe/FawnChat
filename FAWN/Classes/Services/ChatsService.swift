@@ -69,4 +69,3 @@ extension ChatsService {
             .map { ChatTransformation.from(response: $0) }
     }
 }
-

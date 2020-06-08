@@ -72,25 +72,40 @@ extension MainViewController {
     }
 }
 
+// MARK: ChatsViewControllerDelegate
+
+extension MainViewController: ChatsViewControllerDelegate {
+    func newSearchTapped() {
+        updateViews(isSearchSelected: true)
+        
+        delegate?.tapOnSearch()
+    }
+}
+
 // MARK: Private
 
 private extension MainViewController {
     func addPagesController() {
-        let vc = PageViewController.make()
-        addChild(vc)
+        let searchVC = SearchViewController.make()
         
-        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        let chatsVC = ChatsViewController.make()
+        chatsVC.delegate = self
         
-        mainView.pageContainerView.addSubview(vc.view)
+        let pageVC = PageViewController.make(viewControllers: [searchVC, chatsVC])
+        addChild(pageVC)
+        
+        pageVC.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        mainView.pageContainerView.addSubview(pageVC.view)
         
         NSLayoutConstraint.activate([
-            vc.view.leadingAnchor.constraint(equalTo: mainView.pageContainerView.leadingAnchor),
-            vc.view.trailingAnchor.constraint(equalTo: mainView.pageContainerView.trailingAnchor),
-            vc.view.topAnchor.constraint(equalTo: mainView.pageContainerView.topAnchor),
-            vc.view.bottomAnchor.constraint(equalTo: mainView.pageContainerView.bottomAnchor)
+            pageVC.view.leadingAnchor.constraint(equalTo: mainView.pageContainerView.leadingAnchor),
+            pageVC.view.trailingAnchor.constraint(equalTo: mainView.pageContainerView.trailingAnchor),
+            pageVC.view.topAnchor.constraint(equalTo: mainView.pageContainerView.topAnchor),
+            pageVC.view.bottomAnchor.constraint(equalTo: mainView.pageContainerView.bottomAnchor)
         ])
         
-        delegate = vc
+        delegate = pageVC
     }
     
     func updateViews(isSearchSelected: Bool) {

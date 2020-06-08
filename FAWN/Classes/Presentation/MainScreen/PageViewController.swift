@@ -7,9 +7,7 @@ import UIKit
 final class PageViewController: UIPageViewController {
     private lazy var pageControl = makePageControl()
     
-    private lazy var orderedViewControllers: [UIViewController] = {
-        [SearchViewController.make(), ChatsViewController.make()]
-    }()
+    private var orderedViewControllers = [UIViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +33,10 @@ final class PageViewController: UIPageViewController {
 // MARK: Make
 
 extension PageViewController {
-    static func make() -> PageViewController {
-        PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    static func make(viewControllers: [UIViewController]) -> PageViewController {
+        let vc = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        vc.orderedViewControllers = viewControllers
+        return vc
     }
 }
 

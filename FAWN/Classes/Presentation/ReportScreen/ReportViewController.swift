@@ -17,7 +17,7 @@ protocol ReportViewControllerDelegate: class {
 
 final class ReportViewController: UIViewController {
     enum ReportOn {
-        case chatInterlocutor(ChatItem)
+        case chatInterlocutor(Chat)
         case proposedInterlocutor(ProposedInterlocutor)
     }
     
@@ -77,7 +77,7 @@ final class ReportViewController: UIViewController {
         
         switch reportOn! {
         case .chatInterlocutor(let chat):
-            headerLabel.text = String(format: "report_header".localized, chat.partnerName)
+            headerLabel.text = String(format: "report_header".localized, chat.interlocutorName)
         case .proposedInterlocutor(let proposedInterlocutor):
             headerLabel.text = String(format: "report_header".localized, proposedInterlocutor.interlocutorFullName)
         }
@@ -110,7 +110,7 @@ final class ReportViewController: UIViewController {
                 
                 switch reportOn {
                 case .chatInterlocutor(let chat):
-                    return viewModel.createOnProposedInterlocutor(report: report, proposedInterlocutorId: chat.partnerId)
+                    return viewModel.createOnProposedInterlocutor(report: report, proposedInterlocutorId: chat.interlocutorId)
                 case .proposedInterlocutor(let proposedInterlocutor):
                     return viewModel.createOnProposedInterlocutor(report: report, proposedInterlocutorId: proposedInterlocutor.id)
                 }

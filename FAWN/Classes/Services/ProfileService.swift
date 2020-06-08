@@ -8,9 +8,7 @@
 
 import RxSwift
 
-final class ProfileService {
-    
-}
+final class ProfileService {}
 
 // MARK: Profile
 

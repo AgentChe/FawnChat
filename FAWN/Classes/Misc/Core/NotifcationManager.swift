@@ -175,15 +175,6 @@ class NotificationManager: NSObject {
         guard let type: String = userInfo["type"] as? String else {
                  return
              }
-        
-        let state = UIApplication.shared.applicationState
-        if state == .active {
-            if let type = Int(type), let pushType = PushType(rawValue: type), pushType == .match {
-                NotificationBanner(customView: NotificationView(text: "Notifications.Match".localized)).show()
-            }
-            
-            return
-        }
              
          if let pushType: PushType = PushType(rawValue: Int(type)!) {
              

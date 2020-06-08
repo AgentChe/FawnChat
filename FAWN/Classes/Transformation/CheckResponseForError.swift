@@ -17,7 +17,7 @@ final class CheckResponseForError {
             throw ApiError.serverNotAvailable
         }
         
-        return code < 200 && code > 299
+        return code < 200 || code > 299
     }
     
     @discardableResult

@@ -18,9 +18,20 @@ final class ImageService {
         
         return upload(url: GlobalDefinitions.Backend.domain + "/api/users/add_photo",
                       image: image,
+                      fileName: String(format: "%@%@", UUID().uuidString, String(Date().timeIntervalSinceNow)),
                       parameters: ["_api_key": GlobalDefinitions.Backend.apiKey,
                                    "_user_token": userToken])
             .map { ImageTransformation.imageUrlFromUploadedImageResponse(response: $0) }
+    }
+    
+    static func upload(chatImage: UIImage) -> Single<ImageTransformation.UploadedImage> {
+        upload(url: GlobalDefinitions.ChatService.restDomain + "/api/v1/data/uploadFile",
+               image: chatImage,
+               mimeType: "image/jpeg",
+               name: "file",
+               fileName: String(format: "%@%@.jpeg", UUID().uuidString, String(Date().timeIntervalSinceNow)),
+               parameters: ["app_key": GlobalDefinitions.ChatService.appKey])
+        .map { ImageTransformation.imageUrlFromUploadChatImageResponse(response: $0) }
     }
 }
 
@@ -29,7 +40,9 @@ final class ImageService {
 extension ImageService {
     fileprivate static func upload(url: String,
                                image: UIImage,
-                               imageFieldKey: String = "photo",
+                               mimeType: String = "image/jpg",
+                               name: String = "photo",
+                               fileName: String,
                                parameters: [String: String] = [:],
                                progress: ((Double) -> Void)? = nil) -> Single<Any> {
         Single<Any>.create { event in
@@ -42,9 +55,9 @@ extension ImageService {
             
             Alamofire.upload(multipartFormData: { multipartFormData in
                 multipartFormData.append(imageData,
-                                         withName: imageFieldKey,
-                                         fileName: String(format: "%@%@", UUID().uuidString, String(Date().timeIntervalSinceNow)),
-                                         mimeType: "image/jpg")
+                                         withName: name,
+                                         fileName: fileName,
+                                         mimeType: mimeType)
                 
                 for (key, value) in parameters {
                     if let data = value.data(using: .utf8) {

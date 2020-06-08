@@ -28,4 +28,12 @@ final class ImageTransformation {
         
         return data["avatar"] as? String
     }
+    
+    static func imageUrlFromUploadChatImageResponse(response: Any) -> UploadedImage {
+        guard let json = response as? [String: Any] else {
+            return (nil, nil)
+        }
+        
+        return (json["result"] as? String, nil)
+    }
 }

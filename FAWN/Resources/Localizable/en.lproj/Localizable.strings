@@ -93,3 +93,18 @@
 
 "Search.Sure" = "Sure";
 "Search.HowAbout" = "How About\n%@, %i?";
+
+// Chats
+"Chats.Photo" = "Photo";
+"Chats.Title" = "Chats";
+
+"Chats.Empty.SubTitle" = "No chats yet,\nkeep looking for a match.";
+"Chats.Empty.Button" = "New Search";
+
+// Chat
+"Chat.Input.Placeholder" = "Message...";
+
+"Chat.Attach.Photo" = "Photo";
+
+"Chat.Menu.Report" = "Report";
+"Chat.Menu.Done" = "Done";

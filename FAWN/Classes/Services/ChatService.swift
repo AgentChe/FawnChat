@@ -132,4 +132,3 @@ extension ChatService {
             .map { MessageTransformation.from(response: $0) }
     }
 }
-
