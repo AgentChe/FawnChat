@@ -24,7 +24,12 @@ extension PaygateViewModel {
                 Observable<Int>
                     .interval(RxTimeInterval.seconds(1), scheduler: SerialDispatchQueueScheduler.init(qos: .background))
                     .takeUntil(self?.stopPing.asObservable() ?? Observable<Void>.never())
-                    .flatMapLatest { _ in PaygateManager.ping().catchError { _ in .never() } }
+                    .flatMapLatest { _ in
+                        PaygateManager
+                            .ping()
+                            .map { _ in Void() }
+                            .catchError { _ in .never() }
+                    }
             }
 
         let stopTrigger = stopPing

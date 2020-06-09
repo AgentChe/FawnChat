@@ -10,13 +10,15 @@ import Alamofire
 
 struct PaygatePingRequest: APIRequestBody {
     private let randomKey: String
+    private let userToken: String
     
-    init(randomKey: String) {
+    init(randomKey: String, userToken: String) {
         self.randomKey = randomKey
+        self.userToken = userToken
     }
     
     var url: String {
-        GlobalDefinitions.Backend.domain + "/api/payments/ping?_api_key=\(GlobalDefinitions.Backend.apiKey)"
+        GlobalDefinitions.Backend.domain + "/api/payments/ping"
     }
     
     var method: HTTPMethod {
@@ -25,6 +27,8 @@ struct PaygatePingRequest: APIRequestBody {
     
     var parameters: Parameters? {
         [
+            "_api_key": GlobalDefinitions.Backend.apiKey,
+            "_user_token": userToken,
             "random_string": randomKey
         ]
     }

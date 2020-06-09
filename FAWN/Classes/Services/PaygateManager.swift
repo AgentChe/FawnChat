@@ -17,9 +17,15 @@ final class PaygateManager {
 // MARK: Ping
 
 extension PaygateManager {
-    static func ping() -> Single<Void> {
-        RestAPITransport()
-            .callServerApi(requestBody: PaygatePingRequest(randomKey: IDFAService.shared.getAppKey()))
-            .map { _ in Void() }
+    static func ping() -> Single<Bool> {
+        guard let userToken = SessionService.shared.userToken else {
+            return .deferred { .just(false) }
+        }
+        
+        let request = PaygatePingRequest(randomKey: IDFAService.shared.getAppKey(), userToken: userToken)
+        
+        return RestAPITransport()
+            .callServerApi(requestBody: request)
+            .map { _ in true }
     }
 }
