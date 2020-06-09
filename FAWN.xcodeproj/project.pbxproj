@@ -194,6 +194,12 @@
 		96C0ABA0248FC58700E05B24 /* AppRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB9F248FC58700E05B24 /* AppRegisterRequest.swift */; };
 		96C0ABA2248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABA1248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift */; };
 		96C0ABA4248FDBE500E05B24 /* FacebookAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABA3248FDBE500E05B24 /* FacebookAnalytics.swift */; };
+		96C0ABA6249004DB00E05B24 /* PaygatePingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABA5249004DB00E05B24 /* PaygatePingRequest.swift */; };
+		96C0ABA82490050C00E05B24 /* PaygateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABA72490050C00E05B24 /* PaygateManager.swift */; };
+		96C0ABAA2490056C00E05B24 /* PaygateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABA92490056C00E05B24 /* PaygateViewModel.swift */; };
+		96C0ABB0249009CB00E05B24 /* RetrievedProductsPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABAD249009CB00E05B24 /* RetrievedProductsPrices.swift */; };
+		96C0ABB1249009CB00E05B24 /* ProductPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABAE249009CB00E05B24 /* ProductPrice.swift */; };
+		96C0ABB2249009CB00E05B24 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABAF249009CB00E05B24 /* PurchaseService.swift */; };
 		96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -399,6 +405,12 @@
 		96C0AB9F248FC58700E05B24 /* AppRegisterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegisterRequest.swift; sourceTree = "<group>"; };
 		96C0ABA1248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSearchAdsInfoRequest.swift; sourceTree = "<group>"; };
 		96C0ABA3248FDBE500E05B24 /* FacebookAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAnalytics.swift; sourceTree = "<group>"; };
+		96C0ABA5249004DB00E05B24 /* PaygatePingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygatePingRequest.swift; sourceTree = "<group>"; };
+		96C0ABA72490050C00E05B24 /* PaygateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateManager.swift; sourceTree = "<group>"; };
+		96C0ABA92490056C00E05B24 /* PaygateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateViewModel.swift; sourceTree = "<group>"; };
+		96C0ABAD249009CB00E05B24 /* RetrievedProductsPrices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrievedProductsPrices.swift; sourceTree = "<group>"; };
+		96C0ABAE249009CB00E05B24 /* ProductPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPrice.swift; sourceTree = "<group>"; };
+		96C0ABAF249009CB00E05B24 /* PurchaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
 		96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -518,6 +530,7 @@
 				133E6E9822A85D5B0089BDE1 /* Views */,
 				13DCFFF322A285BD008A9B08 /* PaygateViewController.swift */,
 				133E6E9922A85DDF0089BDE1 /* TrialViewController.swift */,
+				96C0ABA92490056C00E05B24 /* PaygateViewModel.swift */,
 			);
 			path = PaygateScreen;
 			sourceTree = "<group>";
@@ -621,6 +634,7 @@
 		9621E4C1244B2D74005CF320 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				96C0ABAB249009CB00E05B24 /* Purchase */,
 				96C0AB8F248FBD4B00E05B24 /* Analytics */,
 				96650332244B9BF20028F735 /* SessionService.swift */,
 				96838BC0244F699100C71B37 /* ImageService.swift */,
@@ -629,6 +643,7 @@
 				96B91540248AEBA50039B79A /* ChatsService.swift */,
 				96B91546248AEEAD0039B79A /* ChatService.swift */,
 				96C0AB9D248FBDE700E05B24 /* AppStateProxy.swift */,
+				96C0ABA72490050C00E05B24 /* PaygateManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -837,6 +852,7 @@
 				96B9154C248AF0660039B79A /* UnmatchRequest.swift */,
 				96C0ABA1248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift */,
 				96C0AB9F248FC58700E05B24 /* AppRegisterRequest.swift */,
+				96C0ABA5249004DB00E05B24 /* PaygatePingRequest.swift */,
 			);
 			path = RequestBody;
 			sourceTree = "<group>";
@@ -1085,6 +1101,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		96C0ABAB249009CB00E05B24 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				96C0ABAC249009CB00E05B24 /* Models */,
+				96C0ABAF249009CB00E05B24 /* PurchaseService.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
+		96C0ABAC249009CB00E05B24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96C0ABAD249009CB00E05B24 /* RetrievedProductsPrices.swift */,
+				96C0ABAE249009CB00E05B24 /* ProductPrice.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		96D3A59A244B746000EC35CF /* RegistrationScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,6 +1340,7 @@
 				96838B95244CEFAB00C71B37 /* ImagePicker.swift in Sources */,
 				9665033B244BB3F70028F735 /* CheckResponseForError.swift in Sources */,
 				96725EAC244B3577002A9457 /* Fonts.swift in Sources */,
+				96C0ABAA2490056C00E05B24 /* PaygateViewModel.swift in Sources */,
 				96725EBD244B3612002A9457 /* ApiError.swift in Sources */,
 				9679E4A02450D08200D7476D /* GetProposedInterlocutorsRequest.swift in Sources */,
 				96838B93244CEBDC00C71B37 /* SetRequest.swift in Sources */,
@@ -1361,6 +1396,7 @@
 				13D8D60A22A451B900BCD1FA /* ButtonTableViewCell.swift in Sources */,
 				96C0AB65248E7E4200E05B24 /* InterlocutorChatImageCell.swift in Sources */,
 				96B9153A248AE9CC0039B79A /* ChatsViewModel.swift in Sources */,
+				96C0ABA6249004DB00E05B24 /* PaygatePingRequest.swift in Sources */,
 				96650342244C8E740028F735 /* OnboardingInfoView.swift in Sources */,
 				9616896024522B4E003CBD09 /* ReportViewModel.swift in Sources */,
 				9679E4B72451C4B500D7476D /* PhotosSlider.swift in Sources */,
@@ -1383,6 +1419,7 @@
 				133E6E9A22A85DDF0089BDE1 /* TrialViewController.swift in Sources */,
 				96725EA0244B3540002A9457 /* DateExtension.swift in Sources */,
 				96650323244B8FB10028F735 /* RegistrationConfirmCodeViewController.swift in Sources */,
+				96C0ABA82490050C00E05B24 /* PaygateManager.swift in Sources */,
 				96B9154B248AF00B0039B79A /* GetChatsRequest.swift in Sources */,
 				9679E4942450B60000D7476D /* CheckUserTokenRequest.swift in Sources */,
 				13B06CB1230E8ABA00ABB6B1 /* PurchaseManager.swift in Sources */,
@@ -1394,6 +1431,7 @@
 				96725EC3244B3770002A9457 /* RestAPITransport.swift in Sources */,
 				96838BC3244F72C000C71B37 /* OnboardingPhotosManager.swift in Sources */,
 				96B9156E248BC38A0039B79A /* CircleView.swift in Sources */,
+				96C0ABB1249009CB00E05B24 /* ProductPrice.swift in Sources */,
 				96C0ABA4248FDBE500E05B24 /* FacebookAnalytics.swift in Sources */,
 				96650337244BB18B0028F735 /* RequireConfirmCodeRequest.swift in Sources */,
 				96725EBB244B35E1002A9457 /* SignError.swift in Sources */,
@@ -1408,6 +1446,7 @@
 				13BA6E3A22C16CD0000D7B58 /* AppDelegate+RootVC.swift in Sources */,
 				1399CD6422D13FFE007CDDED /* NotifySetingUiTableViewCell.swift in Sources */,
 				1312939822A6490900D6A145 /* LeftView.swift in Sources */,
+				96C0ABB0249009CB00E05B24 /* RetrievedProductsPrices.swift in Sources */,
 				96838B8D244CAB7700C71B37 /* OnboardingBirthdayView.swift in Sources */,
 				96B91547248AEEAD0039B79A /* ChatService.swift in Sources */,
 				96B9154F248AF5130039B79A /* DictionaryExtension.swift in Sources */,
@@ -1422,6 +1461,7 @@
 				96C0AB99248FBD4B00E05B24 /* SearchAttributionsDetails.swift in Sources */,
 				96C0AB67248E844600E05B24 /* MyChatMessageCell.swift in Sources */,
 				96838B91244CE12300C71B37 /* OnboardingPhotosView.swift in Sources */,
+				96C0ABB2249009CB00E05B24 /* PurchaseService.swift in Sources */,
 				96B9153E248AEB3F0039B79A /* ChatMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

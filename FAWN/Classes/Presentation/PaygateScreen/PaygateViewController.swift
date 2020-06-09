@@ -8,6 +8,7 @@
 
 import UIKit
 import DatingKit
+import RxSwift
 
 @objc protocol PaygateViewControllerDelegate: class {
     @objc optional func wasClosed()
@@ -15,11 +16,7 @@ import DatingKit
     @objc optional func wasRestored()
 }
 
-class PaygateViewController: UIViewController {
-    static func make() -> PaygateViewController {
-        UIStoryboard(name: "PaygateScreen", bundle: .main).instantiateInitialViewController() as! PaygateViewController
-    }
-    
+final class PaygateViewController: UIViewController {
     @IBOutlet weak var lineImageView: UIImageView!
     @IBOutlet weak var privacyButton: UIButton!
     @IBOutlet weak var termsButton: UIButton!
@@ -34,6 +31,10 @@ class PaygateViewController: UIViewController {
     private var currentID: String = ""
     
     weak var delegate: PaygateViewControllerDelegate!
+    
+    private let viewModel = PaygateViewModel()
+    
+    private let disposeBag = DisposeBag()
     
     func config(bundle: ConfigBundle) {
         configBundle = bundle
@@ -89,6 +90,32 @@ class PaygateViewController: UIViewController {
             self?.tableView.dataSource = self
             self?.tableView.reloadData()
         }
+        
+        AppStateProxy.ApplicationProxy
+            .willResignActive
+            .bind(to: viewModel.stopPing)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .ping()
+            .drive()
+            .disposed(by: disposeBag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if PaygateViewController.isFirstOpening {
+            PaygateViewController.isFirstOpening = false
+
+            viewModel.startPing.accept(Void())
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewModel.stopPing.accept(Void())
     }
     
     
@@ -330,4 +357,26 @@ extension PaygateViewController: PaymentFlowDelegate {
         activityView.isHidden = true
     }
 
+}
+
+// MARK: Make
+
+extension PaygateViewController {
+    static func make() -> PaygateViewController {
+        UIStoryboard(name: "PaygateScreen", bundle: .main).instantiateInitialViewController() as! PaygateViewController
+    }
+}
+
+// MARK: Private
+
+private extension PaygateViewController {
+    static var isFirstOpening: Bool {
+        set {
+            UserDefaults.standard.set(true, forKey: "paygate_was_opened")
+        }
+        
+        get {
+            !UserDefaults.standard.bool(forKey: "paygate_was_opened")
+        }
+    }
 }

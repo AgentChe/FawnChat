@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         FirebaseApp.configure()
+        PurchaseService.shared.configure()
         IDFAService.shared.configure()
         AmplitudeAnalytics.shared.configure()
         FacebookAnalytics.shared.configure()
@@ -48,5 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         NotificationManager.shared.application(application: application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        AppStateProxy.ApplicationProxy.didBecomeActive.accept(Void())
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        AppStateProxy.ApplicationProxy.willResignActive.accept(Void())
     }
 }
