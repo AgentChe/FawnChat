@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DatingKit
 
 final class OnboardingNameView: UIView {
     var didContinueWithName: ((String) -> Void)?

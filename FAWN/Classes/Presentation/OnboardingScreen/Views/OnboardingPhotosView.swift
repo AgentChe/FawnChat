@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DatingKit
 
 final class OnboardingPhotosView: UIView {
     var didContinueWithUrls: (([String]) -> Void)?

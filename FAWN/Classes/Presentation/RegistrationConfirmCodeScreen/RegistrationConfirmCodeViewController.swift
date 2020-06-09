@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import Amplitude_iOS
-import DatingKit
 import NotificationBannerSwift
 
 final class RegistrationConfirmCodeViewController: UIViewController {

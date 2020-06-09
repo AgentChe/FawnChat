@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import DatingKit
 
 protocol ReportViewControllerDelegate: class {
     func reportWasCreated(reportOn: ReportViewController.ReportOn)

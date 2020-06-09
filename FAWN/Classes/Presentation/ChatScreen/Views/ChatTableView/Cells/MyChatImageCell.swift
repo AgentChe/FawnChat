@@ -57,6 +57,7 @@ private extension MyChatImageCell {
 private extension MyChatImageCell {
     func makeImageView() -> UIImageView {
         let view = UIImageView()
+        view.layer.cornerRadius = 18.scale
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false

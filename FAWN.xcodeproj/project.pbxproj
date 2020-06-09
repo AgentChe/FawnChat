@@ -14,8 +14,6 @@
 		131F12DB2288A94500BDEB65 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131F12DA2288A94500BDEB65 /* ReportViewController.swift */; };
 		13213E06237022EC00A584CF /* NoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13213E05237022EC00A584CF /* NoInternetView.xib */; };
 		13213E082370253800A584CF /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13213E072370253800A584CF /* NoInternetView.swift */; };
-		132399F2225E78080093EC98 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 132399F0225E78080093EC98 /* ChatTableViewCell.xib */; };
-		133DB40D22623E3B00F2FD7A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133DB40C22623E3B00F2FD7A /* MapViewController.swift */; };
 		133E6E9A22A85DDF0089BDE1 /* TrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133E6E9922A85DDF0089BDE1 /* TrialViewController.swift */; };
 		133E6E9D22A8DB1E0089BDE1 /* ReasonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133E6E9B22A8DB1E0089BDE1 /* ReasonTableViewCell.swift */; };
 		133E6E9E22A8DB1E0089BDE1 /* ReasonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133E6E9C22A8DB1E0089BDE1 /* ReasonTableViewCell.xib */; };
@@ -25,19 +23,14 @@
 		13481578223CDDA000E727A4 /* ScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13481577223CDDA000E727A4 /* ScreenManager.swift */; };
 		1348157E223CE3ED00E727A4 /* FAWNModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1348157C223CE3ED00E727A4 /* FAWNModel.xcdatamodeld */; };
 		134FB78322CDF35100443378 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 134FB78222CDF35000443378 /* GoogleService-Info.plist */; };
-		1362D1A9225E5C7D0069FBD4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1362D1A8225E5C7D0069FBD4 /* MenuView.swift */; };
 		1363D3A2224A9A5500C6AFEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1363D3A1224A9A5500C6AFEB /* Assets.xcassets */; };
 		1363D3A4224A9F6900C6AFEB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1363D3A3224A9F6900C6AFEB /* MainViewController.swift */; };
 		1363D3A6224AA9EE00C6AFEB /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363D3A5224AA9EE00C6AFEB /* Montserrat-Regular.ttf */; };
 		1363D3A8224AACB800C6AFEB /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1363D3A7224AACB800C6AFEB /* Montserrat-SemiBold.ttf */; };
-		136D4885227DB2FF00E11C76 /* ChatPartnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136D4883227DB2FF00E11C76 /* ChatPartnerTableViewCell.xib */; };
-		136D488A227DB8B000E11C76 /* MyImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136D4888227DB8B000E11C76 /* MyImageTableViewCell.xib */; };
-		136D488E227DC0AD00E11C76 /* PattnerImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136D488C227DC0AD00E11C76 /* PattnerImageTableViewCell.xib */; };
 		136F3D6C22DA784B003110E6 /* 7574-like.json in Resources */ = {isa = PBXBuildFile; fileRef = 136F3D6B22DA784A003110E6 /* 7574-like.json */; };
 		1372857322A6A5CD00F422C2 /* BundleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1372857222A6A5CD00F422C2 /* BundleTableViewCell.swift */; };
 		137B71DB2393E6D300C18248 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137B71DA2393E6D300C18248 /* iAd.framework */; };
 		1391250B2281EF39001D9074 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 130FA485225BCDF700165301 /* Chat.storyboard */; };
-		1391250D2281EF81001D9074 /* OldChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1391250C2281EF81001D9074 /* OldChatViewController.swift */; };
 		13981B14237055A7007E6396 /* UIImage+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13981B13237055A7007E6396 /* UIImage+Download.swift */; };
 		1399CD6422D13FFE007CDDED /* NotifySetingUiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1399CD6222D13FFE007CDDED /* NotifySetingUiTableViewCell.swift */; };
 		1399CD6522D13FFE007CDDED /* NotifySetingUiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1399CD6322D13FFE007CDDED /* NotifySetingUiTableViewCell.xib */; };
@@ -49,10 +42,6 @@
 		139EE96922CCAA270085CCB2 /* NotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139EE96822CCAA270085CCB2 /* NotificationRequest.swift */; };
 		13A247AF223D4EA000B7FD34 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A247AE223D4EA000B7FD34 /* RegistrationViewController.swift */; };
 		13B06CB1230E8ABA00ABB6B1 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B06CB0230E8AB900ABB6B1 /* PurchaseManager.swift */; };
-		13B992F32259F514002E329C /* OldChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B992F22259F514002E329C /* OldChatsViewController.swift */; };
-		13B992FA2259FB54002E329C /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B992F82259FB54002E329C /* ChatsTableViewCell.swift */; };
-		13B992FB2259FB54002E329C /* ChatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B992F92259FB54002E329C /* ChatsTableViewCell.xib */; };
-		13B992FD225A0B10002E329C /* ChatsViewRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B992FC225A0B10002E329C /* ChatsViewRowAction.swift */; };
 		13BA6E3A22C16CD0000D7B58 /* AppDelegate+RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA6E3922C16CD0000D7B58 /* AppDelegate+RootVC.swift */; };
 		13BB090E2299D70800DC8034 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB090D2299D70800DC8034 /* PageViewController.swift */; };
 		13C638B422DDAFB7000D7FB1 /* Preloader.json in Resources */ = {isa = PBXBuildFile; fileRef = 13C638B322DDAFB5000D7FB1 /* Preloader.json */; };
@@ -197,6 +186,7 @@
 		96C0AB76248E8EB300E05B24 /* ChatAttachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB75248E8EB200E05B24 /* ChatAttachView.swift */; };
 		96C0AB78248E916B00E05B24 /* ChatInputPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB77248E916B00E05B24 /* ChatInputPlaceholderTextView.swift */; };
 		96C0AB7C248E966200E05B24 /* ChatAttachCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB7B248E966200E05B24 /* ChatAttachCaseView.swift */; };
+		96C0AB80248EEB7800E05B24 /* ChatInterlocutorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB7F248EEB7800E05B24 /* ChatInterlocutorView.swift */; };
 		96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -209,8 +199,6 @@
 		131F12DA2288A94500BDEB65 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		13213E05237022EC00A584CF /* NoInternetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetView.xib; sourceTree = "<group>"; };
 		13213E072370253800A584CF /* NoInternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
-		132399F0225E78080093EC98 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
-		133DB40C22623E3B00F2FD7A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		133E6E9922A85DDF0089BDE1 /* TrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialViewController.swift; sourceTree = "<group>"; };
 		133E6E9B22A8DB1E0089BDE1 /* ReasonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonTableViewCell.swift; sourceTree = "<group>"; };
 		133E6E9C22A8DB1E0089BDE1 /* ReasonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonTableViewCell.xib; sourceTree = "<group>"; };
@@ -222,18 +210,13 @@
 		13481577223CDDA000E727A4 /* ScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenManager.swift; path = Managers/ScreenManager.swift; sourceTree = "<group>"; };
 		1348157D223CE3ED00E727A4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		134FB78222CDF35000443378 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1362D1A8225E5C7D0069FBD4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		1363D3A1224A9A5500C6AFEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1363D3A3224A9F6900C6AFEB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1363D3A5224AA9EE00C6AFEB /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		1363D3A7224AACB800C6AFEB /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
-		136D4883227DB2FF00E11C76 /* ChatPartnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerTableViewCell.xib; sourceTree = "<group>"; };
-		136D4888227DB8B000E11C76 /* MyImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyImageTableViewCell.xib; sourceTree = "<group>"; };
-		136D488C227DC0AD00E11C76 /* PattnerImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PattnerImageTableViewCell.xib; sourceTree = "<group>"; };
 		136F3D6B22DA784A003110E6 /* 7574-like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "7574-like.json"; path = "FAWN/Resources/Animate/7574-like.json"; sourceTree = SOURCE_ROOT; };
 		1372857222A6A5CD00F422C2 /* BundleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleTableViewCell.swift; sourceTree = "<group>"; };
 		137B71DA2393E6D300C18248 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		1391250C2281EF81001D9074 /* OldChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldChatViewController.swift; sourceTree = "<group>"; };
 		13981B13237055A7007E6396 /* UIImage+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Download.swift"; sourceTree = "<group>"; };
 		1399CD6222D13FFE007CDDED /* NotifySetingUiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifySetingUiTableViewCell.swift; sourceTree = "<group>"; };
 		1399CD6322D13FFE007CDDED /* NotifySetingUiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifySetingUiTableViewCell.xib; sourceTree = "<group>"; };
@@ -245,10 +228,6 @@
 		139EE96822CCAA270085CCB2 /* NotificationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRequest.swift; sourceTree = "<group>"; };
 		13A247AE223D4EA000B7FD34 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		13B06CB0230E8AB900ABB6B1 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
-		13B992F22259F514002E329C /* OldChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldChatsViewController.swift; sourceTree = "<group>"; };
-		13B992F82259FB54002E329C /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
-		13B992F92259FB54002E329C /* ChatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatsTableViewCell.xib; sourceTree = "<group>"; };
-		13B992FC225A0B10002E329C /* ChatsViewRowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewRowAction.swift; sourceTree = "<group>"; };
 		13BA6E3922C16CD0000D7B58 /* AppDelegate+RootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+RootVC.swift"; sourceTree = "<group>"; };
 		13BB090D2299D70800DC8034 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		13C638B322DDAFB5000D7FB1 /* Preloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Preloader.json; sourceTree = "<group>"; };
@@ -405,6 +384,7 @@
 		96C0AB75248E8EB200E05B24 /* ChatAttachView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAttachView.swift; sourceTree = "<group>"; };
 		96C0AB77248E916B00E05B24 /* ChatInputPlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputPlaceholderTextView.swift; sourceTree = "<group>"; };
 		96C0AB7B248E966200E05B24 /* ChatAttachCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAttachCaseView.swift; sourceTree = "<group>"; };
+		96C0AB7F248EEB7800E05B24 /* ChatInterlocutorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInterlocutorView.swift; sourceTree = "<group>"; };
 		96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -422,16 +402,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		131F12D92288A8E200BDEB65 /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				1391250C2281EF81001D9074 /* OldChatViewController.swift */,
-				13B992F22259F514002E329C /* OldChatsViewController.swift */,
-				133DB40C22623E3B00F2FD7A /* MapViewController.swift */,
-			);
-			path = controllers;
-			sourceTree = "<group>";
-		};
 		133E6E9822A85D5B0089BDE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,19 +477,6 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		136D4886227DB85000E11C76 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				132399F0225E78080093EC98 /* ChatTableViewCell.xib */,
-				136D4888227DB8B000E11C76 /* MyImageTableViewCell.xib */,
-				136D4883227DB2FF00E11C76 /* ChatPartnerTableViewCell.xib */,
-				136D488C227DC0AD00E11C76 /* PattnerImageTableViewCell.xib */,
-				13B992F92259FB54002E329C /* ChatsTableViewCell.xib */,
-				13B992F82259FB54002E329C /* ChatsTableViewCell.swift */,
-			);
-			path = cells;
-			sourceTree = "<group>";
-		};
 		138E092E2247DB7B000CD2FC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,18 +487,7 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		13B992F12259F40F002E329C /* Message */ = {
-			isa = PBXGroup;
-			children = (
-				131F12D92288A8E200BDEB65 /* controllers */,
-				136D4886227DB85000E11C76 /* cells */,
-				13B992FC225A0B10002E329C /* ChatsViewRowAction.swift */,
-				1362D1A8225E5C7D0069FBD4 /* MenuView.swift */,
-			);
-			path = Message;
-			sourceTree = "<group>";
-		};
-		13D6A4CB22AD094200465884 /* Profile */ = {
+		13D6A4CB22AD094200465884 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
 				130FA483225BB8BF00165301 /* ProfileViewController.swift */,
@@ -550,7 +496,7 @@
 				1399CD6222D13FFE007CDDED /* NotifySetingUiTableViewCell.swift */,
 				1399CD6322D13FFE007CDDED /* NotifySetingUiTableViewCell.xib */,
 			);
-			path = Profile;
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 		13DCFFF022A284BC008A9B08 /* PaygateScreen */ = {
@@ -643,7 +589,7 @@
 		9621E4C0244B2D65005CF320 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9665030D244B83A10028F735 /* old */,
+				13D6A4CB22AD094200465884 /* ProfileScreen */,
 				96B91573248CE8F50039B79A /* ChatScreen */,
 				1348157F223CE59B00E727A4 /* MainScreen */,
 				96B91536248AE9A30039B79A /* ChatsScreen */,
@@ -743,15 +689,6 @@
 				13213E05237022EC00A584CF /* NoInternetView.xib */,
 			);
 			path = NoInternetView;
-			sourceTree = "<group>";
-		};
-		9665030D244B83A10028F735 /* old */ = {
-			isa = PBXGroup;
-			children = (
-				13B992F12259F40F002E329C /* Message */,
-				13D6A4CB22AD094200465884 /* Profile */,
-			);
-			path = old;
 			sourceTree = "<group>";
 		};
 		9665030E244B83C40028F735 /* old */ = {
@@ -1077,6 +1014,7 @@
 			children = (
 				96C0AB6E248E8EAD00E05B24 /* ChatInputView */,
 				96771181248E779900317293 /* ChatTableView */,
+				96C0AB7F248EEB7800E05B24 /* ChatInterlocutorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1223,8 +1161,6 @@
 				13F55A1622DB5203001D290C /* FawnIntro.json in Resources */,
 				13FF838D22A31606002FB2D4 /* MensCountTableViewCell.xib in Resources */,
 				13C638B422DDAFB7000D7FB1 /* Preloader.json in Resources */,
-				132399F2225E78080093EC98 /* ChatTableViewCell.xib in Resources */,
-				136D488E227DC0AD00E11C76 /* PattnerImageTableViewCell.xib in Resources */,
 				133E6E9E22A8DB1E0089BDE1 /* ReasonTableViewCell.xib in Resources */,
 				13E4D37422DA6F2C00442BF9 /* Star.json in Resources */,
 				1399CD6522D13FFE007CDDED /* NotifySetingUiTableViewCell.xib in Resources */,
@@ -1234,7 +1170,6 @@
 				13D55ABB229F2570006F8598 /* tenor-8.mp4 in Resources */,
 				136F3D6C22DA784B003110E6 /* 7574-like.json in Resources */,
 				13F55A1422DB4F87001D290C /* StartAnimation.json in Resources */,
-				13B992FB2259FB54002E329C /* ChatsTableViewCell.xib in Resources */,
 				1363D3A2224A9A5500C6AFEB /* Assets.xcassets in Resources */,
 				9665031B244B8BD20028F735 /* RegistrationEmailScreen.storyboard in Resources */,
 				13F94264224FE9E00082EFD3 /* Merriweather-LightIt.ttf in Resources */,
@@ -1248,10 +1183,8 @@
 				13F94263224FE9E00082EFD3 /* Merriweather-Regular.ttf in Resources */,
 				13FF839122A318B9002FB2D4 /* BundleTableViewCell.xib in Resources */,
 				13DCFFF222A28524008A9B08 /* PaygateScreen.storyboard in Resources */,
-				136D488A227DB8B000E11C76 /* MyImageTableViewCell.xib in Resources */,
 				133E6EA222A8E4C60089BDE1 /* SubtitleButtonTableViewCell.xib in Resources */,
 				13D55ABA229F2570006F8598 /* tenor-5.mp4 in Resources */,
-				136D4885227DB2FF00E11C76 /* ChatPartnerTableViewCell.xib in Resources */,
 				9616895C2452261B003CBD09 /* ReportViewController.xib in Resources */,
 				13F9425E224FE9E00082EFD3 /* Merriweather-Light.ttf in Resources */,
 				1363D3A8224AACB800C6AFEB /* Montserrat-SemiBold.ttf in Resources */,
@@ -1317,7 +1250,6 @@
 				13D8D60E22A45C1600BCD1FA /* TermsTableViewCell.swift in Sources */,
 				133E6E9D22A8DB1E0089BDE1 /* ReasonTableViewCell.swift in Sources */,
 				96650318244B8BA30028F735 /* RegistrationEmailViewController.swift in Sources */,
-				13B992FA2259FB54002E329C /* ChatsTableViewCell.swift in Sources */,
 				9616895E24522787003CBD09 /* CreateReportRequest.swift in Sources */,
 				96650335244BA05F0028F735 /* UIViewExtension.swift in Sources */,
 				96B91577248CE9330039B79A /* ChatViewModel.swift in Sources */,
@@ -1326,9 +1258,9 @@
 				9679E49C2450CD1C00D7476D /* SearchViewModel.swift in Sources */,
 				1372857322A6A5CD00F422C2 /* BundleTableViewCell.swift in Sources */,
 				96C0AB6B248E854C00E05B24 /* ChatTableView.swift in Sources */,
+				96C0AB80248EEB7800E05B24 /* ChatInterlocutorView.swift in Sources */,
 				96B91556248BAC430039B79A /* Scalable.swift in Sources */,
 				9665032B244B98DF0028F735 /* CreateUserRequest.swift in Sources */,
-				13B992FD225A0B10002E329C /* ChatsViewRowAction.swift in Sources */,
 				9679E4A22450D43400D7476D /* LikeProposedInterlocutorRequest.swift in Sources */,
 				96C0AB78248E916B00E05B24 /* ChatInputPlaceholderTextView.swift in Sources */,
 				139D6AC422D1211700587F34 /* GradientView.swift in Sources */,
@@ -1341,7 +1273,6 @@
 				9679E4A02450D08200D7476D /* GetProposedInterlocutorsRequest.swift in Sources */,
 				96838B93244CEBDC00C71B37 /* SetRequest.swift in Sources */,
 				96B9157A248CF18D0039B79A /* PaginatedDataLoader.swift in Sources */,
-				13B992F32259F514002E329C /* OldChatsViewController.swift in Sources */,
 				139B705F223D65D500A4625A /* FAWNNavigationController.swift in Sources */,
 				9679E4922450B5B000D7476D /* SplashViewController.swift in Sources */,
 				96B91554248BA7520039B79A /* MainView.swift in Sources */,
@@ -1357,7 +1288,6 @@
 				1348155B223CD3A600E727A4 /* AppDelegate.swift in Sources */,
 				96B91575248CE91C0039B79A /* ChatViewController.swift in Sources */,
 				96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */,
-				133DB40D22623E3B00F2FD7A /* MapViewController.swift in Sources */,
 				13D16AAD22CB896E00CA8B7F /* NotifcationManager.swift in Sources */,
 				13D6A4CD22AD0FA200465884 /* DeleteAccountViewController.swift in Sources */,
 				96B9154D248AF0660039B79A /* UnmatchRequest.swift in Sources */,
@@ -1393,7 +1323,6 @@
 				96B9153A248AE9CC0039B79A /* ChatsViewModel.swift in Sources */,
 				96650342244C8E740028F735 /* OnboardingInfoView.swift in Sources */,
 				9616896024522B4E003CBD09 /* ReportViewModel.swift in Sources */,
-				1362D1A9225E5C7D0069FBD4 /* MenuView.swift in Sources */,
 				9679E4B72451C4B500D7476D /* PhotosSlider.swift in Sources */,
 				96C0AB6D248E863000E05B24 /* MessageTableCell.swift in Sources */,
 				96725EA2244B3544002A9457 /* StringExtension.swift in Sources */,
@@ -1435,7 +1364,6 @@
 				139D6AC622D1336700587F34 /* NotifyEnablingViewController.swift in Sources */,
 				13BA6E3A22C16CD0000D7B58 /* AppDelegate+RootVC.swift in Sources */,
 				1399CD6422D13FFE007CDDED /* NotifySetingUiTableViewCell.swift in Sources */,
-				1391250D2281EF81001D9074 /* OldChatViewController.swift in Sources */,
 				1312939822A6490900D6A145 /* LeftView.swift in Sources */,
 				96838B8D244CAB7700C71B37 /* OnboardingBirthdayView.swift in Sources */,
 				96B91547248AEEAD0039B79A /* ChatService.swift in Sources */,
