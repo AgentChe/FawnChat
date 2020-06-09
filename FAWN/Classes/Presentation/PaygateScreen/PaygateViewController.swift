@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Amplitude_iOS
 import DatingKit
 
 @objc protocol PaygateViewControllerDelegate: class {
@@ -62,6 +61,8 @@ class PaygateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AmplitudeAnalytics.shared.log(with: .paygateScr)
         
         activityView.isHidden = true
         navigationController?.setToolbarHidden(true, animated: true)

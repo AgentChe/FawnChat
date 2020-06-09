@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import Amplitude_iOS
 import NotificationBannerSwift
 
 final class RegistrationConfirmCodeViewController: UIViewController {
@@ -34,7 +33,7 @@ final class RegistrationConfirmCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Amplitude.instance()?.log(event: .codeScr)
+        AmplitudeAnalytics.shared.log(with: .codeScr)
         
         textFields.forEach { [weak self] textField in
             textField.delegate = self
@@ -46,7 +45,7 @@ final class RegistrationConfirmCodeViewController: UIViewController {
         
         sendNewCodeButton.rx.tap
             .subscribe(onNext: { [unowned self] in
-                Amplitude.instance()?.log(event: .codeTap)
+                AmplitudeAnalytics.shared.log(with: .codeTap("send_new_code"))
                 
                 self.viewModel.requireCode.accept(self.email)
             })

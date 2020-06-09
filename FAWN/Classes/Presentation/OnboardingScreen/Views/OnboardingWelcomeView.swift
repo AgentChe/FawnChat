@@ -171,6 +171,9 @@ final class OnboardingWelcomeView: UIView {
             .disposed(by: disposeBag)
         
         randomizeButton.rx.tap
+            .do(onNext: {
+                AmplitudeAnalytics.shared.log(with: .avatarTap("randomize"))
+            })
             .bind(to: randomizeAvatar)
             .disposed(by: disposeBag)
         
@@ -197,6 +200,8 @@ final class OnboardingWelcomeView: UIView {
         continueButton.rx.tap
             .skipUntil(randomize)
             .subscribe(onNext: { [weak self] in
+                AmplitudeAnalytics.shared.log(with: .avatarTap("continue"))
+                
                 self?.didContinue?()
             })
             .disposed(by: disposeBag)

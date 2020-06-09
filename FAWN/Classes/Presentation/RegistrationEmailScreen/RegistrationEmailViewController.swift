@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import Amplitude_iOS
 import NotificationBannerSwift
 
 final class RegistrationEmailViewController: UIViewController {
@@ -31,7 +30,7 @@ final class RegistrationEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Amplitude.instance()?.log(event: .emailScr)
+        AmplitudeAnalytics.shared.log(with: .emailScr)
         
         textField.delegate = self
         
@@ -51,6 +50,8 @@ final class RegistrationEmailViewController: UIViewController {
         
         continueButton.rx.tap
             .subscribe(onNext: { [weak self] in
+                AmplitudeAnalytics.shared.log(with: .emailTap)
+                
                 self?.checkEmailAndContinue()
             })
             .disposed(by: disposeBag)
@@ -90,8 +91,6 @@ final class RegistrationEmailViewController: UIViewController {
         guard var email = self.email else {
             return
         }
-        
-        Amplitude.instance()?.log(event: .emailTap)
         
         tapToHideKeyboard()
         

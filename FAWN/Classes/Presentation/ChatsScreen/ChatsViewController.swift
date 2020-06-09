@@ -35,8 +35,12 @@ final class ChatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeAnalytics.shared.log(with: .chatListScr)
+        
         chatsView.tableView.selectedChat
             .emit(onNext: { [weak self] chat in
+                AmplitudeAnalytics.shared.log(with: .chatListTap("chat"))
+                
                 self?.goToChatScreen(with: chat)
             })
             .disposed(by: disposeBag)
@@ -95,6 +99,8 @@ private extension ChatsViewController {
     
     @objc
     func newSearchTapped(sender: Any) {
+        AmplitudeAnalytics.shared.log(with: .chatListTap("new_search"))
+        
         delegate?.newSearchTapped()
     }
 }

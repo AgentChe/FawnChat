@@ -22,7 +22,10 @@ struct SetRequest: APIRequestBody {
     private let notifyOnKnocks: Bool?
     private let pushNotificationsToken: String?
     private let appUUID: String?
-    
+    private let idfa: String?
+    private let isAdvertisingTrackingEnabled: Bool?
+    private let timezone: String?
+   
     init(userToken: String,
          name: String? = nil,
          birthdate: String? = nil,
@@ -35,7 +38,10 @@ struct SetRequest: APIRequestBody {
          notifyOnUsers: Bool? = nil,
          notifyOnKnocks: Bool? = nil,
          pushNotificationsToken: String? = nil,
-         appUUID: String? = nil) {
+         appUUID: String? = nil,
+         idfa: String? = nil,
+         isAdvertisingTrackingEnabled: Bool? = nil,
+         timezone: String? = nil) {
         self.userToken = userToken
         self.name = name
         self.birthdate = birthdate
@@ -49,6 +55,9 @@ struct SetRequest: APIRequestBody {
         self.notifyOnKnocks = notifyOnKnocks
         self.pushNotificationsToken = pushNotificationsToken
         self.appUUID = appUUID
+        self.idfa = idfa
+        self.isAdvertisingTrackingEnabled = isAdvertisingTrackingEnabled
+        self.timezone = timezone
     }
     
     var url: String {
@@ -111,6 +120,18 @@ struct SetRequest: APIRequestBody {
         
         if let appUUID = self.appUUID {
             params["random_string"] = appUUID
+        }
+        
+        if let idfa = self.idfa {
+            params["idfa"] = idfa
+        }
+        
+        if let isAdvertisingTrackingEnabled = self.isAdvertisingTrackingEnabled {
+            params["ad_tracking"] = isAdvertisingTrackingEnabled
+        }
+        
+        if let timezone = self.timezone {
+            params["timezone"] = timezone
         }
         
         return params

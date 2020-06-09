@@ -8,12 +8,14 @@
 
 struct Token {
     let token: String?
+    let userId: Int
     let isNewUser: Bool
 }
 
 extension Token: Model {
     private enum Keys: String, CodingKey {
         case token
+        case userId = "user_id"
         case isNewUser = "new"
     }
     
@@ -21,6 +23,7 @@ extension Token: Model {
         let container = try decoder.container(keyedBy: Keys.self)
         
         token = try? container.decode(String.self, forKey: .token)
+        userId = try container.decode(Int.self, forKey: .userId)
         isNewUser = (try? container.decode(Bool.self, forKey: .isNewUser)) ?? false
     }
 }

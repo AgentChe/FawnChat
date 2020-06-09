@@ -36,3 +36,23 @@ extension UIDevice {
         return false
     }
 }
+
+// MARK: Locale
+
+extension UIDevice {
+    static var deviceLanguageCode: String? {
+        guard let mainPreferredLanguage = Locale.preferredLanguages.first else {
+            return nil
+        }
+        
+        return Locale(identifier: mainPreferredLanguage).languageCode
+    }
+}
+
+// MARK: Version
+
+extension UIDevice {
+    static var version: String? {
+        Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
+}

@@ -46,7 +46,6 @@
 		13BB090E2299D70800DC8034 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BB090D2299D70800DC8034 /* PageViewController.swift */; };
 		13C638B422DDAFB7000D7FB1 /* Preloader.json in Resources */ = {isa = PBXBuildFile; fileRef = 13C638B322DDAFB5000D7FB1 /* Preloader.json */; };
 		13D16AAD22CB896E00CA8B7F /* NotifcationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D16AAC22CB896E00CA8B7F /* NotifcationManager.swift */; };
-		13D3E61E22BAC54D00FB8ED1 /* AmplitudeEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D3E61D22BAC54D00FB8ED1 /* AmplitudeEvents.swift */; };
 		13D55AB0229F1D46006F8598 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D55AAF229F1D46006F8598 /* StoreKit.framework */; };
 		13D55ABA229F2570006F8598 /* tenor-5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 13D55AB7229F256F006F8598 /* tenor-5.mp4 */; };
 		13D55ABB229F2570006F8598 /* tenor-8.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 13D55AB8229F2570006F8598 /* tenor-8.mp4 */; };
@@ -187,6 +186,14 @@
 		96C0AB78248E916B00E05B24 /* ChatInputPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB77248E916B00E05B24 /* ChatInputPlaceholderTextView.swift */; };
 		96C0AB7C248E966200E05B24 /* ChatAttachCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB7B248E966200E05B24 /* ChatAttachCaseView.swift */; };
 		96C0AB80248EEB7800E05B24 /* ChatInterlocutorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB7F248EEB7800E05B24 /* ChatInterlocutorView.swift */; };
+		96C0AB99248FBD4B00E05B24 /* SearchAttributionsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB92248FBD4B00E05B24 /* SearchAttributionsDetails.swift */; };
+		96C0AB9A248FBD4B00E05B24 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB94248FBD4B00E05B24 /* AnalyticsEvent.swift */; };
+		96C0AB9B248FBD4B00E05B24 /* IDFAService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB95248FBD4B00E05B24 /* IDFAService.swift */; };
+		96C0AB9C248FBD4B00E05B24 /* AmplitudeAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB96248FBD4B00E05B24 /* AmplitudeAnalytics.swift */; };
+		96C0AB9E248FBDE700E05B24 /* AppStateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB9D248FBDE700E05B24 /* AppStateProxy.swift */; };
+		96C0ABA0248FC58700E05B24 /* AppRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0AB9F248FC58700E05B24 /* AppRegisterRequest.swift */; };
+		96C0ABA2248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABA1248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift */; };
+		96C0ABA4248FDBE500E05B24 /* FacebookAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABA3248FDBE500E05B24 /* FacebookAnalytics.swift */; };
 		96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -232,7 +239,6 @@
 		13BB090D2299D70800DC8034 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		13C638B322DDAFB5000D7FB1 /* Preloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Preloader.json; sourceTree = "<group>"; };
 		13D16AAC22CB896E00CA8B7F /* NotifcationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifcationManager.swift; sourceTree = "<group>"; };
-		13D3E61D22BAC54D00FB8ED1 /* AmplitudeEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeEvents.swift; sourceTree = "<group>"; };
 		13D55AAF229F1D46006F8598 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		13D55AB7229F256F006F8598 /* tenor-5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tenor-5.mp4"; sourceTree = "<group>"; };
 		13D55AB8229F2570006F8598 /* tenor-8.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tenor-8.mp4"; sourceTree = "<group>"; };
@@ -385,6 +391,14 @@
 		96C0AB77248E916B00E05B24 /* ChatInputPlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputPlaceholderTextView.swift; sourceTree = "<group>"; };
 		96C0AB7B248E966200E05B24 /* ChatAttachCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAttachCaseView.swift; sourceTree = "<group>"; };
 		96C0AB7F248EEB7800E05B24 /* ChatInterlocutorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInterlocutorView.swift; sourceTree = "<group>"; };
+		96C0AB92248FBD4B00E05B24 /* SearchAttributionsDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAttributionsDetails.swift; sourceTree = "<group>"; };
+		96C0AB94248FBD4B00E05B24 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
+		96C0AB95248FBD4B00E05B24 /* IDFAService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDFAService.swift; sourceTree = "<group>"; };
+		96C0AB96248FBD4B00E05B24 /* AmplitudeAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplitudeAnalytics.swift; sourceTree = "<group>"; };
+		96C0AB9D248FBDE700E05B24 /* AppStateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateProxy.swift; sourceTree = "<group>"; };
+		96C0AB9F248FC58700E05B24 /* AppRegisterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegisterRequest.swift; sourceTree = "<group>"; };
+		96C0ABA1248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSearchAdsInfoRequest.swift; sourceTree = "<group>"; };
+		96C0ABA3248FDBE500E05B24 /* FacebookAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAnalytics.swift; sourceTree = "<group>"; };
 		96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -457,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				13481577223CDDA000E727A4 /* ScreenManager.swift */,
-				13D3E61D22BAC54D00FB8ED1 /* AmplitudeEvents.swift */,
 				13D16AAC22CB896E00CA8B7F /* NotifcationManager.swift */,
 				139EE96622CCA1CE0085CCB2 /* NotificationResponce.swift */,
 				139EE96822CCAA270085CCB2 /* NotificationRequest.swift */,
@@ -608,12 +621,14 @@
 		9621E4C1244B2D74005CF320 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				96C0AB8F248FBD4B00E05B24 /* Analytics */,
 				96650332244B9BF20028F735 /* SessionService.swift */,
 				96838BC0244F699100C71B37 /* ImageService.swift */,
 				969CF6D0244FA94B001BC979 /* ProfileService.swift */,
 				9679E4AA2450D63700D7476D /* SearchService.swift */,
 				96B91540248AEBA50039B79A /* ChatsService.swift */,
 				96B91546248AEEAD0039B79A /* ChatService.swift */,
+				96C0AB9D248FBDE700E05B24 /* AppStateProxy.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -820,6 +835,8 @@
 				96B91548248AEFD60039B79A /* GetMessagesRequest.swift */,
 				96B9154A248AF00B0039B79A /* GetChatsRequest.swift */,
 				96B9154C248AF0660039B79A /* UnmatchRequest.swift */,
+				96C0ABA1248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift */,
+				96C0AB9F248FC58700E05B24 /* AppRegisterRequest.swift */,
 			);
 			path = RequestBody;
 			sourceTree = "<group>";
@@ -1048,6 +1065,26 @@
 			path = ChatAttachView;
 			sourceTree = "<group>";
 		};
+		96C0AB8F248FBD4B00E05B24 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				96C0AB93248FBD4B00E05B24 /* Model */,
+				96C0AB92248FBD4B00E05B24 /* SearchAttributionsDetails.swift */,
+				96C0ABA3248FDBE500E05B24 /* FacebookAnalytics.swift */,
+				96C0AB95248FBD4B00E05B24 /* IDFAService.swift */,
+				96C0AB96248FBD4B00E05B24 /* AmplitudeAnalytics.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		96C0AB93248FBD4B00E05B24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96C0AB94248FBD4B00E05B24 /* AnalyticsEvent.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		96D3A59A244B746000EC35CF /* RegistrationScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,13 +1309,15 @@
 				96725EBD244B3612002A9457 /* ApiError.swift in Sources */,
 				9679E4A02450D08200D7476D /* GetProposedInterlocutorsRequest.swift in Sources */,
 				96838B93244CEBDC00C71B37 /* SetRequest.swift in Sources */,
+				96C0AB9A248FBD4B00E05B24 /* AnalyticsEvent.swift in Sources */,
 				96B9157A248CF18D0039B79A /* PaginatedDataLoader.swift in Sources */,
 				139B705F223D65D500A4625A /* FAWNNavigationController.swift in Sources */,
+				96C0AB9E248FBDE700E05B24 /* AppStateProxy.swift in Sources */,
 				9679E4922450B5B000D7476D /* SplashViewController.swift in Sources */,
+				96C0ABA2248FC7B700E05B24 /* AddSearchAdsInfoRequest.swift in Sources */,
 				96B91554248BA7520039B79A /* MainView.swift in Sources */,
 				96B91543248AEDF30039B79A /* ChatTransformation.swift in Sources */,
 				96650340244C8A110028F735 /* VideoView.swift in Sources */,
-				13D3E61E22BAC54D00FB8ED1 /* AmplitudeEvents.swift in Sources */,
 				9665032D244B99CF0028F735 /* Token.swift in Sources */,
 				133E6EA122A8E4C60089BDE1 /* SubtitleButtonTableViewCell.swift in Sources */,
 				96650329244B906D0028F735 /* OnboardingViewModel.swift in Sources */,
@@ -1311,6 +1350,7 @@
 				96650327244B90420028F735 /* RegistrationEmailViewModel.swift in Sources */,
 				9679E465244FB76D00D7476D /* OnboardingNotificationsView.swift in Sources */,
 				96650331244B9B5C0028F735 /* TokenTransformation.swift in Sources */,
+				96C0AB9C248FBD4B00E05B24 /* AmplitudeAnalytics.swift in Sources */,
 				96725EA8244B356E002A9457 /* TextAttributes.swift in Sources */,
 				13A247AF223D4EA000B7FD34 /* RegistrationViewController.swift in Sources */,
 				969CF6D1244FA94B001BC979 /* ProfileService.swift in Sources */,
@@ -1334,6 +1374,7 @@
 				13DCFFF422A285BD008A9B08 /* PaygateViewController.swift in Sources */,
 				96C0AB76248E8EB300E05B24 /* ChatAttachView.swift in Sources */,
 				96B91558248BAC5D0039B79A /* Device.swift in Sources */,
+				96C0AB9B248FBD4B00E05B24 /* IDFAService.swift in Sources */,
 				96725EB5244B35D0002A9457 /* Model.swift in Sources */,
 				139EE96922CCAA270085CCB2 /* NotificationRequest.swift in Sources */,
 				969CF6CD244F9D5A001BC979 /* OnboardingWelcomeView.swift in Sources */,
@@ -1353,6 +1394,7 @@
 				96725EC3244B3770002A9457 /* RestAPITransport.swift in Sources */,
 				96838BC3244F72C000C71B37 /* OnboardingPhotosManager.swift in Sources */,
 				96B9156E248BC38A0039B79A /* CircleView.swift in Sources */,
+				96C0ABA4248FDBE500E05B24 /* FacebookAnalytics.swift in Sources */,
 				96650337244BB18B0028F735 /* RequireConfirmCodeRequest.swift in Sources */,
 				96725EBB244B35E1002A9457 /* SignError.swift in Sources */,
 				96C0AB73248E8EAD00E05B24 /* ChatAttachButton.swift in Sources */,
@@ -1361,6 +1403,7 @@
 				13FF838C22A31606002FB2D4 /* MensCountTableViewCell.swift in Sources */,
 				96838BC1244F699100C71B37 /* ImageService.swift in Sources */,
 				96B91572248CDDA30039B79A /* ChatsEmptyView.swift in Sources */,
+				96C0ABA0248FC58700E05B24 /* AppRegisterRequest.swift in Sources */,
 				139D6AC622D1336700587F34 /* NotifyEnablingViewController.swift in Sources */,
 				13BA6E3A22C16CD0000D7B58 /* AppDelegate+RootVC.swift in Sources */,
 				1399CD6422D13FFE007CDDED /* NotifySetingUiTableViewCell.swift in Sources */,
@@ -1376,6 +1419,7 @@
 				9621E4C8244B2EC8005CF320 /* GlobalDefinitions.swift in Sources */,
 				9679E4AB2450D63700D7476D /* SearchService.swift in Sources */,
 				96B9155C248BB7B60039B79A /* ChatsTableView.swift in Sources */,
+				96C0AB99248FBD4B00E05B24 /* SearchAttributionsDetails.swift in Sources */,
 				96C0AB67248E844600E05B24 /* MyChatMessageCell.swift in Sources */,
 				96838B91244CE12300C71B37 /* OnboardingPhotosView.swift in Sources */,
 				96B9153E248AEB3F0039B79A /* ChatMessage.swift in Sources */,

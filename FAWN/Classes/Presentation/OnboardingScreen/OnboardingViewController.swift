@@ -119,11 +119,17 @@ final class OnboardingViewController: UIViewController {
         }
         
         info3View.buttonTapped = { [unowned self] in
+            AmplitudeAnalytics.shared.log(with: .onboardingScr(1))
+            AmplitudeAnalytics.shared.log(with: .onboardingTap(1))
+            
             self.move(on: self.birthdayView, from: self.info3View)
         }
         
         birthdayView.didContinueWithData = { [unowned self] date in
             self.viewModel.birthdate.accept(date)
+            
+            AmplitudeAnalytics.shared.log(with: .onboardingScr(2))
+            AmplitudeAnalytics.shared.log(with: .onboardingTap(2))
             
             self.move(on: self.nameView, from: self.birthdayView)
             self.nameView.setup()
@@ -132,11 +138,16 @@ final class OnboardingViewController: UIViewController {
         nameView.didContinueWithName = { [unowned self] name in
             self.viewModel.name.accept(name)
             
+            AmplitudeAnalytics.shared.log(with: .onboardingScr(3))
+            AmplitudeAnalytics.shared.log(with: .onboardingTap(3))
+            
             self.move(on: self.photosView, from: self.nameView)
         }
         
         photosView.didContinueWithUrls = { [unowned self] urls in
             self.viewModel.photoUrls.accept(urls)
+            
+            AmplitudeAnalytics.shared.log(with: .avatarScr)
             
             self.welcomeView.setup(name: self.viewModel.name.value, birthdate: self.viewModel.birthdate.value, photos: self.viewModel.photoUrls.value)
             self.move(on: self.welcomeView, from: self.photosView)

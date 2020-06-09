@@ -41,6 +41,8 @@ final class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeAnalytics.shared.log(with: .chatScr)
+        
         view.backgroundColor = UIColor(red: 33 / 255, green: 33 / 255, blue: 33 / 255, alpha: 1)
         
         makeConstraints()

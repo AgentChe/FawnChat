@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Amplitude_iOS
 import DatingKit
 
 
@@ -33,14 +32,12 @@ class TrialViewController: UIViewController {
         reasons = trialInfo.reasons
         config = trialInfo
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        Amplitude.instance()?.log(event: .trialScr)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AmplitudeAnalytics.shared.log(with: .trialScr)
+        
         activityView.isHidden = true
         titleLabel.text = config.title
         tableView.register(UINib(nibName: "ReasonTableViewCell", bundle: .main), forCellReuseIdentifier: "ReasonTableViewCell")

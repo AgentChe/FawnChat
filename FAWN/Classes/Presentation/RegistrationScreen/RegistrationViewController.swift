@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Amplitude_iOS
 import NotificationBannerSwift
 import RxSwift
 
@@ -28,7 +27,7 @@ final class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Amplitude.instance()?.log(event: .loginScr)
+        AmplitudeAnalytics.shared.log(with: .loginScr)
         
         viewModel.authWithFBComplete(vc: self)
             .drive(onNext: { [weak self] new in
@@ -43,7 +42,7 @@ final class RegistrationViewController: UIViewController {
         
         continueWithFBButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                Amplitude.instance()?.log(event: .loginFBTap)
+                AmplitudeAnalytics.shared.log(with: .loginTap("facebook_login"))
                 
                 self?.viewModel.authWithFB.accept(Void())
             })
@@ -51,13 +50,15 @@ final class RegistrationViewController: UIViewController {
         
         continueWithAnotherOptionButton.rx.tap
             .subscribe(onNext: { [weak self] in
+                AmplitudeAnalytics.shared.log(with: .loginTap("email_login"))
+                
                 self?.goToRegistrationEmailScreen()
             })
             .disposed(by: disposeBag)
         
         termsButton.rx.tap
             .subscribe(onNext: {
-                Amplitude.instance()?.log(event: .loginTermsTap)
+                AmplitudeAnalytics.shared.log(with: .loginTap("terms_and_conditions"))
                 
                 if let url = URL(string: GlobalDefinitions.TermsOfService.termsUrl) {
                     UIApplication.shared.open(url)
@@ -75,8 +76,6 @@ final class RegistrationViewController: UIViewController {
     }
     
     private func goToRegistrationEmailScreen() {
-        Amplitude.instance()?.log(event: .loginEmailTap)
-        
         navigationController?.pushViewController(RegistrationEmailViewController.make(), animated: true)
     }
 }

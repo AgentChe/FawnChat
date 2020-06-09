@@ -7,13 +7,12 @@
 //
 
 import UIKit
+import Firebase
 import FBSDKCoreKit
-import Amplitude_iOS
 import DatingKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -23,23 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = FAWNNavigationController(rootViewController: SplashViewController.make())
         window?.makeKeyAndVisible()
         
+        FirebaseApp.configure()
+        IDFAService.shared.configure()
+        AmplitudeAnalytics.shared.configure()
+        FacebookAnalytics.shared.configure()
+        
         DatingKit.isLogined { (isLoginned) in
             if isLoginned {
                  NotificationManager.shared.startManagment()
             }
         }
         
-        Amplitude.instance()?.initializeApiKey((Bundle.main.object(forInfoDictionaryKey: "amplitude_key") as! String))
-        
         PurchaseManager.shared.gettingStart()
-        
-        if let options = launchOptions, let remoteNotif = options[UIApplication.LaunchOptionsKey.remoteNotification] as? [String: Any] {
-            if let aps = remoteNotif["aps"] as? [String: Any] {
-                 
-                 ScreenManager.shared.showChat = NotificationManager.shared.handleNotify(userInfo: aps)
-               
-            }
-        }
         
         return true
     }

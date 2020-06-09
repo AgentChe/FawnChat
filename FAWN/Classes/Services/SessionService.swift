@@ -16,6 +16,7 @@ final class SessionService {
     
     private struct Constants {
         static let userTokenKey = "user_token_key"
+        static let userIdKey = "user_id_key"
     }
 }
 
@@ -26,10 +27,19 @@ extension SessionService {
         UserDefaults.standard.string(forKey: Constants.userTokenKey)
     }
     
+    var userId: Int? {
+        UserDefaults.standard.value(forKey: Constants.userIdKey) as? Int
+    }
+    
     static func check(token: String) -> Single<Bool> {
         RestAPITransport()
             .callServerApi(requestBody: CheckUserTokenRequest(userToken: token))
             .map { (try? !CheckResponseForError.isError(jsonResponse: $0)) ?? false }
+            .do(onSuccess: { success in
+                if success {
+                    AppStateProxy.UserTokenProxy.userTokenCheckedWithSuccessResult.accept(Void())
+                }
+            })
     }
 }
 
@@ -42,7 +52,13 @@ extension SessionService {
             .map { TokenTransformation.fromCreateUserResponse($0) }
             .do(onSuccess: { token in
                 UserDefaults.standard.set(token?.token, forKey: Constants.userTokenKey)
+                UserDefaults.standard.set(token?.userId, forKey: Constants.userIdKey)
+                
                 CacheTool.shared.saveToken(token: token?.token ?? "")
+                
+                if token?.token != nil {
+                    AppStateProxy.UserTokenProxy.didUpdatedUserToken.accept(Void())
+                }
             })
     }
 }
@@ -62,7 +78,13 @@ extension SessionService {
             .map { TokenTransformation.fromCreateUserResponse($0) }
             .do(onSuccess: { token in
                 UserDefaults.standard.set(token?.token, forKey: Constants.userTokenKey)
+                UserDefaults.standard.set(token?.userId, forKey: Constants.userIdKey)
+                
                 CacheTool.shared.saveToken(token: token?.token ?? "")
+                
+                if token?.token != nil {
+                    AppStateProxy.UserTokenProxy.didUpdatedUserToken.accept(Void())
+                }
             })
     }
 }
