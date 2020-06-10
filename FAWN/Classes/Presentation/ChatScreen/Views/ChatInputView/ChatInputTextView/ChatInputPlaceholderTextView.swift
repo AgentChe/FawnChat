@@ -9,7 +9,9 @@
 import UIKit
 
 final class ChatInputPlaceholderTextView: UITextView {
-    private lazy var placeholder = "Chat.Input.Placeholder".localized
+    private let placeholder = "Chat.Input.Placeholder".localized
+    
+    private var flag: Int = 1
 }
 
 // MARK: UITextViewDelegate
@@ -17,24 +19,28 @@ final class ChatInputPlaceholderTextView: UITextView {
 extension ChatInputPlaceholderTextView: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let currentText = textView.text ?? ""
+        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
         
-        if currentText.isEmpty {
+        if updatedText.isEmpty {
+            flag = 1
+            
             textView.text = placeholder
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+        } else if !text.isEmpty && flag == 1 {
+            flag = 0
             
-            return false
-        } else if !currentText.isEmpty && textView.text == placeholder {
-            textView.text = nil
+            textView.text = text
+        } else {
+            return true
         }
         
-        return true
+        return false
     }
     
     func textViewDidChangeSelection(_ textView: UITextView) {
-        if textView.text == placeholder {
-            let selectRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            if textView.selectedTextRange != selectRange {
-                textView.selectedTextRange = selectRange
+        if window != nil {
+            if flag == 1 {
+                selectedTextRange = textRange(from: beginningOfDocument, to: beginningOfDocument)
             }
         }
     }

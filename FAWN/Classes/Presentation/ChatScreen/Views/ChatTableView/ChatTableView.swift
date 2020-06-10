@@ -13,12 +13,13 @@ import RxCocoa
 final class ChatTableView: UITableView {
     let viewedMessage = PublishRelay<Message>()
     let reachedTop = PublishRelay<Void>()
+    let selectedMessage = PublishRelay<Message>()
     
     private var items: [Message] = []
     private var itemsCount = 0
     
-    init() {
-        super.init(frame: .zero, style: .plain)
+    override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
         
         backgroundColor = UIColor(red: 33 / 255, green: 33 / 255, blue: 33 / 255, alpha: 1)
         
@@ -65,7 +66,7 @@ extension ChatTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let message = items[indexPath.row]
         viewedMessage.accept(message)
-        
+
         if indexPath.row == itemsCount - 1 {
             reachedTop.accept(Void())
         }
@@ -92,7 +93,16 @@ extension ChatTableView: UITableViewDataSource {
         }
         
         let cell = dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor(red: 33 / 255, green: 33 / 255, blue: 33 / 255, alpha: 1)
+        cell.selectedBackgroundView = selectedView
+        
         (cell as? MessageTableCell)?.bind(message: item)
+        
+        (cell as? MessageTableCell)?.tapped = { [weak self] message in
+            self?.selectedMessage.accept(message)
+        }
     
         cell.transform = CGAffineTransform(scaleX: 1, y: -1)
         

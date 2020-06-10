@@ -22,7 +22,7 @@ final class ChatAttachView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor(red: 225 / 255, green: 225 / 255, blue: 225 / 255, alpha: 0.6)
+        backgroundColor = UIColor(red: 225 / 255, green: 225 / 255, blue: 225 / 255, alpha: 1)
         layer.cornerRadius = 12
         
         _ = photoCaseView

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class InterlocutorChatMessageCell: UITableViewCell {
+final class InterlocutorChatMessageCell: MessageTableCell {
     lazy var messageBackgroundView = makeBackgroundView()
     lazy var messageLabel = makeLabel()
     
@@ -23,12 +23,10 @@ final class InterlocutorChatMessageCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: ChatTableCell
-
-extension InterlocutorChatMessageCell: MessageTableCell {
-    func bind(message: Message) {
+    
+    override func bind(message: Message) {
+        super.bind(message: message)
+        
         messageLabel.text = message.body
     }
 }

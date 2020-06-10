@@ -37,17 +37,24 @@ final class ReportViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var otherReasonTextView: UITextView!
-    @IBOutlet weak var otherReasonView: UIView!
-    @IBOutlet weak var processingView: UIView!
-    @IBOutlet weak var headerLabel: UILabel!
+    // MenuView
     @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var inappropriateMessageButton: UIButton!
     @IBOutlet weak var inappropriatePhotos: UIButton!
     @IBOutlet weak var feelLikeSpamButton: UIButton!
     @IBOutlet weak var otherButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
+    
+    // ProcessinView
+    @IBOutlet weak var processingView: UIView!
+    @IBOutlet weak var reportingLabel: UILabel!
+    
+    // OtherReasonView
+    @IBOutlet weak var otherReasonView: UIView!
+    @IBOutlet weak var whatExactlyLabel: UILabel!
+    @IBOutlet weak var otherReasonTextView: UITextView!
     @IBOutlet weak var otherCancelButton: UIButton!
     @IBOutlet weak var otherSendButton: UIButton!
     
@@ -73,16 +80,21 @@ final class ReportViewController: UIViewController {
         super.viewDidLoad()
         
         bind()
+        localize()
         
         switch reportOn! {
         case .chatInterlocutor(let chat):
-            headerLabel.text = String(format: "report_header".localized, chat.interlocutorName)
+            headerLabel.text = String(format: "Report.Menu.Header".localized, chat.interlocutorName)
         case .proposedInterlocutor(let proposedInterlocutor):
-            headerLabel.text = String(format: "report_header".localized, proposedInterlocutor.interlocutorFullName)
+            headerLabel.text = String(format: "Report.Menu.Header".localized, proposedInterlocutor.interlocutorFullName)
         }
     }
-    
-    private func bind() {
+}
+
+// MARK: Private
+
+private extension ReportViewController {
+    func bind() {
         viewModel.loading
             .drive(onNext: { [weak self] loading in
                 self?.menuView.isHidden = loading
@@ -145,5 +157,20 @@ final class ReportViewController: UIViewController {
                 self?.menuView.isHidden = false
             })
             .disposed(by: disposeBag)
+    }
+    
+    func localize() {
+        subtitleLabel.text = "Report.Menu.SubTitle".localized
+        inappropriateMessageButton.setTitle("Report.Menu.InappropriateMessage".localized, for: .normal)
+        inappropriatePhotos.setTitle("Report.Menu.InappropriatePhotos".localized, for: .normal)
+        feelLikeSpamButton.setTitle("Report.Menu.FeelLikeSpam".localized, for: .normal)
+        otherButton.setTitle("Report.Menu.Other".localized, for: .normal)
+        closeButton.setTitle("Report.Menu.Close".localized, for: .normal)
+        
+        reportingLabel.text = "Report.Processing.Reporting".localized
+        
+        whatExactlyLabel.text = "Report.OtherReason.WhatExactly".localized
+        otherCancelButton.setTitle("Report.OtherReason.Cancel".localized, for: .normal)
+        otherSendButton.setTitle("Report.OtherReason.Send".localized, for: .normal)
     }
 }

@@ -144,12 +144,12 @@ private extension ChatViewController {
                 guard let message = text?.trimmingCharacters(in: .whitespaces), !message.isEmpty else {
                     return
                 }
-                
+
                 self?.viewModel.sendText.accept(message)
                 self?.chatInputView.set(text: "")
             })
             .disposed(by: disposeBag)
-        
+
         chatInputView
             .attachTapped
             .emit(onNext: { [weak self] state in
@@ -162,9 +162,16 @@ private extension ChatViewController {
                 self?.menuTapped()
             })
             .disposed(by: disposeBag)
+        
+        tableView
+            .selectedMessage
+            .subscribe(onNext: { [weak self] message in
+                self?.messageTapped(message: message)
+            })
+            .disposed(by: disposeBag)
     }
     
-    func attachTapped(state:  ChatAttachButton.State) {
+    func attachTapped(state: ChatAttachButton.State) {
         switch state {
         case .attach:
             guard attachView == nil else {
@@ -222,10 +229,28 @@ private extension ChatViewController {
             })
     }
     
+    func messageTapped(message: Message) {
+        switch message.type {
+        case .image:
+            guard let url = URL(string: message.body) else {
+                return
+            }
+            
+            goToImageScreen(with: url)
+        case .text:
+            break
+        }
+    }
+    
     func setupInterlocutorInfo() {
         intercolutorView.setup(chat: chat)
         intercolutorView.sizeToFit()
         intercolutorView.layoutIfNeeded()
+    }
+    
+    func goToImageScreen(with imageUrl: URL) {
+        let vc = ImageViewController.make(imageUrl: imageUrl)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -255,7 +280,6 @@ private extension ChatViewController {
     func makeTableView() -> ChatTableView {
         let view = ChatTableView()
         view.separatorStyle = .none
-        view.allowsSelection = false
         view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(view)
         return view

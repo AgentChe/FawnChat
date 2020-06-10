@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-final class MyChatImageCell: UITableViewCell {
+final class MyChatImageCell: MessageTableCell {
     lazy var messageImageView = makeImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -23,12 +23,10 @@ final class MyChatImageCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
-// MARK: ChatTableCell
-
-extension MyChatImageCell: MessageTableCell {
-    func bind(message: Message) {
+    override func bind(message: Message) {
+        super.bind(message: message)
+        
         messageImageView.kf.cancelDownloadTask()
         messageImageView.image = nil
         

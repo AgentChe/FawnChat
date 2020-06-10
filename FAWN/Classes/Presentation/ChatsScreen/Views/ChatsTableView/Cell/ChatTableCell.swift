@@ -73,7 +73,7 @@ private extension ChatTableCell {
         NSLayoutConstraint.activate([
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18.scale),
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.scale),
-            avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.scale),
+            avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8.scale),
             avatarImageView.widthAnchor.constraint(equalToConstant: 66.scale),
             avatarImageView.heightAnchor.constraint(equalToConstant: 66.scale)
         ])

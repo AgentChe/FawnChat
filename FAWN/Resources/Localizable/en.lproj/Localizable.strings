@@ -108,3 +108,18 @@
 
 "Chat.Menu.Report" = "Report";
 "Chat.Menu.Done" = "Done";
+
+// Report
+"Report.Menu.Header" = "What Went Wrong with %@?";
+"Report.Menu.SubTitle" = "It's anonymous, we won't tell him.";
+"Report.Menu.InappropriateMessage" = "     Inappropriate Messages";
+"Report.Menu.InappropriatePhotos" = "     Inappropriate Photos";
+"Report.Menu.FeelLikeSpam" = "     Feels Like Spam";
+"Report.Menu.Other" = "     Other";
+"Report.Menu.Close" = "Close";
+
+"Report.Processing.Reporting" = "Reporting...";
+
+"Report.OtherReason.WhatExactly" = "What exactly?";
+"Report.OtherReason.Cancel" = "Cancel";
+"Report.OtherReason.Send" = "Send";

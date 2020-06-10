@@ -27,6 +27,8 @@ final class ChatsTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
+        backgroundColor = .black
+        
         register(ChatTableCell.self, forCellReuseIdentifier: String(describing: ChatTableCell.self))
         
         dataSource = self
@@ -91,7 +93,13 @@ extension ChatsTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: String(describing: ChatTableCell.self), for: indexPath) as! ChatTableCell
+        
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor(red: 33 / 255, green: 33 / 255, blue: 33 / 255, alpha: 1)
+        cell.selectedBackgroundView = selectedView
+        
         cell.setup(chat: items[indexPath.row])
+        
         return cell
     }
 }
@@ -100,8 +108,6 @@ extension ChatsTableView: UITableViewDataSource {
 
 extension ChatsTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        deselectRow(at: indexPath, animated: true)
-        
         _selectedChat.accept(items[indexPath.row])
     }
 }

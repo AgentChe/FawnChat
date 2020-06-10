@@ -200,6 +200,7 @@
 		96C0ABB0249009CB00E05B24 /* RetrievedProductsPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABAD249009CB00E05B24 /* RetrievedProductsPrices.swift */; };
 		96C0ABB1249009CB00E05B24 /* ProductPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABAE249009CB00E05B24 /* ProductPrice.swift */; };
 		96C0ABB2249009CB00E05B24 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABAF249009CB00E05B24 /* PurchaseService.swift */; };
+		96C0ABB52490C22100E05B24 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABB42490C22000E05B24 /* ImageViewController.swift */; };
 		96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -411,6 +412,7 @@
 		96C0ABAD249009CB00E05B24 /* RetrievedProductsPrices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrievedProductsPrices.swift; sourceTree = "<group>"; };
 		96C0ABAE249009CB00E05B24 /* ProductPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPrice.swift; sourceTree = "<group>"; };
 		96C0ABAF249009CB00E05B24 /* PurchaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
+		96C0ABB42490C22000E05B24 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -615,6 +617,7 @@
 		9621E4C0244B2D65005CF320 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				96C0ABB32490C22000E05B24 /* ImageScreen */,
 				13D6A4CB22AD094200465884 /* ProfileScreen */,
 				96B91573248CE8F50039B79A /* ChatScreen */,
 				1348157F223CE59B00E727A4 /* MainScreen */,
@@ -1119,6 +1122,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		96C0ABB32490C22000E05B24 /* ImageScreen */ = {
+			isa = PBXGroup;
+			children = (
+				96C0ABB42490C22000E05B24 /* ImageViewController.swift */,
+			);
+			path = ImageScreen;
+			sourceTree = "<group>";
+		};
 		96D3A59A244B746000EC35CF /* RegistrationScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1430,6 +1441,7 @@
 				1348157E223CE3ED00E727A4 /* FAWNModel.xcdatamodeld in Sources */,
 				96725EC3244B3770002A9457 /* RestAPITransport.swift in Sources */,
 				96838BC3244F72C000C71B37 /* OnboardingPhotosManager.swift in Sources */,
+				96C0ABB52490C22100E05B24 /* ImageViewController.swift in Sources */,
 				96B9156E248BC38A0039B79A /* CircleView.swift in Sources */,
 				96C0ABB1249009CB00E05B24 /* ProductPrice.swift in Sources */,
 				96C0ABA4248FDBE500E05B24 /* FacebookAnalytics.swift in Sources */,
