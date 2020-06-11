@@ -14,18 +14,18 @@ final class GlobalDefinitions {
     }
     
     struct Backend {
-//        static let domain = "https://fawn.chat" // prod
-        static let domain = "http://test.fawn.chat" // dev
+        static let domain = "https://fawn.chat" // prod
+//        static let domain = "http://test.fawn.chat" // dev
         
-//        static let apiKey = "v23mM-4?L6$cT!Lk" // prod
-        static let apiKey = "aIlfMTHipXdSapMc" // dev
+        static let apiKey = "v23mM-4?L6$cT!Lk" // prod
+//        static let apiKey = "aIlfMTHipXdSapMc" // dev
     }
     
     struct Analytics {
         static let appNameForAmplitude = "FAWN"
         
-//        static let amplitudeAPIKey = "b503251969f4b1d7901d2f7d1388d476" // prod
-            static let amplitudeAPIKey = "dde6c038a32c3082b6debe249fad5d34" // dev
+        static let amplitudeAPIKey = "b503251969f4b1d7901d2f7d1388d476" // prod
+//            static let amplitudeAPIKey = "dde6c038a32c3082b6debe249fad5d34" // dev
     }
     
     struct TermsOfService {

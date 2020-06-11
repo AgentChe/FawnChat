@@ -52,13 +52,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>The photos you'll take will be used for your public profile</string>
+	<string>The photos you&apos;ll take will be used for your public profile</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This application requires location services to work</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This application requires location services to work</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>The photos you'll upload will be used for your public profile</string>
+	<string>The photos you&apos;ll upload will be used for your public profile</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SF-Pro-Text-Bold.otf</string>
@@ -112,8 +112,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>api_key</key>
-	<string>aIlfMTHipXdSapMc</string>
+	<string>v23mM-4?L6$cT!Lk</string>
 	<key>base_url</key>
-	<string>http://test.fawn.chat/api</string>
+	<string>https://fawn.chat/api</string>
 </dict>
 </plist>
