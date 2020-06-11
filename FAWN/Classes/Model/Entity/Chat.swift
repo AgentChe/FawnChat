@@ -12,9 +12,17 @@ struct Chat {
     let interlocutorId: Int
     let interlocutorName: String
     let interlocutorAvatarUrl: URL?
-    let unreadMessageCount: Int
+    private(set) var unreadMessageCount: Int
     let lastMessage: Message?
     let interlocutorGalleryPhotos: [URL]
+}
+
+// MARK: Mutating
+
+extension Chat {
+    mutating func change(unreadMessageCount: Int) {
+        self.unreadMessageCount = unreadMessageCount
+    }
 }
 
 extension Chat: Model {

@@ -9,7 +9,13 @@
 import UIKit
 import RxSwift
 
+protocol ChatViewControllerDelegate: class {
+    func markReaded(chat: Chat, message: Message)
+}
+
 final class ChatViewController: UIViewController {
+    weak var delegate: ChatViewControllerDelegate?
+    
     private lazy var tableView = makeTableView()
     private lazy var chatInputView = makeChatInputView()
     private lazy var menuItem = makeMenuBarButtonItem()
@@ -120,6 +126,18 @@ private extension ChatViewController {
         
         tableView.viewedMessage
             .bind(to: viewModel.viewedMessage)
+            .disposed(by: disposeBag)
+        
+        tableView.viewedMessage
+            .filter { !$0.isOwner }
+            .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] message in
+                guard let `self` = self else {
+                    return
+                }
+                
+                self.delegate?.markReaded(chat: self.chat, message: message)
+            })
             .disposed(by: disposeBag)
         
         viewModel.newMessages

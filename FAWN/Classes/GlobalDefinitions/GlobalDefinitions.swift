@@ -10,7 +10,7 @@ final class GlobalDefinitions {
     struct ChatService {
         static let wsDomain = "ws://84.201.169.190"
         static let restDomain = "http://84.201.169.190"
-        static let appKey = "693e5cbf-12f2-4d37-9b8f-578b887246fd"
+        static let appKey = "9df4d65b-3e28-4a5e-89a2-364d20bc353c"
     }
     
     struct Backend {

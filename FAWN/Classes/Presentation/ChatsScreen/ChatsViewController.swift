@@ -89,11 +89,23 @@ extension ChatsViewController {
     }
 }
 
+// MARK: ChatsViewControllerDelegate
+
+extension ChatsViewController: ChatViewControllerDelegate {
+    func markReaded(chat: Chat, message: Message) {
+        var readedChat = chat
+        readedChat.change(unreadMessageCount: 0)
+        
+        chatsView.tableView.replace(chat: readedChat)
+    }
+}
+
 // MARK: Private
 
 private extension ChatsViewController {
     func goToChatScreen(with chat: Chat) {
         let vc = ChatViewController.make(with: chat)
+        vc.delegate = self 
         navigationController?.pushViewController(vc, animated: true)
     }
     

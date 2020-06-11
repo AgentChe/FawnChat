@@ -66,7 +66,7 @@ extension ChatTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let message = items[indexPath.row]
         viewedMessage.accept(message)
-
+        
         if indexPath.row == itemsCount - 1 {
             reachedTop.accept(Void())
         }
