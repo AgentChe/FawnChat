@@ -24,14 +24,20 @@ struct RegistrationViewModel {
                     manager.logOut()
                     
                     if let accessToken = AccessToken.current?.tokenString {
-                        DatingKit.user.createWithFB(token: accessToken) { (new, status) in
-                            event(.success(status == .succses ? new : nil))
+                        DatingKit.user.createWithFB(token: accessToken) { (user, status) in
+                            UserDefaults.standard.set(user?.token, forKey: "user_token_key")
+                            UserDefaults.standard.set(user?.userId, forKey: "user_id_key")
+                            
+                            event(.success(status == .succses ? user?.new : nil))
                         }
                     } else {
                         manager.logIn(permissions: ["public_profile", "email"], from: vc) { _, _ in
                             if let accessToken = AccessToken.current?.tokenString {
-                                DatingKit.user.createWithFB(token: accessToken) { (new, status) in
-                                    event(.success(status == .succses ? new : nil))
+                                DatingKit.user.createWithFB(token: accessToken) { (user, status) in
+                                    UserDefaults.standard.set(user?.token, forKey: "user_token_key")
+                                    UserDefaults.standard.set(user?.userId, forKey: "user_id_key")
+                                    
+                                    event(.success(status == .succses ? user?.new : nil))
                                 }
                             } else {
                                 event(.success(nil))

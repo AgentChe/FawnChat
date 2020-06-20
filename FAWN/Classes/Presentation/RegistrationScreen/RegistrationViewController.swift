@@ -36,7 +36,7 @@ final class RegistrationViewController: UIViewController {
                     return
                 }
                 
-                isNew ? self?.goToOnboardingScreen() : self?.goToConfirmCodeScreen()
+                isNew ? self?.goToOnboardingScreen() : self?.goToMainScreen()
             })
             .disposed(by: disposeBag)
         
@@ -67,8 +67,8 @@ final class RegistrationViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func goToConfirmCodeScreen() {
-        navigationController?.pushViewController(RegistrationConfirmCodeViewController.make(email: ""), animated: true)
+    private func goToMainScreen() {
+        AppDelegate.shared.window?.rootViewController = MainViewController.make()
     }
     
     private func goToOnboardingScreen() {
