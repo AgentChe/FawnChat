@@ -121,6 +121,9 @@ PODS:
   - GoogleUtilities/UserDefaults (6.5.2):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.3.1)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
   - leveldb-library (1.22)
   - lottie-ios (3.1.6)
   - MarqueeLabel (4.0.2)
@@ -151,10 +154,17 @@ PODS:
     - Realm (= 3.19.1)
   - RevealingTableViewCell (1.1.1)
   - ReverseExtension (0.5.0)
+  - RxCocoa (5.1.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.0)
   - SDWebImage (5.2.5):
     - SDWebImage/Core (= 5.2.5)
   - SDWebImage/Core (5.2.5)
   - SnapKit (5.0.1)
+  - Starscream (4.0.3)
   - SwiftyStoreKit (0.15.0)
   - TKImageShowing (1.1.0):
     - SDWebImage (~> 5.2.3)
@@ -163,17 +173,21 @@ DEPENDENCIES:
   - AlamofireImage
   - Amplitude-iOS
   - Crashlytics
-  - DatingKit (from `https://bitbucket.org/sergeyzhilkin/dating-kit.git`, branch `develop`)
+  - DatingKit (from `https://bitbucket.org/sergeyzhilkin/dating-kit.git`, branch `fix`)
   - Fabric
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
+  - Kingfisher
   - lottie-ios
   - NotificationBannerSwift
   - RevealingTableViewCell
   - ReverseExtension (from `https://github.com/alexdelarge05/ReverseExtension.git`, commit `f46463468b608c9189846c374863cdeb03f15bb4`)
+  - RxCocoa
+  - RxSwift
+  - Starscream
   - SwiftyStoreKit
   - TKImageShowing
 
@@ -204,6 +218,7 @@ SPEC REPOS:
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - GTMSessionFetcher
+    - Kingfisher
     - leveldb-library
     - lottie-ios
     - MarqueeLabel
@@ -216,14 +231,18 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RevealingTableViewCell
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SDWebImage
     - SnapKit
+    - Starscream
     - SwiftyStoreKit
     - TKImageShowing
 
 EXTERNAL SOURCES:
   DatingKit:
-    :branch: develop
+    :branch: fix
     :git: https://bitbucket.org/sergeyzhilkin/dating-kit.git
   ReverseExtension:
     :commit: f46463468b608c9189846c374863cdeb03f15bb4
@@ -231,7 +250,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DatingKit:
-    :commit: 3794870940b8e4c7478b52f102912c00ba81f4f4
+    :commit: a04f9ec2e64142c180f5db327b1551cb410ae5bd
     :git: https://bitbucket.org/sergeyzhilkin/dating-kit.git
   ReverseExtension:
     :commit: f46463468b608c9189846c374863cdeb03f15bb4
@@ -264,6 +283,7 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: 32f75fbe904c82772fcbb6b6bd4525bfb6f2a862
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
   MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
@@ -277,11 +297,15 @@ SPEC CHECKSUMS:
   RealmSwift: 1302b0ab60f3105a2b214a735eeb0938607cf16b
   RevealingTableViewCell: 92e464b8f7b32f1575e7aabbf07a488aec19c927
   ReverseExtension: e658309467ab80870648e32069d14b2ff4a09863
+  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
+  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
+  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
   SDWebImage: 4eabf2fa6695c95c47724214417a9c036c965e4a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Starscream: ef06f0961fff0880bca0604416d61141e4faca67
   SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
   TKImageShowing: 771d31183fd6533509421d2d137d4a59e771fc9e
 
-PODFILE CHECKSUM: 9e93be5c395ea7b49f5e306b352a02867fc6da75
+PODFILE CHECKSUM: 6a10b4ab5cc62eb2161527cc69ae4543b19590be
 
 COCOAPODS: 1.8.4
