@@ -55,4 +55,8 @@ extension UIDevice {
     static var version: String? {
         Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
+    
+    static var appVersion: String? {
+        Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
 }

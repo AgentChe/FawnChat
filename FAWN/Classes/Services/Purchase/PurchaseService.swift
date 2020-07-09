@@ -30,6 +30,31 @@ final class PurchaseService {
     }
 }
 
+// MARK: Validate
+
+extension PurchaseService {
+    func paymentValidate(receipt: String) -> Single<Bool> {
+        let request = PurchaseValidateRequest(receipt: receipt,
+                                              userToken: SessionService.shared.userToken,
+                                              version: UIDevice.appVersion)
+        
+        return RestAPITransport()
+            .callServerApi(requestBody: request)
+            .map { try CheckResponseForError.isError(jsonResponse: $0) }
+    }
+    
+    func paymentValidate() -> Single<Bool> {
+        PurchaseService.receipt
+            .flatMap { [weak self] receiptBase64 -> Single<Bool> in
+                guard let `self` = self, let receipt = receiptBase64 else {
+                    return .just(false)
+                }
+                
+                return self.paymentValidate(receipt: receipt)
+            }
+    }
+}
+
 // MARK: Purchase
 
 extension PurchaseService {

@@ -55,6 +55,10 @@ final class Font {
         static func regular(size: CGFloat) -> UIFont {
             UIFont(name: "Montserrat-Regular", size: size)!
         }
+        
+        static func bold(size: CGFloat) -> UIFont {
+            UIFont(name: "Montserrat-Bold", size: size)!
+        }
     }
     
     struct SFProText {
