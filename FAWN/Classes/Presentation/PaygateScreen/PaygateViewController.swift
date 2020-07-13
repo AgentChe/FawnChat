@@ -194,9 +194,21 @@ final class PaygateViewController: UIViewController {
             .merge(viewModel.purchaseCompleted,
                    viewModel.restoredCompleted)
             .emit(onNext: { [weak self] result in
+                PaygatePingManager.shared.stop()
+                
                 self?.dismiss()
             })
             .disposed(by: disposeBag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if PaygateViewController.isFirstOpening {
+            PaygateViewController.isFirstOpening = false
+
+            PaygatePingManager.shared.start()
+        }
     }
 }
 
@@ -209,6 +221,20 @@ extension PaygateViewController {
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .coverVertical
         return vc
+    }
+}
+
+// MARK: Static info
+
+extension PaygateViewController {
+    static var isFirstOpening: Bool {
+        set {
+            UserDefaults.standard.set(true, forKey: "paygate_was_opened")
+        }
+        
+        get {
+            !UserDefaults.standard.bool(forKey: "paygate_was_opened")
+        }
     }
 }
 

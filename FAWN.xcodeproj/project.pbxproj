@@ -61,6 +61,7 @@
 		9616895E24522787003CBD09 /* CreateReportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616895D24522787003CBD09 /* CreateReportRequest.swift */; };
 		9616896024522B4E003CBD09 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616895F24522B4E003CBD09 /* ReportViewModel.swift */; };
 		9621E4C8244B2EC8005CF320 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621E4C7244B2EC8005CF320 /* GlobalDefinitions.swift */; };
+		963F58C424BC6BD50063D615 /* PaygatePingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963F58C324BC6BD50063D615 /* PaygatePingManager.swift */; };
 		9665030C244B82300028F735 /* RegistrationScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9665030B244B82300028F735 /* RegistrationScreen.storyboard */; };
 		96650312244B84E70028F735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96650311244B84E70028F735 /* LaunchScreen.storyboard */; };
 		96650315244B8AFC0028F735 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96650314244B8AFB0028F735 /* OnboardingViewController.swift */; };
@@ -259,6 +260,7 @@
 		9616895D24522787003CBD09 /* CreateReportRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReportRequest.swift; sourceTree = "<group>"; };
 		9616895F24522B4E003CBD09 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 		9621E4C7244B2EC8005CF320 /* GlobalDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDefinitions.swift; sourceTree = "<group>"; };
+		963F58C324BC6BD50063D615 /* PaygatePingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygatePingManager.swift; sourceTree = "<group>"; };
 		9665030B244B82300028F735 /* RegistrationScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegistrationScreen.storyboard; sourceTree = "<group>"; };
 		96650311244B84E70028F735 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96650314244B8AFB0028F735 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 		9621E4C1244B2D74005CF320 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				963F58C224BC6BB90063D615 /* Paygate */,
 				96C0ABAB249009CB00E05B24 /* Purchase */,
 				96C0AB8F248FBD4B00E05B24 /* Analytics */,
 				96650332244B9BF20028F735 /* SessionService.swift */,
@@ -615,7 +618,6 @@
 				96B91540248AEBA50039B79A /* ChatsService.swift */,
 				96B91546248AEEAD0039B79A /* ChatService.swift */,
 				96C0AB9D248FBDE700E05B24 /* AppStateProxy.swift */,
-				96C0ABA72490050C00E05B24 /* PaygateManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -694,6 +696,15 @@
 				13213E05237022EC00A584CF /* NoInternetView.xib */,
 			);
 			path = NoInternetView;
+			sourceTree = "<group>";
+		};
+		963F58C224BC6BB90063D615 /* Paygate */ = {
+			isa = PBXGroup;
+			children = (
+				96C0ABA72490050C00E05B24 /* PaygateManager.swift */,
+				963F58C324BC6BD50063D615 /* PaygatePingManager.swift */,
+			);
+			path = Paygate;
 			sourceTree = "<group>";
 		};
 		9665030E244B83C40028F735 /* old */ = {
@@ -1403,6 +1414,7 @@
 				967C13A624B609CD000C4E3B /* PaygateMainView.swift in Sources */,
 				96C0ABA6249004DB00E05B24 /* PaygatePingRequest.swift in Sources */,
 				96650342244C8E740028F735 /* OnboardingInfoView.swift in Sources */,
+				963F58C424BC6BD50063D615 /* PaygatePingManager.swift in Sources */,
 				9616896024522B4E003CBD09 /* ReportViewModel.swift in Sources */,
 				9679E4B72451C4B500D7476D /* PhotosSlider.swift in Sources */,
 				96C0AB6D248E863000E05B24 /* MessageTableCell.swift in Sources */,

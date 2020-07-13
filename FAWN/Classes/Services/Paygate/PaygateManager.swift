@@ -41,20 +41,3 @@ extension PaygateManager {
             .map { PaygateMapper.parse(response: paygate.json, productsPrices: $0.retrievedPrices) }
     }
 }
-
-
-// MARK: Ping
-
-extension PaygateManager {
-    static func ping() -> Single<Bool> {
-        guard let userToken = SessionService.shared.userToken else {
-            return .deferred { .just(false) }
-        }
-        
-        let request = PaygatePingRequest(randomKey: IDFAService.shared.getAppKey(), userToken: userToken)
-        
-        return RestAPITransport()
-            .callServerApi(requestBody: request)
-            .map { _ in true }
-    }
-}

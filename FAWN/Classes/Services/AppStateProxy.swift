@@ -11,7 +11,7 @@ import RxCocoa
 
 final class AppStateProxy {
     struct ApplicationProxy {
-        static let willResignActive = PublishRelay<Void>()
+        static let didEnterBackground = PublishRelay<Void>()
         static let didBecomeActive = PublishRelay<Void>()
     }
     
