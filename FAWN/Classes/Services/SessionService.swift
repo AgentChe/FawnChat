@@ -8,6 +8,7 @@
 
 import RxSwift
 import DatingKit
+import FBSDKLoginKit
 
 final class SessionService {
     static let shared = SessionService()
@@ -61,6 +62,29 @@ extension SessionService {
                 }
             })
     }
+    
+    static func facebookUser() -> Single<Token?> {
+        signInFacebook()
+            .flatMap { token in
+                guard let token = token else {
+                    return .deferred { .just(nil) }
+                }
+                
+                return RestAPITransport()
+                    .callServerApi(requestBody: FacebookLoginRequest(facebookToken: token))
+                    .map { TokenTransformation.fromCreateUserResponse($0) }
+            }
+            .do(onSuccess: { token in
+                UserDefaults.standard.set(token?.token, forKey: Constants.userTokenKey)
+                UserDefaults.standard.set(token?.userId, forKey: Constants.userIdKey)
+                
+                CacheTool.shared.saveToken(token: token?.token ?? "")
+                
+                if token?.token != nil {
+                    AppStateProxy.UserTokenProxy.didUpdatedUserToken.accept(Void())
+                }
+            })
+    }
 }
 
 // MARK: Confirm code
@@ -86,5 +110,24 @@ extension SessionService {
                     AppStateProxy.UserTokenProxy.didUpdatedUserToken.accept(Void())
                 }
             })
+    }
+}
+
+// MARK: Private
+
+private extension SessionService {
+    static func signInFacebook() -> Single<String?> {
+        Single.create { event in
+            AccessToken.current = nil
+            
+            let manager = LoginManager()
+            manager.logOut()
+            
+            manager.logIn(permissions: ["public_profile", "email"], from: nil) { _, _ in
+                event(.success(AccessToken.current?.tokenString))
+            }
+            
+            return Disposables.create()
+        }
     }
 }

@@ -29,7 +29,7 @@ final class RegistrationViewController: UIViewController {
         
         AmplitudeAnalytics.shared.log(with: .loginScr)
         
-        viewModel.authWithFBComplete(vc: self)
+        viewModel.authWithFBComplete()
             .drive(onNext: { [weak self] new in
                 guard let isNew = new else {
                     NotificationBanner(customView: NoInternetView.instanceFromNib()).show()
