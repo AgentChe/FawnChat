@@ -63,6 +63,8 @@
 		9621E4C8244B2EC8005CF320 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9621E4C7244B2EC8005CF320 /* GlobalDefinitions.swift */; };
 		963F58C424BC6BD50063D615 /* PaygatePingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963F58C324BC6BD50063D615 /* PaygatePingManager.swift */; };
 		963F58C624BC92DE0063D615 /* FacebookLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963F58C524BC92DE0063D615 /* FacebookLoginRequest.swift */; };
+		965F974724D0253C0041064C /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F974624D0253C0041064C /* AppleSignInManager.swift */; };
+		965F974B24D025BB0041064C /* AppleSignInCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F974A24D025BB0041064C /* AppleSignInCredentials.swift */; };
 		9665030C244B82300028F735 /* RegistrationScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9665030B244B82300028F735 /* RegistrationScreen.storyboard */; };
 		96650312244B84E70028F735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96650311244B84E70028F735 /* LaunchScreen.storyboard */; };
 		96650315244B8AFC0028F735 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96650314244B8AFB0028F735 /* OnboardingViewController.swift */; };
@@ -200,6 +202,7 @@
 		96C0ABB2249009CB00E05B24 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABAF249009CB00E05B24 /* PurchaseService.swift */; };
 		96C0ABB52490C22100E05B24 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0ABB42490C22000E05B24 /* ImageViewController.swift */; };
 		96D3A59C244B748800EC35CF /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */; };
+		96EA743D24D0282C00490721 /* AppleLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA743C24D0282C00490721 /* AppleLoginRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,6 +266,8 @@
 		9621E4C7244B2EC8005CF320 /* GlobalDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDefinitions.swift; sourceTree = "<group>"; };
 		963F58C324BC6BD50063D615 /* PaygatePingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygatePingManager.swift; sourceTree = "<group>"; };
 		963F58C524BC92DE0063D615 /* FacebookLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginRequest.swift; sourceTree = "<group>"; };
+		965F974624D0253C0041064C /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
+		965F974A24D025BB0041064C /* AppleSignInCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInCredentials.swift; sourceTree = "<group>"; };
 		9665030B244B82300028F735 /* RegistrationScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegistrationScreen.storyboard; sourceTree = "<group>"; };
 		96650311244B84E70028F735 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96650314244B8AFB0028F735 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -410,6 +415,7 @@
 		96C0ABAF249009CB00E05B24 /* PurchaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
 		96C0ABB42490C22000E05B24 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		96D3A59B244B748800EC35CF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		96EA743C24D0282C00490721 /* AppleLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,10 +616,10 @@
 		9621E4C1244B2D74005CF320 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				965F974824D025850041064C /* SessionService */,
 				963F58C224BC6BB90063D615 /* Paygate */,
 				96C0ABAB249009CB00E05B24 /* Purchase */,
 				96C0AB8F248FBD4B00E05B24 /* Analytics */,
-				96650332244B9BF20028F735 /* SessionService.swift */,
 				96838BC0244F699100C71B37 /* ImageService.swift */,
 				969CF6D0244FA94B001BC979 /* ProfileService.swift */,
 				9679E4AA2450D63700D7476D /* SearchService.swift */,
@@ -707,6 +713,24 @@
 				963F58C324BC6BD50063D615 /* PaygatePingManager.swift */,
 			);
 			path = Paygate;
+			sourceTree = "<group>";
+		};
+		965F974824D025850041064C /* SessionService */ = {
+			isa = PBXGroup;
+			children = (
+				965F974924D0259F0041064C /* AppleSignIn */,
+				96650332244B9BF20028F735 /* SessionService.swift */,
+			);
+			path = SessionService;
+			sourceTree = "<group>";
+		};
+		965F974924D0259F0041064C /* AppleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				965F974624D0253C0041064C /* AppleSignInManager.swift */,
+				965F974A24D025BB0041064C /* AppleSignInCredentials.swift */,
+			);
+			path = AppleSignIn;
 			sourceTree = "<group>";
 		};
 		9665030E244B83C40028F735 /* old */ = {
@@ -844,6 +868,7 @@
 				967C13B124B60BBD000C4E3B /* GetPaygateRequest.swift */,
 				967C13B524B615AE000C4E3B /* PurchaseValidateRequest.swift */,
 				963F58C524BC92DE0063D615 /* FacebookLoginRequest.swift */,
+				96EA743C24D0282C00490721 /* AppleLoginRequest.swift */,
 			);
 			path = RequestBody;
 			sourceTree = "<group>";
@@ -1407,6 +1432,7 @@
 				96725EA8244B356E002A9457 /* TextAttributes.swift in Sources */,
 				13A247AF223D4EA000B7FD34 /* RegistrationViewController.swift in Sources */,
 				969CF6D1244FA94B001BC979 /* ProfileService.swift in Sources */,
+				965F974B24D025BB0041064C /* AppleSignInCredentials.swift in Sources */,
 				967C13A924B609CD000C4E3B /* PaygateSpecialOfferView.swift in Sources */,
 				9679E4AD2450D6EA00D7476D /* PaymentError.swift in Sources */,
 				9679E4B52450E50D00D7476D /* ProposedInterlocutorCollectionCell.swift in Sources */,
@@ -1436,6 +1462,7 @@
 				96C0AB9B248FBD4B00E05B24 /* IDFAService.swift in Sources */,
 				967C138F24B5F67C000C4E3B /* PaygateViewController.swift in Sources */,
 				96725EB5244B35D0002A9457 /* Model.swift in Sources */,
+				965F974724D0253C0041064C /* AppleSignInManager.swift in Sources */,
 				139EE96922CCAA270085CCB2 /* NotificationRequest.swift in Sources */,
 				969CF6CD244F9D5A001BC979 /* OnboardingWelcomeView.swift in Sources */,
 				96C0AB74248E8EAD00E05B24 /* ChatInputView.swift in Sources */,
@@ -1458,6 +1485,7 @@
 				96B9156E248BC38A0039B79A /* CircleView.swift in Sources */,
 				96C0ABB1249009CB00E05B24 /* ProductPrice.swift in Sources */,
 				967C139324B5F8D6000C4E3B /* PaygateViewControllerDelegate.swift in Sources */,
+				96EA743D24D0282C00490721 /* AppleLoginRequest.swift in Sources */,
 				96C0ABA4248FDBE500E05B24 /* FacebookAnalytics.swift in Sources */,
 				963F58C624BC92DE0063D615 /* FacebookLoginRequest.swift in Sources */,
 				96650337244BB18B0028F735 /* RequireConfirmCodeRequest.swift in Sources */,
@@ -1689,7 +1717,7 @@
 				MARKETING_VERSION = 3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = chat.fawn;
 				PRODUCT_NAME = Gay;
-				PROVISIONING_PROFILE_SPECIFIER = Fawn;
+				PROVISIONING_PROFILE_SPECIFIER = "Fawn AppStore";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_REFLECTION_METADATA_LEVEL = none;

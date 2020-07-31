@@ -13,6 +13,8 @@ import FBSDKLoginKit
 final class SessionService {
     static let shared = SessionService()
     
+    private let appleSignInManager = AppleSignInManager()
+    
     private init() {}
     
     private struct Constants {
@@ -72,6 +74,32 @@ extension SessionService {
                 
                 return RestAPITransport()
                     .callServerApi(requestBody: FacebookLoginRequest(facebookToken: token))
+                    .map { TokenTransformation.fromCreateUserResponse($0) }
+            }
+            .do(onSuccess: { token in
+                UserDefaults.standard.set(token?.token, forKey: Constants.userTokenKey)
+                UserDefaults.standard.set(token?.userId, forKey: Constants.userIdKey)
+                
+                CacheTool.shared.saveToken(token: token?.token ?? "")
+                
+                if token?.token != nil {
+                    AppStateProxy.UserTokenProxy.didUpdatedUserToken.accept(Void())
+                }
+            })
+    }
+    
+    @available(iOS 13.0, *)
+    static func appleUser() -> Single<Token?> {
+        SessionService.shared
+            .appleSignInManager
+            .signIn()
+            .flatMap { credentials -> Single<Token?> in
+                guard let credentials = credentials else {
+                    return .just(nil)
+                }
+                
+                return RestAPITransport()
+                    .callServerApi(requestBody: AppleLoginRequest(identificator: credentials.identifier))
                     .map { TokenTransformation.fromCreateUserResponse($0) }
             }
             .do(onSuccess: { token in
