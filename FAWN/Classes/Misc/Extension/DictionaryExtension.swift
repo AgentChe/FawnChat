@@ -12,7 +12,7 @@ extension Dictionary {
     func jsonString() -> String? {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: self, options: [])
-            return String(data: jsonData, encoding: .ascii)
+            return String(data: jsonData, encoding: .utf8)
         } catch {
             return nil
         }
