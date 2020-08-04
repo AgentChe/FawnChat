@@ -53,12 +53,12 @@ final class PaygateViewController: UIViewController {
                     return
                 }
                 
-                self.paygateView.mainView.isHidden = paygate.main == nil
-                
-                if paygate.main == nil {
-                    self.paygateView.specialOfferView.isHidden = paygate.specialOffer == nil
+                if paygate.main != nil {
+                    self.animateShowMainContent()
                 } else {
-                    self.paygateView.specialOfferView.isHidden = true
+                    if paygate.specialOffer != nil {
+                        self.animateMoveToSpecialOfferView()
+                    }
                 }
                 
                 if let main = paygate.main {
@@ -76,8 +76,6 @@ final class PaygateViewController: UIViewController {
                         self.currentScene = .specialOffer
                     }
                 }
-                
-                self.animateShowMainContent(isLoading: !completed)
             })
             .disposed(by: disposeBag)
         
@@ -279,7 +277,9 @@ private extension PaygateViewController {
             .disposed(by: disposeBag)
     }
     
-    func animateShowMainContent(isLoading: Bool) {
+    func animateShowMainContent() {
+        paygateView.mainView.isHidden = false
+        
         UIView.animate(withDuration: 1, animations: { [weak self] in
             self?.paygateView.mainView.greetingLabel.alpha = 1
             self?.paygateView.mainView.textLabel.alpha = 1
