@@ -2,7 +2,7 @@
 //  PaygateViewModel.swift
 //  FAWN
 //
-//  Created by Andrey Chernyshev on 09/06/2020.
+//  Created by Andrey Chernyshev on 08.07.2020.
 //  Copyright © 2020 Алексей Петров. All rights reserved.
 //
 
@@ -10,33 +10,88 @@ import RxSwift
 import RxCocoa
 
 final class PaygateViewModel {
-    let startPing = PublishRelay<Void>()
-    let stopPing = PublishRelay<Void>()
+//     Input
+    let buySubscription = PublishRelay<String>()
+    let restoreSubscription = PublishRelay<String>()
+
+//     Output
+    private(set) lazy var purchaseCompleted = buy()
+    private(set) lazy var restoredCompleted = restore()
+    
+    let purchaseProcessing = RxActivityIndicator()
+    let restoreProcessing = RxActivityIndicator()
+    let retrieveCompleted = BehaviorRelay<Bool>(value: false)
+    
+    private(set) lazy var error = _error.asDriver(onErrorJustReturn: "")
+    private let _error = PublishRelay<String>()
 }
 
-// MARK: Ping
+// MARK: Get paygate content
 
 extension PaygateViewModel {
-    func ping() -> Driver<Void> {
-        let startTrigger = startPing
-            .takeUntil(stopPing)
-            .flatMapLatest { [weak self] _ -> Observable<Void> in
-                Observable<Int>
-                    .interval(RxTimeInterval.seconds(1), scheduler: SerialDispatchQueueScheduler.init(qos: .background))
-                    .takeUntil(self?.stopPing.asObservable() ?? Observable<Void>.never())
-                    .flatMapLatest { _ in
-                        PaygateManager
-                            .ping()
-                            .map { _ in Void() }
-                            .catchError { _ in .never() }
-                    }
+    func retrieve() -> Driver<(Paygate?, Bool)> {
+        let paygate = PaygateManager
+            .retrievePaygate()
+            .asDriver(onErrorJustReturn: nil)
+        
+        let prices = paygate
+            .flatMapLatest { response -> Driver<PaygateMapper.PaygateResponse?> in
+                guard let response = response else {
+                    return .deferred { .just(nil) }
+                }
+                
+                return PaygateManager
+                    .prepareProductsPrices(for: response)
+                    .asDriver(onErrorJustReturn: nil)
             }
-
-        let stopTrigger = stopPing
-            .flatMapLatest { _ -> Observable<Void> in .empty() }
-
-        return Observable
-            .merge(startTrigger, stopTrigger)
-            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge([paygate.map { ($0?.paygate, false) },
+                    prices.map { ($0?.paygate, true) }])
+                .do(onNext: { [weak self] stub in
+                    self?.retrieveCompleted.accept(stub.1)
+                })
     }
 }
+
+// MARK: Make purchase
+
+private extension PaygateViewModel {
+    func buy() -> Signal<Void> {
+        let purchase = buySubscription
+            .flatMapLatest { [purchaseProcessing] productId -> Observable<Void> in
+                PurchaseService
+                    .buySubscription(productId: productId)
+                    .flatMap { PurchaseService.shared.paymentValidate() }
+                    .map { _ in Void() }
+                    .trackActivity(purchaseProcessing)
+                    .do(onError: { [weak self] _ in
+                        self?._error.accept("Paygate.FailedPurchase".localized)
+                    })
+                    .catchError { _ in .never() }
+                }
+        
+        return purchase
+            .asSignal(onErrorSignalWith: .never())
+    }
+    
+    func restore() -> Signal<Void> {
+        let purchase = restoreSubscription
+            .flatMapLatest { [restoreProcessing] productId -> Observable<Void> in
+                PurchaseService
+                    .restoreSubscription(productId: productId)
+                    .flatMap { PurchaseService.shared.paymentValidate() }
+                    .map { _ in Void() }
+                    .trackActivity(restoreProcessing)
+                    .do(onError: { [weak self] _ in
+                        self?._error.accept("Paygate.FailedRestore".localized)
+                    })
+                    .catchError { _ in .never() }
+            }
+        
+        return purchase
+            .asSignal(onErrorSignalWith: .never())
+    }
+}
+
+

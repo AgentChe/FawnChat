@@ -9,6 +9,8 @@
 import UIKit
 import NotificationBannerSwift
 import RxSwift
+import RxCocoa
+import AuthenticationServices
 
 final class RegistrationViewController: UIViewController {
     static func make() -> UIViewController {
@@ -20,6 +22,9 @@ final class RegistrationViewController: UIViewController {
     @IBOutlet private weak var continueWithAnotherOptionButton: UIButton!
     @IBOutlet private weak var termsButton: UIButton!
     
+    @available(iOS 13.0, *)
+    lazy var appleSingInButton = makeAppleSignInButton()
+    
     private let viewModel = RegistrationViewModel()
     
     private let disposeBag = DisposeBag()
@@ -29,7 +34,10 @@ final class RegistrationViewController: UIViewController {
         
         AmplitudeAnalytics.shared.log(with: .loginScr)
         
-        viewModel.authWithFBComplete(vc: self)
+        makeConstraints()
+        
+        viewModel
+            .authWithFBComplete()
             .drive(onNext: { [weak self] new in
                 guard let isNew = new else {
                     NotificationBanner(customView: NoInternetView.instanceFromNib()).show()
@@ -40,6 +48,20 @@ final class RegistrationViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        if #available(iOS 13.0, *) {
+            viewModel
+                .authWithAppleComlete()
+                .drive(onNext: { [weak self] new in
+                    guard let isNew = new else {
+                        NotificationBanner(customView: NoInternetView.instanceFromNib()).show()
+                        return
+                    }
+                    
+                    isNew ? self?.goToOnboardingScreen() : self?.goToMainScreen()
+                })
+                .disposed(by: disposeBag)
+        }
+        
         continueWithFBButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 AmplitudeAnalytics.shared.log(with: .loginTap("facebook_login"))
@@ -47,6 +69,8 @@ final class RegistrationViewController: UIViewController {
                 self?.viewModel.authWithFB.accept(Void())
             })
             .disposed(by: disposeBag)
+        
+        
         
         continueWithAnotherOptionButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -66,16 +90,54 @@ final class RegistrationViewController: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+}
+
+// MARK: Private
+
+private extension RegistrationViewController {
+    @objc
+    func appleSignInTapped() {
+        viewModel.authWithApple.accept(Void())
+    }
     
-    private func goToMainScreen() {
+    func goToMainScreen() {
         AppDelegate.shared.window?.rootViewController = MainViewController.make()
     }
     
-    private func goToOnboardingScreen() {
+    func goToOnboardingScreen() {
         AppDelegate.shared.window?.rootViewController = OnboardingViewController.make()
     }
     
-    private func goToRegistrationEmailScreen() {
+    func goToRegistrationEmailScreen() {
         navigationController?.pushViewController(RegistrationEmailViewController.make(), animated: true)
+    }
+}
+
+// MARK: Make constraints
+
+private extension RegistrationViewController {
+    func makeConstraints() {
+        if #available(iOS 13.0, *) {
+            NSLayoutConstraint.activate([
+                appleSingInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
+                appleSingInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48),
+                appleSingInButton.heightAnchor.constraint(equalToConstant: 44),
+                appleSingInButton.bottomAnchor.constraint(equalTo: continueWithFBButton.topAnchor, constant: -24.scale)
+            ])
+        }
+    }
+}
+
+// MARK: Lazy initialization
+
+private extension RegistrationViewController {
+    @available(iOS 13.0, *)
+    func makeAppleSignInButton() -> ASAuthorizationAppleIDButton {
+        let view = ASAuthorizationAppleIDButton(type: .default, style: .white)
+        view.cornerRadius = 22
+        view.addTarget(self, action: #selector(appleSignInTapped), for: .touchUpInside)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(view)
+        return view
     }
 }

@@ -2,103 +2,200 @@
 //  PaygateViewController.swift
 //  FAWN
 //
-//  Created by Алексей Петров on 01/06/2019.
-//  Copyright © 2019 Алексей Петров. All rights reserved.
+//  Created by Andrey Chernyshev on 08.07.2020.
+//  Copyright © 2020 Алексей Петров. All rights reserved.
 //
 
 import UIKit
-import DatingKit
 import RxSwift
-
-@objc protocol PaygateViewControllerDelegate: class {
-    @objc optional func wasClosed()
-    @objc optional func wasPurchased()
-    @objc optional func wasRestored()
-}
+import RxCocoa
 
 final class PaygateViewController: UIViewController {
-    @IBOutlet weak var lineImageView: UIImageView!
-    @IBOutlet weak var privacyButton: UIButton!
-    @IBOutlet weak var termsButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var restoreButton: UIButton!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var activityView: UIView!
+    private enum Scene {
+        case not, main, specialOffer
+    }
     
-    private var configBundle: ConfigBundle?
+    var paygateView = PaygateView()
     
-    private var currentID: String = ""
-    
-    weak var delegate: PaygateViewControllerDelegate!
-    
-    private let viewModel = PaygateViewModel()
+    private weak var delegate: PaygateViewControllerDelegate?
     
     private let disposeBag = DisposeBag()
     
-    func config(bundle: ConfigBundle) {
-        configBundle = bundle
-        currentID = bundle.priceBundle.centralPriceTag.id
+    private var currentScene = Scene.not {
+        didSet {
+            updateCloseButton()
+        }
     }
     
-    override func viewDidLayoutSubviews() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        if UIDevice.modelName.contains("SE") || UIDevice.modelName.contains("5s")  {
-            headerView.frame.size = CGSize(width: headerView.frame.size.width, height: 160)
-        } else {
-            headerView.frame.size = CGSize(width: headerView.frame.size.width, height: 350)
-        }
-        if UIDevice.modelName.contains("8") ||
-            UIDevice.modelName.contains("6") ||
-            UIDevice.modelName.contains("7")
-        {
-            headerView.frame.size = CGSize(width: headerView.frame.size.width, height: 200)
-        }
+    private let viewModel = PaygateViewModel()
+    
+    deinit {
+        paygateView.specialOfferView.stopTimer()
+    }
+    
+    override func loadView() {
+        super.loadView()
         
-        if  UIDevice.modelName.contains("iPad") {
-            headerView.frame.size = CGSize(width: headerView.frame.size.width, height: 500)
-        }
+        view = paygateView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AmplitudeAnalytics.shared.log(with: .paygateScr)
+        updateCloseButton()
+        addMainOptionsSelection()
         
-        activityView.isHidden = true
-        navigationController?.setToolbarHidden(true, animated: true)
-        tableView.register(UINib(nibName: "MensCountTableViewCell", bundle: .main), forCellReuseIdentifier: "MensCountTableViewCell")
-        tableView.register(UINib(nibName: "BundleTableViewCell", bundle: .main), forCellReuseIdentifier: "BundleTableViewCell")
-        tableView.register(UINib(nibName: "ButtonTableViewCell", bundle: .main), forCellReuseIdentifier: "ButtonTableViewCell")
-        tableView.register(UINib(nibName: "TermsTableViewCell", bundle: .main), forCellReuseIdentifier: "TermsTableViewCell")
-        privacyButton.titleLabel?.numberOfLines = 0
-        privacyButton.titleLabel?.textAlignment = .center
-        termsButton.titleLabel?.numberOfLines = 0
-        termsButton.titleLabel?.textAlignment = .center
-        restoreButton.titleLabel?.numberOfLines = 0
-        restoreButton.titleLabel?.textAlignment = .center
+        let retrieved = viewModel.retrieve()
         
-        PurchaseManager.shared.loadProducts { [weak self] (bundle) in
-            if bundle == nil {
-                self?.dismiss(animated: true) {
-                    self?.delegate?.wasClosed?()
+        retrieved
+            .drive(onNext: { [weak self] paygate, completed in
+                guard let `self` = self, let paygate = paygate else {
+                    return
                 }
-                return
-            }
-            
-            self?.configBundle = bundle
-            self?.tableView.dataSource = self
-            self?.tableView.reloadData()
-        }
+                
+                if paygate.main != nil {
+                    self.animateShowMainContent()
+                } else {
+                    if paygate.specialOffer != nil {
+                        self.animateMoveToSpecialOfferView()
+                    }
+                }
+                
+                if let main = paygate.main {
+                    self.paygateView.mainView.setup(paygate: main)
+                }
+                
+                if let specialOffer = paygate.specialOffer {
+                    self.paygateView.specialOfferView.setup(paygate: specialOffer)
+                }
+                
+                if completed {
+                    if paygate.main != nil {
+                        self.currentScene = .main
+                    } else if paygate.main == nil && paygate.specialOffer != nil {
+                        self.currentScene = .specialOffer
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
         
-        AppStateProxy.ApplicationProxy
-            .willResignActive
-            .bind(to: viewModel.stopPing)
+        let paygate = retrieved
+            .map { $0.0 }
+            .startWith(nil)
+        
+        paygateView
+            .closeButton.rx.tap
+            .withLatestFrom(paygate)
+            .subscribe(onNext: { [unowned self] paygate in
+                switch self.currentScene {
+                case .not:
+                    self.dismiss()
+                case .main:
+                    if paygate?.specialOffer != nil {
+                        self.animateMoveToSpecialOfferView()
+                        self.currentScene = .specialOffer
+                    } else {
+                        self.dismiss()
+                    }
+                case .specialOffer:
+                    self.paygateView.specialOfferView.stopTimer()
+                    self.dismiss()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        paygateView
+            .mainView
+            .continueButton.rx.tap
+            .subscribe(onNext: { [unowned self] productId in
+                guard let productId = [self.paygateView.mainView.leftOptionView, self.paygateView.mainView.rightOptionView]
+                    .first(where: { $0.isSelected })?
+                    .productId
+                else {
+                    return
+                }
+                
+                self.viewModel.buySubscription.accept(productId)
+            })
+            .disposed(by: disposeBag)
+        
+        paygateView
+            .mainView
+            .restoreButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                guard let productId = [self.paygateView.mainView.leftOptionView, self.paygateView.mainView.rightOptionView]
+                    .first(where: { $0.isSelected })?
+                    .productId
+                else {
+                    return
+                }
+                
+                self.viewModel.restoreSubscription.accept(productId)
+            })
+            .disposed(by: disposeBag)
+        
+        paygateView
+            .specialOfferView
+            .continueButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let productId = self?.paygateView.specialOfferView.specialOffer?.productId else {
+                    return
+                }
+                
+                self?.viewModel.buySubscription.accept(productId)
+            })
+            .disposed(by: disposeBag)
+        
+        paygateView
+            .specialOfferView
+            .restoreButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let productId = self?.paygateView.specialOfferView.specialOffer?.productId else {
+                    return
+                }
+                
+                self?.viewModel.restoreSubscription.accept(productId)
+            })
+            .disposed(by: disposeBag)
+        
+        Driver
+            .merge(viewModel.purchaseProcessing.asDriver(),
+                   viewModel.restoreProcessing.asDriver(),
+                   viewModel.retrieveCompleted.asDriver(onErrorJustReturn: true).map { !$0 })
+            .drive(onNext: { [weak self] isLoading in
+                self?.paygateView.mainView.continueButton.isHidden = isLoading
+                self?.paygateView.mainView.restoreButton.isHidden = isLoading
+                self?.paygateView.specialOfferView.continueButton.isHidden = isLoading
+                self?.paygateView.specialOfferView.restoreButton.isHidden = isLoading
+
+                isLoading ? self?.paygateView.mainView.purchasePreloaderView.startAnimating() : self?.paygateView.mainView.purchasePreloaderView.stopAnimating()
+                isLoading ? self?.paygateView.specialOfferView.purchasePreloaderView.startAnimating() : self?.paygateView.specialOfferView.purchasePreloaderView.stopAnimating()
+            })
             .disposed(by: disposeBag)
         
         viewModel
-            .ping()
-            .drive()
+            .error
+            .drive(onNext: { [weak self] error in
+                self?.paygateView.errorBanner.show(with: error)
+            })
+            .disposed(by: disposeBag)
+        
+        paygateView
+            .errorBanner
+            .tapForHide
+            .subscribe(onNext: { [weak self] in
+                self?.paygateView.errorBanner.hide()
+            })
+            .disposed(by: disposeBag)
+        
+        Signal
+            .merge(viewModel.purchaseCompleted,
+                   viewModel.restoredCompleted)
+            .emit(onNext: { [weak self] result in
+                PaygatePingManager.shared.stop()
+                
+                self?.dismiss()
+            })
             .disposed(by: disposeBag)
     }
     
@@ -108,268 +205,26 @@ final class PaygateViewController: UIViewController {
         if PaygateViewController.isFirstOpening {
             PaygateViewController.isFirstOpening = false
 
-            viewModel.startPing.accept(Void())
+            PaygatePingManager.shared.start()
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        viewModel.stopPing.accept(Void())
-    }
-    
-    
-    func buy(id: String) {
-        if id.count > 0 {
-           activityView.alpha = 0.0
-           activityView.isHidden = false
-            
-            UIView.animate(withDuration: 0.4) {
-                 self.activityView.alpha = 1.0
-            }
-            
-            PurchaseManager.shared.buy(productID: id) { (status) in
-                switch status {
-                    
-                case .succes:
-                    self.delegate.wasPurchased?()
-                    self.activityView.isHidden = true
-                    self.dismiss(animated: true) { [weak self] in
-                        self?.delegate.wasClosed?()
-                    }
-                case .error:
-                    let alert = UIAlertController(title: "ERROR", message: "Something went wrong", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .unknown:
-                    let alert = UIAlertController(title: "ERROR", message: "Something went wrong", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .clientInvalid:
-                    let alert = UIAlertController(title: "ERROR", message: "Client invalid", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .paymentCancelled:
-                    self.activityView.isHidden = true
-                case .paymentInvalid:
-                    let alert = UIAlertController(title: "ERROR", message: "Payment invalid", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .paymentNotAllowed:
-                    let alert = UIAlertController(title: "ERROR", message: "Payment not allowed", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .storeProductNotAvailable:
-                    let alert = UIAlertController(title: "ERROR", message: "Product not avilable", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .cloudServicePermissionDenied:
-                    let alert = UIAlertController(title: "ERROR", message: "Cloud server Permishn Denaided", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .cloudServiceNetworkConnectionFailed:
-                    let alert = UIAlertController(title: "ERROR", message: "Network connection failed", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = true
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .cloudServiceRevoked:
-                    let alert = UIAlertController(title: "ERROR", message: "servise revoked", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = false
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                @unknown default:
-                    let alert = UIAlertController(title: "ERROR", message: "Something went wrong", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                        self.activityView.isHidden = false
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-    }
-    
-    @objc func tapOnPay(_ sender: UIButton) {
-        buy(id: currentID)
-    }
-    
-    @IBAction func tapOnTerms(_ sender: Any) {
-        guard let url = URL(string: GlobalDefinitions.TermsOfService.termsUrl) else { return }
-        UIApplication.shared.open(url)
-    }
-    
-    @IBAction func tapOnPrivacy(_ sender: Any) {
-        guard let url = URL(string: GlobalDefinitions.TermsOfService.policyUrl) else { return }
-        UIApplication.shared.open(url)
-    }
-    
-    @IBAction func tapOnRestore(_ sender: Any) {
-        activityView.isHidden = false
-        PurchaseManager.shared.restore { (status) in
-            switch status {
-                
-            case .restored:
-                self.delegate.wasRestored?()
-                self.activityView.isHidden = true
-                self.dismiss(animated: true) { [weak self] in
-                    self?.delegate.wasClosed?()
-                }
-            case .failed:
-                let alert = UIAlertController(title: "ERROR", message: "Restore Failed", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                    self.activityView.isHidden = false
-                }))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-    }
-    
-    @IBAction func tapOnClose(_ sender: Any) {
-        if configBundle?.isShowTrial == true {
-            performSegue(withIdentifier: "trial", sender: nil)
-        } else {
-            dismiss(animated: true) { [weak self] in
-                self?.delegate.wasClosed?()
-            }
-        }
-    }
-    
-    @objc func tapOnLeft() {
-        guard let configBundle = self.configBundle else {
-            return
-        }
-        
-        currentID = configBundle.priceBundle.leftPriceTag.id
-    }
-    
-    @objc func tapOnCenter() {
-        guard let configBundle = self.configBundle else {
-            return
-        }
-        
-        currentID = configBundle.priceBundle.centralPriceTag.id
-    }
-    
-    @objc func tapOnRight() {
-        guard let configBundle = self.configBundle else {
-            return
-        }
-        
-        currentID = configBundle.priceBundle.reightPriceTag.id
-    }
-   
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "trial" {
-            guard let configBundle = self.configBundle else {
-                return
-            }
-            
-            tableView.isHidden = true
-            closeButton.isHidden = true
-            lineImageView.isHidden = true
-            let trial: TrialViewController = segue.destination as! TrialViewController
-            trial.delegate = self
-            trial.config(configBundle.configTrial!)
-        }
-    }
-}
-
-extension PaygateViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell: MensCountTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MensCountTableViewCell", for: indexPath) as! MensCountTableViewCell
-            cell.config(bundle: configBundle!.mensCounterBundle)
-            return cell
-        }
-        if indexPath.row == 1 {
-            let cell: BundleTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BundleTableViewCell", for: indexPath) as! BundleTableViewCell
-            cell.leftButton.addTarget(self, action: #selector(tapOnLeft), for: .touchUpInside)
-            cell.centralButton.addTarget(self, action: #selector(tapOnCenter), for: .touchUpInside)
-            cell.rightButton.addTarget(self, action: #selector(tapOnRight), for: .touchUpInside)
-            cell.config(with: configBundle!.priceBundle)
-            return cell
-        }
-        if indexPath.row == 2 {
-            let cell: ButtonTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
-            cell.continueButton.addTarget(self, action: #selector(tapOnPay(_:)), for: .touchUpInside)
-            cell.startAnimation()
-            return cell
-        }
-        if indexPath.row == 3 {
-            let cell: TermsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TermsTableViewCell", for: indexPath) as! TermsTableViewCell
-            return cell
-        }
-        return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    }
-    
-}
-
-extension PaygateViewController: ModalHandler {
-    func modalDismissed() {
-        dismiss(animated: true) { [weak self] in
-            self?.delegate.wasClosed?()
-        }
-    }
-}
-
-extension PaygateViewController: PaymentFlowDelegate {
-    func purchase() {
-         activityView.isHidden = true
-    }
-    
-    func paymentSuccses() {
-        delegate.wasPurchased?()
-        activityView.isHidden = true
-        self.dismiss(animated: true) { [weak self] in
-            self?.delegate.wasClosed?()
-        }
-    }
-    
-    func paymentInfoWasLoad(config bundle: ConfigBundle) {
-        self.configBundle = bundle
-        tableView.reloadData()
-    }
-    
-    func error() {
-        activityView.isHidden = true
-    }
-    
-    func purchaseWasCanseled() {
-        activityView.isHidden = true
-    }
-
 }
 
 // MARK: Make
 
 extension PaygateViewController {
-    static func make() -> PaygateViewController {
-        UIStoryboard(name: "PaygateScreen", bundle: .main).instantiateInitialViewController() as! PaygateViewController
+    static func make(delegate: PaygateViewControllerDelegate? = nil) -> PaygateViewController {
+        let vc = PaygateViewController(nibName: nil, bundle: nil)
+        vc.delegate = delegate
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .coverVertical
+        return vc
     }
 }
 
-// MARK: Private
+// MARK: Static info
 
-private extension PaygateViewController {
+extension PaygateViewController {
     static var isFirstOpening: Bool {
         set {
             UserDefaults.standard.set(true, forKey: "paygate_was_opened")
@@ -378,5 +233,86 @@ private extension PaygateViewController {
         get {
             !UserDefaults.standard.bool(forKey: "paygate_was_opened")
         }
+    }
+}
+
+// MARK: Private
+
+private extension PaygateViewController {
+    func addMainOptionsSelection() {
+        let leftOptionTapGesture = UITapGestureRecognizer()
+        paygateView.mainView.leftOptionView.addGestureRecognizer(leftOptionTapGesture)
+        
+        leftOptionTapGesture.rx.event
+            .subscribe(onNext: { [unowned self] _ in
+                if let productId = self.paygateView.mainView.leftOptionView.productId {
+                    self.viewModel.buySubscription.accept(productId)
+                }
+                
+                guard !self.paygateView.mainView.leftOptionView.isSelected else {
+                    return
+                }
+                
+                self.paygateView.mainView.leftOptionView.isSelected = true
+                self.paygateView.mainView.rightOptionView.isSelected = false
+            })
+            .disposed(by: disposeBag)
+        
+        let rightOptionTapGesture = UITapGestureRecognizer()
+        paygateView.mainView.rightOptionView.addGestureRecognizer(rightOptionTapGesture)
+        
+        rightOptionTapGesture.rx.event
+            .subscribe(onNext: { [unowned self] _ in
+                if let productId = self.paygateView.mainView.rightOptionView.productId {
+                    self.viewModel.buySubscription.accept(productId)
+                }
+                
+                guard !self.paygateView.mainView.rightOptionView.isSelected else {
+                    return
+                }
+                
+                self.paygateView.mainView.leftOptionView.isSelected = false
+                self.paygateView.mainView.rightOptionView.isSelected = true
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func animateShowMainContent() {
+        paygateView.mainView.isHidden = false
+        
+        UIView.animate(withDuration: 1, animations: { [weak self] in
+            self?.paygateView.mainView.greetingLabel.alpha = 1
+            self?.paygateView.mainView.textLabel.alpha = 1
+            self?.paygateView.mainView.lockImageView.alpha = 1
+            self?.paygateView.mainView.termsOfferLabel.alpha = 1
+            self?.paygateView.mainView.leftOptionView.alpha = 1
+            self?.paygateView.mainView.rightOptionView.alpha = 1
+            self?.paygateView.mainView.restoreButton.alpha = 1
+        })
+    }
+    
+    func animateMoveToSpecialOfferView() {
+        paygateView.specialOfferView.isHidden = false
+        paygateView.specialOfferView.alpha = 0
+        
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            self?.paygateView.mainView.alpha = 0
+            self?.paygateView.specialOfferView.alpha = 1
+        }, completion: { [weak self] _ in
+            self?.paygateView.specialOfferView.startTimer()
+        })
+    }
+    
+    func updateCloseButton() {
+        switch currentScene {
+        case .not, .main:
+            paygateView.closeButton.setImage(UIImage(named: "paygate_main_close"), for: .normal)
+        case .specialOffer:
+            paygateView.closeButton.setImage(UIImage(named: "paygate_special_offer_close"), for: .normal)
+        }
+    }
+    
+    func dismiss() {
+        dismiss(animated: true)
     }
 }

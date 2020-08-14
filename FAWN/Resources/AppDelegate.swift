@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppStateProxy.ApplicationProxy.didBecomeActive.accept(Void())
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-        AppStateProxy.ApplicationProxy.willResignActive.accept(Void())
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        AppStateProxy.ApplicationProxy.didEnterBackground.accept(Void())
     }
 }

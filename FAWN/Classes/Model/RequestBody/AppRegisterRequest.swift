@@ -22,7 +22,7 @@ struct AppRegisterRequest: APIRequestBody {
     }
     
     var url: String {
-        GlobalDefinitions.Backend.domain + "/api/app_installs/register?_api_key=\(GlobalDefinitions.Backend.domain)"
+        GlobalDefinitions.Backend.domain + "/api/app_installs/register?_api_key=\(GlobalDefinitions.Backend.apiKey)"
     }
     
     var method: HTTPMethod {

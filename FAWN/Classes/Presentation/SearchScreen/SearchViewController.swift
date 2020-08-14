@@ -134,10 +134,9 @@ final class SearchViewController: UIViewController {
     // MARK: Private
     
     private func goToPaygateScreen() {
-        let vc = PaygateViewController.make()
+        let vc = PaygateViewController.make(delegate: self)
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .coverVertical
-        vc.delegate = self
 
         present(vc, animated: true)
     }

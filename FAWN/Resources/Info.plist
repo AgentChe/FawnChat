@@ -61,6 +61,7 @@
 	<string>The photos you'll upload will be used for your public profile</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Montserrat-Bold.ttf</string>
 		<string>SF-Pro-Text-Bold.otf</string>
 		<string>SF-Pro-Text-Light.otf</string>
 		<string>SF-Pro-Text-Medium.otf</string>
