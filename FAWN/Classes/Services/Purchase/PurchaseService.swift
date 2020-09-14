@@ -121,6 +121,8 @@ extension PurchaseService {
                 
                 let result = RetrievedProductsPrices(retrievedPrices: retrieved, invalidatedIds: Array(invalidated))
                 
+                PurchaseStorage.shared.store(productPrices: result)
+                
                 event(.success(result))
             }
             

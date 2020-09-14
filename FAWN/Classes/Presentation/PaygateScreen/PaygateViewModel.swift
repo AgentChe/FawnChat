@@ -65,7 +65,13 @@ private extension PaygateViewModel {
                     .flatMap { PurchaseService.shared.paymentValidate() }
                     .map { _ in Void() }
                     .trackActivity(purchaseProcessing)
-                    .do(onError: { [weak self] _ in
+                    .do(onNext: {
+                        guard let product = PurchaseStorage.shared.getLastLoadedProductPrices()?.retrievedPrices.first(where: { $0.id == productId }) else {
+                            return
+                        }
+                        
+                        FacebookAnalytics.shared.logPurchase(amount: product.priceValue, currency: product.currency)
+                    }, onError: { [weak self] _ in
                         self?._error.accept("Paygate.FailedPurchase".localized)
                     })
                     .catchError { _ in .never() }
